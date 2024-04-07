@@ -1,0 +1,55 @@
+.footer {
+    height: fit-content;
+
+    .logo {
+        max-height: 14.7rem;
+    }
+
+    &-wrapper {
+        height: 100%;
+        background-color: $black;
+        padding: 8rem 6rem 2rem 6rem;
+
+        @media(max-width: 991px) {
+            padding: 12rem 2.5rem 2rem 2.5rem;
+        }
+    }
+}
+
+.footer-container {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+
+    @media(max-width: 991px) {
+        flex-direction: column;
+        gap: 2.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    a {
+        color: white;
+    }
+
+    h3 {
+        font-size: 3rem;
+        font-weight: 400;
+        text-transform: uppercase;
+
+        @media(max-width: 991px) {
+            display: none;
+        }
+    }
+
+    a {
+        &:hover {
+            color: $primary;
+
+            i {
+                color: $primary;
+            }
+        }
+    }
+}
+

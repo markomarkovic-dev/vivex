@@ -1,0 +1,97 @@
+<IfModule mod_rewrite.c>  
+RewriteEngine on
+Options +FollowSymlinks
+#RewriteCond %{REQUEST_METHOD} !=POST
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP:X-Forwarded-Proto} !https
+
+#ErrorDocument 404 https://%{HTTP_HOST}/error-404.php
+
+# Remove .php extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+RewriteEngine on 
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
+
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}?_&%{QUERY_STRING} [R,L]
+#Ove dvije linije treba postaviti za svaku novu drzavu
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^sr/(.*)$ $1?country=sr [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ba/(.*)$ $1?country=ba [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^en/(.*)$ $1?country=en [QSA,L]
+
+#Ovaj uslov mora ostati zbog drugih fajlova (js i slicno)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(sr|ba|en)/(.*)$ $2?country=$1 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule css/(.*)$ css/$1
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule js/(.*)$ js/$1
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule images/(.*)$ images/$1
+</IfModule>
+
+<Files "includes/smtp-credentials.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "includes/backend-credentials.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<ifmodule mod_deflate.c>
+  # Compress HTML, CSS, JavaScript, Text, XML and fonts
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE application/x-font
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  # Remove browser bugs (only needed for really old browsers)
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary User-Agent
+</ifmodule>
+
+# Leverage Browser Caching
+#<IfModule mod_expires.c>
+ # ExpiresActive On
+ # ExpiresByType image/jpg "access 1 year"
+ # ExpiresByType image/jpeg "access 1 year"
+ # ExpiresByType image/gif "access 1 year"
+ # ExpiresByType image/png "access 1 year"
+ # ExpiresByType image/webp "access 1 year"
+ # ExpiresByType text/css "access 30 minutes"
+ # ExpiresByType text/html "access 30 minutes"
+ # ExpiresByType application/pdf "access 1 month"
+ # ExpiresByType text/x-javascript "access 1 month"
+ # ExpiresByType application/x-shockwave-flash "access 1 month"
+ # ExpiresByType image/x-icon "access 1 year"
+ # ExpiresDefault "access 30 minutes"
+#</IfModule>
+

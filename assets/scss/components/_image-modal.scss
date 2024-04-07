@@ -1,0 +1,127 @@
+.image-modal {
+  position: fixed;
+  inset: 50px;
+  z-index: 9999;
+  isolation: isolate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media(max-width: 991px) {
+    inset: 0;
+  }
+
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba(0, 12, 22, 0.5);
+    backdrop-filter: blur(20px);
+  }
+
+  .current-image {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    max-height: 85vh;
+    position: relative;
+  }
+
+    img {
+      object-fit: contain;
+      display: block;
+      max-width: calc(100% - 3rem);
+      height: fit-content;
+      max-height: 85vh;
+
+      @media(max-width: 991px) {
+        max-width: calc(100% - 7.3rem);
+      }
+    }
+
+    .next-image,
+    .prev-image {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 6rem;
+      user-select: none;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+
+      img {
+        display: block;
+        max-height: 3rem;
+        min-width: 3rem;
+        color: rgba(white, .5);
+
+        @media(max-width: 991px) {
+          height: 100%;
+        }
+      }
+
+      @media(max-width: 991px) {
+        padding: 1rem;
+      }
+    }
+
+    .next-image {
+      right: 0;
+    }
+
+    .prev-image {
+      left: 0;
+    }
+
+  .image-close {
+    color: white;
+    position: fixed;
+    bottom: 2rem;
+    z-index: 2;
+    cursor: pointer;
+    max-height: 2.4rem;
+  }
+
+  &.modal-out {
+    .current-image {
+      img {
+        animation: imageOut .4s ease-in forwards;
+      }
+    }
+
+    &::after {
+      animation: blurOut .4s linear .4s forwards;
+    }
+  }
+}
+
+@keyframes imageOut {
+  from {
+    max-height: 85vh;
+    transform: translate(0, 0);
+  }
+
+  to {
+    max-height: 0vh;
+    transform: translate(50vw, -68vh);
+  }
+}
+
+@keyframes blurOut {
+  from {
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 12, 22, 0.5);
+  }
+
+  to {
+    
+    backdrop-filter: blur(0);
+    background-color: rgba(0, 12, 22, 0);
+  }
+}

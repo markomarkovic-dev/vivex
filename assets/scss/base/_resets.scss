@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: "Inter", sans-serif;
+  }
+
+  html {
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: #F0F0F0;
+  }
+  
+  p, a, li, button, input, textarea, span, strong, label, select, option {
+    font-size: 1.6rem;
+  }
+  
+  a {
+    text-decoration: none;
+    color: initial;
+    transition: all 0.2s linear;
+  
+    &:hover {
+      color:$primary;
+    }
+  }
+  
+  h1 {
+    font-size: 3rem;
+    line-height: 1;
+
+    > strong {
+      color:$primary;
+      font-size: inherit;
+    }
+  }
+
+  .img-fluid {
+    width: 100%;
+    height: auto;
+  }
+
+  .hidden {
+    display: none;
+  }

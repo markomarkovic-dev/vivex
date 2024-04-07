@@ -1,0 +1,25 @@
+.btn {
+    border: 0;
+    padding: 1.5rem 2rem;
+    outline: 0;
+    cursor: pointer;
+    transition: all .2s ease-out;
+
+    &-primary {
+        background-color: $black;
+        color: white;
+
+        &:hover {
+            background-color: $black-20;
+        }
+    }
+
+    &-secondary {
+        background-color: #DCDCDC;
+        color: $black-80;
+
+        &:hover {
+            background-color: $black-50;
+        }
+    }
+}
