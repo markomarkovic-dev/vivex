@@ -11,22 +11,43 @@ $(document).ready(function ($) {
     $('.cookie-consent-banner').remove();
   });
 
-  const menuSwitch = document.querySelector(".menu-switch");
-  const mobileMenu = document.querySelector(".header-container");
-  const htmlSel = document.querySelector("html");
+  $('.nav-dropdown').hover(
+    function() {
+        $('.nav-dropdown').removeClass('active'); // Close all other dropdowns
+        $('.dropdown').removeClass('show'); // Close all other dropdown content
+        $(this).addClass('open'); // Add 'open' class on hover
+        $(this).find('.dropdown').addClass('show'); // Add 'active' class to this dropdown
+    }
+);
 
-  menuSwitch.onclick = () => {
-      mobileMenu.classList.toggle("show");
-
-      if(mobileMenu.classList.contains("show")) {
-          htmlSel.style.overflow = "hidden";
-          menuSwitch.setAttribute("src", "assets/icons/cross.svg")
-      } else {
-          htmlSel.removeAttribute("style");
-          menuSwitch.setAttribute("src", "assets/icons/bars-staggered.svg")
-      }
-  }
 });
+
+$('.copy-link').click(function () {
+  let thisLink = $(this).data('link');
+  navigator.clipboard.writeText(thisLink);
+});
+
+$('div.copy-link').click(function () {
+  if (document.documentElement.lang !== 'sr') {
+    $(`<div class="copy-notif"><i class="ri-checkbox-circle-line"></i> Link copied</div>`).appendTo('body');
+  } else {
+    $(`<div class="copy-notif"><i class="ri-checkbox-circle-line"></i> Link kopiran</div>`).appendTo('body');
+  }
+
+  setTimeout(function () {
+    $('.copy-notif').remove();
+  }, 3100);
+});
+
+$('.menu-switch').click(function(){
+  if($(this).hasClass('fi-rs-bars-staggered')) {
+    $(this).removeClass('fi-rs-bars-staggered').addClass('fi-rs-cross');
+    $('.header-center').addClass('show');
+  } else {
+    $(this).addClass('fi-rs-bars-staggered').removeClass('fi-rs-cross');
+    $('.header-center').removeClass('show');
+  }
+})
 
 function termsBanner() {
   const srAllow = `<div class="cookie-consent-banner">
@@ -69,5 +90,13 @@ function termsBanner() {
       $(deAllow).appendTo('body');
     }
   }
+
+      // Close dropdown when clicking outside
+      $(document).click(function(e) {
+        if (!$(e.target).closest('.nav-dropdown').length) {
+            $('.nav-dropdown').removeClass('open');
+            $('.dropdown').removeClass('show');
+        }
+    });
 }
 

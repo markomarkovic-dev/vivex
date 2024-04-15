@@ -6,7 +6,7 @@
 <main>
     <section class="landing">
         <div class="section-container">
-
+            
         </div>
     </section>
 </main>
