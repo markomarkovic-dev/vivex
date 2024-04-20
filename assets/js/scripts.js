@@ -11,14 +11,27 @@ $(document).ready(function ($) {
     $('.cookie-consent-banner').remove();
   });
 
-  $('.nav-dropdown').hover(
-    function() {
-        $('.nav-dropdown').removeClass('active'); // Close all other dropdowns
-        $('.dropdown').removeClass('show'); // Close all other dropdown content
-        $(this).addClass('open'); // Add 'open' class on hover
-        $(this).find('.dropdown').addClass('show'); // Add 'active' class to this dropdown
-    }
-);
+  if(screen.width >= 992) {
+    $('.nav-dropdown').hover(
+      function() {
+          
+          $('.nav-dropdown').removeClass('open'); // Close all other dropdown content
+          $(this).addClass('open'); // Add 'open' class on hover
+      }
+    );
+  }
+
+  if(screen.width <= 991) {
+    console.log("manje od 991")
+    $('.nav-dropdown').click(function(){
+      if($(this).hasClass('open')) {
+        $(this).removeClass('open');
+      } else {
+        $('.nav-dropdown').not($(this)).removeClass('open')
+        $(this).addClass('open');
+      }
+    })
+  }
 
 });
 

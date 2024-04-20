@@ -45,14 +45,14 @@ h1 > strong {
   display: none;
 }
 
-main {
-  padding: 0 6rem;
-  height: 80vh;
+main section {
+  padding: 6rem 2rem;
 }
-@media (max-width: 1200px) {
-  main {
-    padding: 0 2.5rem;
-  }
+main section.section-pt-0 {
+  padding-top: 0;
+}
+main section.section-pb-0 {
+  padding-bottom: 0;
 }
 
 .header-container,
@@ -65,8 +65,22 @@ main {
   position: relative;
 }
 
-.header-container {
-  max-width: 119.6rem;
+.section-title {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.section-title::after {
+  content: "";
+  width: 4rem;
+  height: 1px;
+  background-color: #D11434;
+  margin: 2rem 0;
 }
 
 .logo {
@@ -90,9 +104,32 @@ main {
     flex-basis: 100%;
   }
 }
+.section-container.section-column {
+  flex-direction: column;
+}
 
 .landing {
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+.landing h1 {
+  text-align: center;
+  max-width: 68rem;
+  margin: auto;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.landing h1 strong {
+  font-weight: inherit;
+}
+@media (max-width: 991px) {
+  .landing h1 {
+    font-size: 3.2rem;
+  }
 }
 
 .cookie-consent-banner {
@@ -212,14 +249,8 @@ main {
   top: 20px;
   z-index: 20;
   isolation: isolate;
-  width: 100%;
-}
-@media (max-width: 991px) {
-  .header {
-    left: 2.4rem;
-    right: 2.4rem;
-    width: unset;
-  }
+  left: 2.4rem;
+  right: 2.4rem;
 }
 .header a {
   color: #D2D2D2;
@@ -232,7 +263,9 @@ main {
   height: 5.2rem;
   background-color: #1E1E1E;
   border-radius: 2rem;
-  outline: 4px solid rgba(255, 255, 255, 0.9);
+  outline: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+  max-width: 119.6rem;
 }
 @media (max-width: 1200px) {
   .header .header-container {
@@ -242,6 +275,7 @@ main {
 @media (max-width: 991px) {
   .header .header-container {
     outline: 0;
+    max-width: 120rem;
   }
 }
 .header nav {
@@ -294,7 +328,7 @@ main {
   width: 1.6rem;
 }
 .header nav .submenu-items .nav-item:hover::after, .header nav .submenu-items .nav-item.active::after {
-  content: "\f160";
+  content: "\f180";
 }
 @media (max-width: 991px) {
   .header nav {
@@ -358,6 +392,9 @@ main {
   .header-center.show {
     transform: translateY(0%);
   }
+  .header-center.show + .header-right .share-dropdown {
+    display: none;
+  }
 }
 .header-right {
   display: flex;
@@ -405,7 +442,7 @@ main {
 .nav-dropdown .dropdown .submenu-items .nav-item:hover {
   background-color: #4B4B4B;
 }
-.nav-dropdown .dropdown.show {
+.nav-dropdown.open .dropdown {
   display: block;
 }
 
@@ -983,4 +1020,220 @@ input:focus, textarea:focus, select:focus {
   width: 100%;
   max-height: calc(100vh - 2rem);
   max-width: unset;
+}
+
+.animation-container,
+.cross-shapes {
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  width: 100%;
+}
+
+.floating-img {
+  position: absolute;
+}
+
+.counter-2 {
+  top: 9%;
+  left: -8%;
+  max-height: 24vw;
+  transform: rotate(45deg);
+  filter: blur(3px);
+}
+@media (max-width: 1199px) {
+  .counter-2 {
+    max-height: 27vh;
+    left: -3%;
+    top: 0%;
+  }
+}
+
+.suitcase-2 {
+  bottom: 24%;
+  left: 8.4rem;
+  max-height: 10vw;
+  transform: rotate(-30deg);
+}
+
+.safe-1 {
+  bottom: 14%;
+  right: 24%;
+  max-height: 10vw;
+  transform: rotate(15deg);
+}
+
+.safe-2 {
+  bottom: 5%;
+  left: 16%;
+  max-height: 19vw;
+  transform: rotate(140deg);
+}
+@media (max-width: 1199px) {
+  .safe-2 {
+    max-height: 23vh;
+    left: -5%;
+    bottom: 9%;
+  }
+}
+
+.safe-3 {
+  top: 30%;
+  right: 0;
+  max-height: 35vw;
+}
+
+.lock {
+  top: 5%;
+  right: 0;
+  max-height: 28vw;
+  filter: blur(3px);
+}
+@media (max-width: 1199px) {
+  .lock {
+    top: unset;
+    bottom: 0%;
+    max-height: 40vh;
+    transform: unset;
+    right: 0;
+  }
+}
+
+.coin-1 {
+  top: 30%;
+  left: 30%;
+  max-height: 7.4rem;
+}
+@media (max-width: 1199px) {
+  .coin-1 {
+    top: 14%;
+    max-height: 5vh;
+    left: unset;
+    right: 30%;
+  }
+}
+
+.coin-2 {
+  top: -5rem;
+  left: 34%;
+  max-height: 15vw;
+  transform: rotate(30deg);
+}
+
+.coin-3 {
+  top: 20%;
+  right: 25%;
+  max-height: 10.9rem;
+  transform: rotate(30deg);
+}
+@media (max-width: 1199px) {
+  .coin-3 {
+    top: 30%;
+    right: -4%;
+    max-height: 10vh;
+  }
+}
+
+.logo-shape {
+  top: 10.3rem;
+  left: 4.3rem;
+  max-height: 21.3rem;
+}
+@media (max-width: 1199px) {
+  .logo-shape {
+    top: unset;
+    bottom: 3%;
+    left: -16%;
+  }
+}
+
+.logo-shape-big {
+  max-height: 27vw;
+  width: 100%;
+  right: -45%;
+  top: 12%;
+}
+
+.logo-shape-small {
+  max-height: 13rem;
+  bottom: 15%;
+  left: 30%;
+}
+@media (max-width: 1199px) {
+  .logo-shape-small {
+    bottom: unset;
+    top: 15%;
+    left: unset;
+    right: -12%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .safe-1, .safe-3, .coin-2, .logo-shape-big, .suitcase-2 {
+    display: none;
+  }
+}
+.hero-blocks {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+@media (max-width: 1200px) {
+  .hero-blocks {
+    flex-wrap: wrap;
+  }
+}
+
+.hero-block {
+  display: flex;
+  border-radius: 2rem;
+  padding: 2rem;
+  background-color: white;
+  flex-basis: 100%;
+  gap: 2rem;
+}
+.hero-block-text h3 {
+  font-size: 2.4rem;
+  color: #D11434;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 991px) {
+  .hero-block-text h3 {
+    font-size: 2rem;
+  }
+}
+.hero-block-text p {
+  color: #1E1E1E;
+}
+@media (max-width: 991px) {
+  .hero-block-text p {
+    font-size: 1.4rem;
+  }
+}
+
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  overflow: hidden;
+  outline: 2px solid #E8E8E8;
+  outline-offset: -1px;
+}
+.client-grid .client {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8rem;
+  background-color: #E8E8E8;
+  border: 0.5px solid #D11434;
+}
+@media (max-width: 650px) {
+  .client-grid .client img {
+    max-width: 8.7rem;
+  }
+}
+@media (max-width: 1150px) {
+  .client-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }/*# sourceMappingURL=main.css.map */

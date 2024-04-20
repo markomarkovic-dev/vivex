@@ -46,7 +46,7 @@
 
 		'home' => array(
 		  	'title' => 'Vivex', 
-			'description' => 'Posvećeni smo pružanju nezaboravnih iskustava gostima. Profesionalna usluga i najbolje opremljeni apartmani.',
+			'description' => 'The best systems and machines for working with money.',
 		),
 
 	'politika-privatnosti' => array(
