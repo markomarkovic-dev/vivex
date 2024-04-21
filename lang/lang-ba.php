@@ -18,7 +18,8 @@
             'privacy_policy' => 'Google-ovom Politikom Privatnosti',
             'and' => 'i',
             'terms_of_service' => 'Uslovima korištenja',
-			'copyright' => 'Copyright',
+			'copyright' => 'Vivex group d.o.o.',
+			'rights' => 'Sva prava zadržana',
 
 			'form-heading-msg' => 'Radujemo se što ste odabrali datum Vašeg dolaska.
 			Molimo vas da ispod unesete detalje rezervacije.',

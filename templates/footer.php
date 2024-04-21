@@ -21,7 +21,7 @@
                 socials("footer");
             ?>
             <span class="footer-border footer-border-mobile"></span>
-            <p class="copyright"><?= $lang['global']['copyright']?> &copy; <span><?= date('Y')?> Vivex</span></p>
+            <p class="copyright"><?= $lang['global']['copyright']?> &copy; <span><?= date('Y')?><br><?= $lang['global']['rights']?></span></p>
         </div>
     </div>
 </footer>

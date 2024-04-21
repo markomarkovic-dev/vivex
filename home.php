@@ -91,6 +91,43 @@
                     }
                 ?>
             </div>
+            <p>...i mnogi drugi</p>
+        </div>
+    </section>
+    <section>
+        <div class="section-container">
+            <div class="featured-display">
+                <div class="featured-block">
+                    <div class="featured-block-image">
+                        <img src="assets/images/vivex-sistemi-za-uplatu-novca.png" alt="">
+                    </div>
+                    <div class="featured-block-text">
+                        <h4>Novi način <strong>novčanog pologa</strong></h4>
+                        <p>Skraćuje vrijeme između i dostupnosti na vašem računu.</p>
+                        <a href="#" class="btn btn-featured">Saznaj više <i class="fi fi-rs-arrow-alt-right"></i></a>
+                    </div>
+                </div>
+                <div class="featured-block">
+                    <div class="featured-block-image">
+                        <img src="assets/images/vivex-menjacnica.png" alt="">
+                    </div>
+                    <div class="featured-block-text">
+                        <h4>Brza i jednostavna <strong>promjena valute</strong></h4>
+                        <p>Skraćuje vrijeme između i dostupnosti na vašem računu.</p>
+                        <a href="#" class="btn btn-featured">Saznaj više <i class="fi fi-rs-arrow-alt-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+    <div class="section-container section-column">
+            <h2 class="section-title">Najpopularniji proizvodi</h2>
+            <div class="owl-carousel popular-products">
+                <div class="popular-product">
+
+                </div>
+            </div>
         </div>
     </section>
 </main>
