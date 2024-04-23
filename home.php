@@ -124,9 +124,26 @@
     <div class="section-container section-column">
             <h2 class="section-title">Najpopularniji proizvodi</h2>
             <div class="owl-carousel popular-products">
-                <div class="popular-product">
-
-                </div>
+                <a href="#" class="product">
+                    <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
+                    <span class="product-category">Banknote counter</span>
+                    <h4 class="product-name">EAGLE EYE 7 VS</h4>
+                </a>
+                <a href="#" class="product">
+                    <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
+                    <span class="product-category">Banknote counter</span>
+                    <h4 class="product-name">EAGLE EYE 7 VS</h4>
+                </a>
+                <a href="#" class="product">
+                    <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
+                    <span class="product-category">Banknote counter</span>
+                    <h4 class="product-name">EAGLE EYE 7 VS</h4>
+                </a>
+                <a href="#" class="product">
+                    <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
+                    <span class="product-category">Banknote counter</span>
+                    <h4 class="product-name">EAGLE EYE 7 VS</h4>
+                </a>
             </div>
         </div>
     </section>
@@ -135,3 +152,4 @@
     include 'includes/global-footer.php'; 
 ?>
 <script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/home.js"></script>

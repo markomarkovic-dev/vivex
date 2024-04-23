@@ -41,6 +41,17 @@ main {
   }
 }
 
+h1 {
+  &.section-title {
+    color: $primary;
+    font-size: 3.6rem;
+
+    @media(max-width: 991px) {
+      font-size: 2.6rem;
+    }
+  }
+}
+
 .logo {
   width: 15rem;
 }
@@ -91,6 +102,16 @@ main {
       font-size: 3.2rem;
     }
   }
+}
+
+.page-padding {
+  padding-top: 18rem;
+}
+
+.section-description {
+  color: $black;
+  text-align: center;
+  margin-bottom: 8rem;
 }
 
 .cookie-consent-banner {
@@ -214,5 +235,118 @@ main {
   100% {
     opacity: 0;
     transform: translateY(-3rem);
+  }
+}
+
+.owl-nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  top: 0;
+  pointer-events: none;
+  z-index: 10;
+
+  button {
+    pointer-events: all;
+    width: 6rem;
+
+    &:first-child {
+      background: linear-gradient(90deg, #E8E8E8 0%, rgba(232, 232, 232, 0) 100%)!important;
+    }
+
+    &:last-child {
+      background: linear-gradient(270deg, #E8E8E8 0%, rgba(232, 232, 232, 0) 100%)!important;
+    }
+
+    i {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.category-shapes {
+  .logo-shape {
+      right: -10%;
+      left: unset;
+  }
+
+  .logo-shape-small {
+      right: -11%;
+      left: unset;
+  }
+
+  .logo-shape-small-2 {
+      left: -5%;
+      top: 35%;
+  }
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  gap: 4rem;
+}
+
+.product {
+  &-category {
+    margin-bottom: 1.2rem;
+  }
+
+  &-name {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.product-attributes {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  width: 100%;
+
+  .attribute {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    padding: .8rem;
+
+    &::before{
+      content: "";
+      font-family: uicons-regular-straight;
+      font-size: 1.6rem;
+      color: $black;
+    }
+
+    &-description {
+
+      h5 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: $black;
+      }
+
+      p {
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+    }
+
+    &.attribute-available {
+      background-color: $black-10;
+      &::before {
+        content: "\f34a";
+      }
+    }
+
+    &.attribute-unavailable {
+      background-color: $primary-10;
+      &::before {
+        content: "\f458";
+        color: $primary;
+      }
+    }
   }
 }

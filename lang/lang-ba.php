@@ -55,6 +55,18 @@
 		'description' => 'Ova Politika privatnosti opisuje kako prikupljamo, koristimo, otkrivamo i štitimo Vaše lične podatke prilikom korišćenja našeg sajta za rezervacije apartmana.', 
 	//content
 	),
+
+	'category' => array(
+		'title' => 'Kategorija', 
+		'description' => 'Opis kategorije', 
+	//content
+	),
+
+	'product' => array(
+		'title' => 'Proizvod', 
+		'description' => 'Opis proizvoda', 
+	//content
+	),
 );
 
 ?>

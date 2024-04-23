@@ -76,10 +76,10 @@
 
                     &::before {
                         @media(max-width: 991px) {
-                            width: 2rem;
+                            width: 4rem;
                             display: block;
                             bottom: unset;
-                            top: 4rem;
+                            top: 4.7rem;
                             z-index: 1;
                         }
                     }
@@ -138,6 +138,7 @@
                     background-color: $black-90;
                     margin-bottom: 1.485rem;
                     width: 100%;
+                    margin-top: 1rem;
 
                     .submenu-items {
                         .nav-item {
@@ -153,21 +154,33 @@
                 }
             }
         }
+
+        > .nav-item {
+            font-size: 1.8rem;
+        }
+
+        > .nav-dropdown {
+            > .nav-item {
+                font-size: 1.8rem;
+            }
+        }
     }
 
-    a, .nav-item {
+    .nav-item {
         font-weight: 500;
         position: relative;
         display: flex;
         justify-content: center;
         transition: color .1s linear;
         color: $black-20;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
 
         &.active, &:hover {
             color: white;
         }
     }
+
+
 
     .copy-link {
         white-space: nowrap;
@@ -249,6 +262,15 @@
                 &:hover {
                     background-color: $black-80;
                 }
+
+                @media(max-width: 991px) {
+                    display: flex;
+                    text-align: center;
+
+                    &::after {
+                        display: none;
+                    }
+                }
             }
         }
 
@@ -260,6 +282,12 @@
     &.open {
         .dropdown {
             display: block;
+        }
+
+        > .nav-item {
+            @media(max-width: 991px) {
+                color: white;
+            }
         }
     }
 }
@@ -343,7 +371,9 @@
 }
 
 .active-language {
+    display: flex;
     align-items: center;
+    font-size: 1.6rem;
 
     @media(max-width: 991px) {
         display: none!important;
