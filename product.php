@@ -1,13 +1,13 @@
 <?php 
-    include 'includes/global-header.php'; 
-    $home = true;
+    include 'includes/global-header.php';
 ?>
 
 <main>
-    <div class="cross-shapes category-shapes">
-        <img src="assets/icons/logo-shape.svg" class="floating-img logo-shape" alt="">
+    <div class="cross-shapes product-shapes">
         <img src="assets/icons/logo-shape-small.svg" class="floating-img logo-shape-small" alt="">
         <img src="assets/icons/logo-shape-small.svg" class="floating-img logo-shape-small-2" alt="">
+        <img src="assets/icons/logo-shape.svg" class="floating-img logo-shape-big" alt="">
+        <img src="assets/icons/logo-shape-extra-small.svg" class="floating-img logo-shape-extra-small" alt="">
     </div>
     <section class="page-padding">
         <div class="section-container product-container">
@@ -64,24 +64,38 @@
                             </div>
                         </div>
                         <div class="main-attribute">
-                            <i class="fi fi-rs-tachometer-alt-fastest"></i>
+                            <i class="fi fi-rs-inbox"></i>
                             <div class="main-attribute-text">
                                 <span>Max. counting speed (note/min):</span>
-                                <h4>1300</h4>
+                                <h4>500 / 200 / 0</h4>
                             </div>
                         </div>
                         <div class="main-attribute">
-                            <i class="fi fi-rs-tachometer-alt-fastest"></i>
+                            <i class="fi fi-rs-ruler-triangle"></i>
                             <div class="main-attribute-text">
-                                <span>Max. counting speed (note/min):</span>
-                                <h4>1300</h4>
+                                <span>Dimensions W / H / D (cm):</span>
+                                <h4>28.5 / 28 / 27</h4>
                             </div>
                         </div>
                         <div class="main-attribute">
-                            <i class="fi fi-rs-tachometer-alt-fastest"></i>
+                            <i class="fi fi-rs-scale"></i>
                             <div class="main-attribute-text">
-                                <span>Max. counting speed (note/min):</span>
-                                <h4>1300</h4>
+                                <span>Weight (kg):</span>
+                                <h4>7.2</h4>
+                            </div>
+                        </div>
+                        <div class="main-attribute">
+                            <i class="fi fi-rs-plug"></i>
+                            <div class="main-attribute-text">
+                                <span>Power supply:</span>
+                                <h4>AC100V ~ 240V, 50/60Hz</h4>
+                            </div>
+                        </div>
+                        <div class="main-attribute">
+                            <i class="fi fi-rs-bolt"></i>
+                            <div class="main-attribute-text">
+                                <span>Power consumption:</span>
+                                <h4>Max. 40W</h4>
                             </div>
                         </div>
                     </div>
@@ -92,6 +106,27 @@
                             <p>Possibility of remote display connection</p>
                         </div>
                     </div>
+            </div>
+        </div>
+        <div class="section-container category-container">
+            <h3 class="section-title-main">Banknote counters</h3>
+            <div class="related-category-products">
+                <a href="#" class="related-product">
+                    <img src="assets/images/categories/vivex-brojaci-kovanog-novca.png" alt="">
+                    <h5>EAGLE EYE 7 VS</h5>
+                </a>
+                <a href="#" class="related-product">
+                    <img src="assets/images/categories/vivex-brojaci-kovanog-novca.png" alt="">
+                    <h5>EAGLE EYE 7 VS</h5>
+                </a>
+                <a href="#" class="related-product">
+                    <img src="assets/images/categories/vivex-brojaci-kovanog-novca.png" alt="">
+                    <h5>EAGLE EYE 7 VS</h5>
+                </a>
+                <a href="#" class="related-product">
+                    <img src="assets/images/categories/vivex-brojaci-kovanog-novca.png" alt="">
+                    <h5>EAGLE EYE 7 VS</h5>
+                </a>
             </div>
         </div>
     </section>

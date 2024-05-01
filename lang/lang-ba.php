@@ -67,6 +67,38 @@
 		'description' => 'Opis proizvoda', 
 	//content
 	),
+
+	'prodaja' => array(
+		'title' => 'Prodaja', 
+		'description' => 'O prodaji', 
+	//content
+	),
+
+	'proizvodnja' => array(
+		'title' => 'Proizvodnja', 
+		'description' => 'O proizvodnji', 
+	//content
+	),
+
+	'servis' => array(
+		'title' => 'Servis', 
+		'description' => 'O servisu', 
+	//content
+	),
+
+	'kontakt' => array(
+		'title' => 'Kontakt', 
+		'description' => 'Kontakt',
+	//content
+	),
+
+	'sistemi-za-uplatu-novca' => array(
+		'title' => 'Sistemi za uplatu novca', 
+		'description' => 'Sistemi za uplatu novca najnovija je generacija inteligentnih sistema za upravljanje gotovinom. ',
+	//content
+	),
+
+	
 );
 
 ?>

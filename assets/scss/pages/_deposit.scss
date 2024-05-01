@@ -1,0 +1,66 @@
+.device-replace-all {
+    background-color: $black;
+    color: white;
+    border-radius: 2rem;
+
+    .left-block {
+        padding: 4rem;
+    }
+
+    h2 {
+        font-size: 3.6rem;
+        font-weight: 900;
+        margin-bottom: 4rem;
+    }
+
+    .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .8rem;
+        margin-bottom: 4rem;
+
+        span {
+            background-color: $black-90;
+            color: white;
+            border-radius: .8rem;
+            padding: .8rem;
+
+            &::before {
+                content: "#";
+                color: $black-50;
+            }
+        }
+    }
+}
+
+.device-feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    li {
+        font-size: 2rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+
+        i {
+            font-size: 2.4rem;
+            color: $black-50;
+            display: flex;
+        }
+    }
+}
+
+.deposit-device-features {
+    display: flex;
+
+    h2 {
+        font-size: 3.6rem;
+        font-weight: 900;
+        margin-bottom: 4rem;
+        color: $primary;
+    }
+}

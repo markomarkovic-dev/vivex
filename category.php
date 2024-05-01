@@ -1,6 +1,5 @@
 <?php 
-    include 'includes/global-header.php'; 
-    $home = true;
+    include 'includes/global-header.php';
 ?>
 
 <main>
@@ -11,10 +10,10 @@
     </div>
     <section class="page-padding">
         <div class="section-container">
-            <h1 class="section-title">Banknote counters</h1>
+            <h1 class="section-title-main">Banknote counters</h1>
             <p class="section-description">Money counting machines primarily count money. In addition to the basic function of counting money, most machines perform counterfeit detection, while the more advanced ones have the ability to scan serial numbers, recognize denominations and calculate the total value, as well as check whether the banknotes are still fit for circulation.</p>
             <div class="products-grid">
-                <a href="#" class="product">
+                <a href="product" class="product">
                     <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
                     <span class="product-category">Banknote counter</span>
                     <h4 class="product-name">EAGLE EYE 7 VS</h4>
@@ -41,7 +40,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#" class="product">
+                <a href="product" class="product">
                     <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
                     <span class="product-category">Banknote counter</span>
                     <h4 class="product-name">EAGLE EYE 7 VS</h4>
@@ -68,7 +67,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#" class="product">
+                <a href="product" class="product">
                     <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
                     <span class="product-category">Banknote counter</span>
                     <h4 class="product-name">EAGLE EYE 7 VS</h4>
@@ -95,7 +94,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#" class="product">
+                <a href="product" class="product">
                     <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
                     <span class="product-category">Banknote counter</span>
                     <h4 class="product-name">EAGLE EYE 7 VS</h4>
@@ -123,6 +122,13 @@
                     </div>
                 </a>
         </div>
+        </div>
+    </section>
+    <section>
+        <div class="section-container product-categories">
+            <?php 
+                require 'components/product-categories.php';
+            ?>
         </div>
     </section>
 </main>
