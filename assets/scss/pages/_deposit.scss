@@ -2,9 +2,15 @@
     background-color: $black;
     color: white;
     border-radius: 2rem;
+    display: flex;
+
+    @media(max-width: 991px) {
+        flex-direction: column;
+    }
 
     .left-block {
         padding: 4rem;
+        flex-basis: 60%;
     }
 
     h2 {
@@ -28,6 +34,30 @@
             &::before {
                 content: "#";
                 color: $black-50;
+            }
+        }
+    }
+
+    .right-block {
+        flex-basis: 40%;
+
+        .img-background {
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+
+                @media(max-width: 991px) {
+                    flex-direction: column;
+                    position: relative;
+                    object-fit: contain;
+                    max-height: 60vh;
+                }
             }
         }
     }
@@ -57,10 +87,208 @@
 .deposit-device-features {
     display: flex;
 
+    @media(max-width: 991px) {
+        flex-direction: column-reverse;
+        gap: 4rem;
+    }
+
     h2 {
         font-size: 3.6rem;
         font-weight: 900;
         margin-bottom: 4rem;
         color: $primary;
+    }
+
+    .device-feature-list {
+        li {
+            padding: 1.2rem;
+            border: 1px solid $black-20;
+            border-radius: .8rem;
+            width: fit-content;
+            transition: all .3s ease-out;
+            cursor: context-menu;
+
+            &:hover {
+                border-color: $primary;
+                background-color: $primary-10;
+                color: $primary;
+            }
+        }
+    }
+
+    .left-block {
+        position: relative;
+        height: fit-content;
+        width: fit-content;
+    }
+}
+
+.pointers {
+    span {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        box-shadow: 0px 0px 40px 40px rgba(188, 18, 47, 0.502);
+        border-radius: .8rem;
+        border: 1px solid $primary-50;
+        display: none;
+        animation: popIn .2s ease-out forwards;
+        transform-origin: center;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    .bar-code-1 {
+        top: 33%;
+        right: 39%;
+    }
+
+    .bar-code-2 {
+        right: 17%;
+        top: 26%;
+    }
+
+    .banknote-counter {
+        top: 7%;
+        right: 38%;
+    }
+
+    .detection {
+        top: 15%;
+        right: 33%;
+    }
+
+    .coin-counter-1 {
+        top: 26%;
+        right: 57.8%;
+    }
+
+    .coin-counter-2 {
+        top: 39.5%;
+        right: 53.4%;
+    }
+
+    .security-1 {
+        top: 70%;
+        right: 47%;
+    }
+
+    .security-2 {
+        top: 62%;
+        right: 22%;
+    }
+
+    .thermal-printer {
+        top: 19%;
+        right: 18.4%;
+    }
+
+    .software {
+        top: 22%;
+        right: 29%;
+    }
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        box-shadow: 0px 0px 0px 0px rgba(188, 18, 47, 0.502);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0px 0px 40px 40px rgba(188, 18, 47, 0.502);
+    }
+}
+
+.deposit-video {
+    background-color: $primary;
+    color: white;
+    border-radius: 2rem;
+    padding: 4rem;
+    display: flex;
+    gap: 4rem;
+
+    @media(max-width: 1025px) {
+        flex-direction: column;
+    }
+
+    .text-block {
+        flex-basis: 45%;
+    }
+
+    .video-block {
+        flex-basis: 55%;
+
+        .video-iframe {
+            position: relative;
+
+            iframe {
+                position: absolute;
+                border-radius: .8rem;
+                overflow: hidden;
+
+                
+                @media(max-width: 1025px) {
+                    position: relative;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+
+    h2 {
+        font-size: 6rem;
+        margin-bottom: 4rem;
+        font-weight: 900;
+    }
+
+    p {
+
+    }
+}
+
+.additional-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 2rem;
+
+    .additional-feature {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 2rem;
+
+        i {
+            font-size: 4rem;
+            display: flex;
+            color: $black-50;
+        }
+    }
+}
+
+.customize-device {
+    background-image: url(../images/vivex-sistemi-za-uplatu-novca-sdn.png);
+    background-repeat: no-repeat;
+    background-position: center right;;
+    background-size: cover;
+    border-radius: 2rem;
+    display: flex;
+    overflow: hidden;
+
+    .device-customize-text {
+        background: linear-gradient(90.01deg, #FFFFFF 49.99%, rgba(255, 255, 255, 0) 99.99%);
+        width: 30%;
+        padding: 4rem;
+        font-size: 3.6rem;
+        font-weight: 900;
+
+        @media(max-width: 1145px) {
+            width: 36rem;
+        }
     }
 }

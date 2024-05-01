@@ -1994,6 +1994,15 @@ input:focus, textarea:focus, select:focus {
   border-radius: 2rem;
   background-color: #1E1E1E;
 }
+@media (max-width: 991px) {
+  .product-categories .nav-product-categories {
+    padding: 4rem 2rem 2rem 2rem;
+  }
+  .product-categories .nav-product-categories .category-gallery {
+    overflow: initial;
+    max-height: unset;
+  }
+}
 .product-categories .section-title {
   color: white;
 }
@@ -2115,9 +2124,16 @@ input:focus, textarea:focus, select:focus {
   background-color: #1E1E1E;
   color: white;
   border-radius: 2rem;
+  display: flex;
+}
+@media (max-width: 991px) {
+  .device-replace-all {
+    flex-direction: column;
+  }
 }
 .device-replace-all .left-block {
   padding: 4rem;
+  flex-basis: 60%;
 }
 .device-replace-all h2 {
   font-size: 3.6rem;
@@ -2139,6 +2155,30 @@ input:focus, textarea:focus, select:focus {
 .device-replace-all .tag-list span::before {
   content: "#";
   color: #8F8F8F;
+}
+.device-replace-all .right-block {
+  flex-basis: 40%;
+}
+.device-replace-all .right-block .img-background {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.device-replace-all .right-block .img-background img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+}
+@media (max-width: 991px) {
+  .device-replace-all .right-block .img-background img {
+    flex-direction: column;
+    position: relative;
+    -o-object-fit: contain;
+       object-fit: contain;
+    max-height: 60vh;
+  }
 }
 
 .device-feature-list {
@@ -2163,9 +2203,180 @@ input:focus, textarea:focus, select:focus {
 .deposit-device-features {
   display: flex;
 }
+@media (max-width: 991px) {
+  .deposit-device-features {
+    flex-direction: column-reverse;
+    gap: 4rem;
+  }
+}
 .deposit-device-features h2 {
   font-size: 3.6rem;
   font-weight: 900;
   margin-bottom: 4rem;
   color: #D11434;
+}
+.deposit-device-features .device-feature-list li {
+  padding: 1.2rem;
+  border: 1px solid #D2D2D2;
+  border-radius: 0.8rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  transition: all 0.3s ease-out;
+  cursor: context-menu;
+}
+.deposit-device-features .device-feature-list li:hover {
+  border-color: #D11434;
+  background-color: #FAE7EB;
+  color: #D11434;
+}
+.deposit-device-features .left-block {
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.pointers span {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  box-shadow: 0px 0px 40px 40px rgba(188, 18, 47, 0.502);
+  border-radius: 0.8rem;
+  border: 1px solid #E88999;
+  display: none;
+  animation: popIn 0.2s ease-out forwards;
+  transform-origin: center;
+}
+.pointers span.active {
+  display: block;
+}
+.pointers .bar-code-1 {
+  top: 33%;
+  right: 39%;
+}
+.pointers .bar-code-2 {
+  right: 17%;
+  top: 26%;
+}
+.pointers .banknote-counter {
+  top: 7%;
+  right: 38%;
+}
+.pointers .detection {
+  top: 15%;
+  right: 33%;
+}
+.pointers .coin-counter-1 {
+  top: 26%;
+  right: 57.8%;
+}
+.pointers .coin-counter-2 {
+  top: 39.5%;
+  right: 53.4%;
+}
+.pointers .security-1 {
+  top: 70%;
+  right: 47%;
+}
+.pointers .security-2 {
+  top: 62%;
+  right: 22%;
+}
+.pointers .thermal-printer {
+  top: 19%;
+  right: 18.4%;
+}
+.pointers .software {
+  top: 22%;
+  right: 29%;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    box-shadow: 0px 0px 0px 0px rgba(188, 18, 47, 0.502);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0px 0px 40px 40px rgba(188, 18, 47, 0.502);
+  }
+}
+.deposit-video {
+  background-color: #D11434;
+  color: white;
+  border-radius: 2rem;
+  padding: 4rem;
+  display: flex;
+  gap: 4rem;
+}
+@media (max-width: 1025px) {
+  .deposit-video {
+    flex-direction: column;
+  }
+}
+.deposit-video .text-block {
+  flex-basis: 45%;
+}
+.deposit-video .video-block {
+  flex-basis: 55%;
+}
+.deposit-video .video-block .video-iframe {
+  position: relative;
+}
+.deposit-video .video-block .video-iframe iframe {
+  position: absolute;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+@media (max-width: 1025px) {
+  .deposit-video .video-block .video-iframe iframe {
+    position: relative;
+    flex-direction: column;
+  }
+}
+.deposit-video h2 {
+  font-size: 6rem;
+  margin-bottom: 4rem;
+  font-weight: 900;
+}
+.additional-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  gap: 2rem;
+}
+.additional-features .additional-feature {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 2rem;
+}
+.additional-features .additional-feature i {
+  font-size: 4rem;
+  display: flex;
+  color: #8F8F8F;
+}
+
+.customize-device {
+  background-image: url(../images/vivex-sistemi-za-uplatu-novca-sdn.png);
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+  border-radius: 2rem;
+  display: flex;
+  overflow: hidden;
+}
+.customize-device .device-customize-text {
+  background: linear-gradient(90.01deg, #FFFFFF 49.99%, rgba(255, 255, 255, 0) 99.99%);
+  width: 30%;
+  padding: 4rem;
+  font-size: 3.6rem;
+  font-weight: 900;
+}
+@media (max-width: 1145px) {
+  .customize-device .device-customize-text {
+    width: 36rem;
+  }
 }/*# sourceMappingURL=main.css.map */

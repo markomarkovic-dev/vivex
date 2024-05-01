@@ -13,7 +13,7 @@
             <div class="title-image">
                 <h1 class="section-title-main">Proizvodnja</h1>
                 <p class="section-subtitle">Naš prodajni tim Vam stoji na raspolaganju kako bi pronašli najbolje rješenje za Vaše poslovanje.</p>
-                <img src="assets/icons/manufacuring-bck.svg" class="title-background" alt="">
+                <img src="assets/icons/manufacturing-bck.svg" class="title-background" alt="">
             </div>
             <div class="page-content-row">
                 <div class="page-content-left">

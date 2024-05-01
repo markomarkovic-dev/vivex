@@ -288,9 +288,22 @@
     border-radius: 2rem;
     background-color: $black;
 
+    .nav-product-categories {
+        @media(max-width:991px) {
+            padding: 4rem 2rem 2rem 2rem;
+
+            
+            .category-gallery {
+                overflow: initial;
+                max-height: unset;
+            }
+        }
+    }
+
     .section-title {
         color: white;
     }
+
   }
 
   .nav-categories {

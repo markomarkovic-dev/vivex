@@ -48,7 +48,7 @@
                 </div>
                 <div class="hero-block">
                     <div class="hero-block-icon">
-                        <img src="assets/icons/maintainance.svg" alt="">
+                        <img src="assets/icons/maintenance.svg" alt="">
                     </div>
                     <div class="hero-block-text">
                         <h3>Održavanje</h3>
