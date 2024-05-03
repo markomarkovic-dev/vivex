@@ -55,10 +55,9 @@
       top: 0;
       bottom: 0;
 
-      img {
+      i {
         display: block;
-        max-height: 3rem;
-        min-width: 3rem;
+        font-size: 3rem;
         color: rgba(white, .5);
 
         @media(max-width: 991px) {
@@ -85,7 +84,7 @@
     bottom: 2rem;
     z-index: 2;
     cursor: pointer;
-    max-height: 2.4rem;
+    font-size: 2.4rem;
   }
 
   &.modal-out {

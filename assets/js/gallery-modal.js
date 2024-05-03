@@ -1,6 +1,6 @@
 function galleryImage() {
 
-  var galleryLinks = $('.gallery-modal img');
+  var galleryLinks = $('.owl-carousel img');
   var currentIndex;
 
   galleryLinks.click(function(event) {
@@ -13,16 +13,16 @@ function galleryImage() {
   function openImageModal(imageUrl) {
     var modal = $(
       `<div class="image-modal">
-          <img src="assets/icons/close.svg" class="image-close"/>
+          <i class="fi fi-rs-cross image-close"></i>
           <div class="current-image">
             <img src="${imageUrl}"/>
           </div>
           <div class="next-prev-image">
             <div class="prev-image">
-              <img src="assets/icons/left.svg"/>
+              <i class="fi fi-rs-angle-left"></i>
             </div>
             <div class="next-image">
-              <img src="assets/icons/right.svg"/>
+              <i class="fi fi-rs-angle-right"></i>
             </div>
           </div>
       </div>`);

@@ -106,10 +106,6 @@ h3.section-title-main::after {
   }
 }
 
-.section-subtitle {
-  text-align: center;
-}
-
 .logo {
   width: 15rem;
 }
@@ -392,6 +388,12 @@ h3.section-title-main::after {
      object-position: center;
   z-index: -1;
 }
+.title-image p {
+  text-align: center;
+}
+.title-image .section-subtitle ~ p {
+  margin-top: 2rem;
+}
 
 .page-content-row {
   display: flex;
@@ -476,6 +478,48 @@ h3.section-title-main::after {
 .page-shapes .logo-shape-extra-small {
   top: 9.5rem;
   right: 6rem;
+}
+
+.email-app {
+  color: #787878;
+  margin-top: 2rem;
+}
+.email-app a {
+  color: #1E1E1E;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.email-app a:hover {
+  color: #D11434;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+.contact-header-text h4 {
+  color: #DA435D;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.contact-header-text p {
+  font-size: 1.4rem;
+  color: #787878;
+}
+
+.help-block.with-errors li {
+  color: #DA435D;
+  list-style: none;
+  font-size: 1.3rem;
 }
 
 .header {
@@ -1017,16 +1061,15 @@ h3.section-title-main::after {
   top: 0;
   bottom: 0;
 }
-.image-modal .next-image img,
-.image-modal .prev-image img {
+.image-modal .next-image i,
+.image-modal .prev-image i {
   display: block;
-  max-height: 3rem;
-  min-width: 3rem;
+  font-size: 3rem;
   color: rgba(255, 255, 255, 0.5);
 }
 @media (max-width: 991px) {
-  .image-modal .next-image img,
-  .image-modal .prev-image img {
+  .image-modal .next-image i,
+  .image-modal .prev-image i {
     height: 100%;
   }
 }
@@ -1048,7 +1091,7 @@ h3.section-title-main::after {
   bottom: 2rem;
   z-index: 2;
   cursor: pointer;
-  max-height: 2.4rem;
+  font-size: 2.4rem;
 }
 .image-modal.modal-out .current-image img {
   animation: imageOut 0.4s ease-in forwards;
@@ -1084,14 +1127,15 @@ h3.section-title-main::after {
 }
 
 input, textarea, select {
-  border: 2px solid #787878;
+  border: 1px solid #D2D2D2;
   outline: 0;
-  padding: 12px 15px;
+  padding: 9px 12px;
   width: 100%;
+  border-radius: 0.8rem;
   color: #626262;
 }
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus {
-  border: 2px solid #D2D2D2;
+  border: 1px solid #D2D2D2;
   -webkit-text-fill-color: #1E1E1E;
   -webkit-box-shadow: 0 0 0px 200px white inset;
   -webkit-transition: background-color 5000s ease-in-out 0s;
@@ -1167,6 +1211,9 @@ input:focus, textarea:focus, select:focus {
   width: -moz-fit-content;
   width: fit-content;
 }
+.btn[type=submit] {
+  width: 100%;
+}
 .btn img, .btn .fi {
   display: inline-flex;
   margin-right: 0.8rem;
@@ -1216,37 +1263,27 @@ input:focus, textarea:focus, select:focus {
 .modal-content {
   width: 100%;
   max-height: 100%;
-  max-width: 68.9rem;
+  max-width: 62rem;
   z-index: 9999;
   margin: 15px;
   overflow: hidden;
   position: relative;
   background-color: white;
-  padding: 4.8rem 10.4rem;
-}
-@media (max-width: 991px) {
-  .modal-content {
-    padding: 4.8rem 1.6rem;
-  }
+  padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
 }
 .modal-content-header {
   display: flex;
   align-items: center;
-  color: white;
+  justify-content: space-between;
   position: relative;
   z-index: 2;
-  min-height: 38px;
+  min-height: 4.4rem;
+  margin-bottom: 2rem;
 }
 .modal-content-header .modal-title {
-  padding-right: 33px;
-  font-size: 1.3rem;
-}
-.modal-content-header .modal-title .lnc {
-  font-size: 0.8rem;
-}
-.modal-content-header div.modal-close.close {
-  position: absolute;
-  right: 1.2rem;
+  font-size: 2.4rem;
 }
 .modal-content-body {
   min-height: 1rem;
@@ -1261,19 +1298,16 @@ input:focus, textarea:focus, select:focus {
   font-size: 2.8rem;
   margin-bottom: 2.8rem;
 }
-.modal-content > .modal-close {
+.modal-content .modal-close {
   cursor: pointer;
   transition: all 0.1s linear;
-  position: absolute;
-  right: 1.5rem;
-  top: 1.5rem;
-  z-index: 99;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  display: flex;
+  padding: 1.4rem;
+  border-radius: 0.8rem;
 }
-.modal-content > .modal-close:hover .lnc {
-  transform: rotate(90deg);
-  transition: all 0.1s linear;
-  display: block;
+.modal-content .modal-close:hover {
+  background-color: #E8E8E8;
 }
 
 .modal .modal-xs {
@@ -2379,4 +2413,48 @@ input:focus, textarea:focus, select:focus {
   .customize-device .device-customize-text {
     width: 36rem;
   }
+}
+
+.company-history h2 {
+  color: #D11434;
+  font-size: 2.4rem;
+  font-weight: 900;
+  margin-bottom: 4rem;
+}
+
+.history-waterfall {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.time-point {
+  display: flex;
+  gap: 0.8rem;
+}
+.time-point-date span {
+  color: #D11434;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.time-point-date span::after {
+  content: "";
+  width: 1px;
+  height: 100%;
+  min-height: 4.4rem;
+  flex-grow: 1;
+  background-color: #E88999;
+}
+.time-point-description h4 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #D11434;
+  margin-bottom: 0.5rem;
+}
+.time-point:last-child .time-point-date span::after {
+  display: none;
 }/*# sourceMappingURL=main.css.map */

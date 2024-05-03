@@ -136,3 +136,4 @@
 ?>
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/product.js"></script>
+<script src="assets/js/gallery-modal.js"></script>

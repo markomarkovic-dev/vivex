@@ -24,6 +24,7 @@
 			'form-heading-msg' => 'Radujemo se što ste odabrali datum Vašeg dolaska.
 			Molimo vas da ispod unesete detalje rezervacije.',
 			'name-surname' => 'Ime i prezime:',
+			'company' => 'Kompanija:',
 			'email' => 'Email:',
 			'phone' => 'Broj telefona:',
 			'message' => 'Poruka:',
@@ -95,6 +96,12 @@
 	'sistemi-za-uplatu-novca' => array(
 		'title' => 'Sistemi za uplatu novca', 
 		'description' => 'Sistemi za uplatu novca najnovija je generacija inteligentnih sistema za upravljanje gotovinom. ',
+	//content
+	),
+
+	'o-kompaniji' => array(
+		'title' => 'O kompaniji', 
+		'description' => 'Vivex je kompanija specijalizovana za opremu za rukovanje gotovinom i bankovnu opremu.',
 	//content
 	),
 

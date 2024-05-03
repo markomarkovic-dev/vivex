@@ -67,10 +67,6 @@ h3 {
   }
 }
 
-.section-subtitle {
-  text-align: center;
-}
-
 .logo {
   width: 15rem;
 }
@@ -389,6 +385,16 @@ h3 {
     object-position: center;
     z-index: -1;
   }
+
+  p {
+    text-align: center;
+  }
+
+  .section-subtitle {
+    ~ p {
+      margin-top: 2rem;
+    }
+  }
 }
 
 .page-content-row {
@@ -480,5 +486,57 @@ h3 {
   .logo-shape-extra-small {
     top: 9.5rem;
     right: 6rem;
+  }
+}
+
+.email-app {
+  color: $black-60;
+  margin-top: 2rem;
+
+  a {
+    color: $black;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+
+  &-text {
+    h4 {
+      color: $primary-80;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: $black-60;
+    }
+  }
+}
+
+.help-block {
+  &.with-errors {
+    li {
+      color: $primary-80;
+      list-style: none;
+      font-size: 1.3rem;
+    }
   }
 }

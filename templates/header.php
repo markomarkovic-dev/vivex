@@ -33,7 +33,7 @@ if ($language == "ba") {
                     <a class="nav-item nav-about<?= activePage('o-nama'); ?>"><?= $lang['global']['nav-about'] ?></a>
                     <div class="dropdown">
                         <div class="submenu-items">
-                            <a href="o-nama" class="nav-item <?= activePage('o-nama'); ?>"><?= $lang['global']['nav-about-company'] ?></a>
+                            <a href="o-kompaniji" class="nav-item <?= activePage('o-kompaniji'); ?>"><?= $lang['global']['nav-about-company'] ?></a>
                             <a href="prodaja" class="nav-item <?= activePage('prodaja'); ?>"><?= $lang['global']['nav-sales'] ?></a>
                             <a href="proizvodnja" class="nav-item <?= activePage('proizvodnja'); ?>"><?= $lang['global']['nav-manufacturing'] ?></a>
                             <a href="servis" class="nav-item <?= activePage('servis'); ?>"><?= $lang['global']['nav-maintenance'] ?></a>
