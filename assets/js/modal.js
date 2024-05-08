@@ -10,6 +10,8 @@ $(document).ready(function() {
   $(".modal-close").on("click", function() {
     var modal = $(this).closest(".modal");
     modal.removeClass("show");
+    $('.request-quote-text').removeClass('active');
+    $('#product-name').val('');
 
     $("html").css("overflow", "");
   });

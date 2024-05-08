@@ -369,8 +369,6 @@
 
         @media(max-width: 991px) {
             grid-template-columns: 1fr;
-            overflow-y: auto;
-            max-height: calc(100vh - 37rem);
         }
 
         .nav-category {

@@ -1,7 +1,6 @@
 <?php 
-    include 'includes/global-header.php';
+    include 'includes/global-header.php'; 
 ?>
-
 <main>
     <div class="cross-shapes category-shapes">
         <img src="assets/icons/logo-shape.svg" class="floating-img logo-shape" alt="">

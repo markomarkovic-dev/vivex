@@ -123,6 +123,7 @@
             width: 100%;
             max-width: 28rem;
             gap: .8rem;
+            overflow-y: auto;
         }
 
         .nav-dropdown {
@@ -203,6 +204,7 @@
 
             &.show {
                 transform: translateY(0%);
+                overflow-y: auto;
 
                 + .header-right {
                     .share-dropdown {

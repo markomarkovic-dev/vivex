@@ -48,6 +48,10 @@ RewriteRule images/(.*)$ images/$1
     Deny from all
 </Files>
 
+<FilesMatch "\.(pdf)$">
+    Header set Content-Disposition attachment
+</FilesMatch>
+
 <ifmodule mod_deflate.c>
   # Compress HTML, CSS, JavaScript, Text, XML and fonts
   AddOutputFilterByType DEFLATE image/svg+xml

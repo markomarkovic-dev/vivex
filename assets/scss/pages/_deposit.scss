@@ -120,6 +120,12 @@
         position: relative;
         height: fit-content;
         width: fit-content;
+
+        img {
+            @media(max-width: 991px) {
+                width: 100%;
+            }
+        }
     }
 }
 

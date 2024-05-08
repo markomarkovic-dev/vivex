@@ -44,6 +44,22 @@
 			'chosen-apartment' => 'Odabrani apartman:',
 
 			'contact-us-text' => 'Kontaktirajte nas kako biste rezervisali svoj savršeni odmor. Očekujemo Vas s osmijehom i željom da vam pružimo nezaboravan doživljaj.',
+
+			'category' => array(
+				46 => 'Automatska mjenjačnica',
+				49 => 'Brojači kovanog novca',
+				48 => 'Brojači papirnog novca',
+				50 => 'Mašine za obradu novca',
+				53 => 'Mašine za pakovanje',
+				47 => 'Pultne blagajne',
+				51 => 'Sefovi',
+				52 => 'Sigurnosna oprema',
+				55 => 'Sigurnosni koferi',
+				45 => 'Sistemi za uplatu novca',
+				45 => 'Softverska riješenja',
+				56 => 'Softverska riješenja',
+				54 => 'Trezori',
+			),
 		),
 
 		'home' => array(

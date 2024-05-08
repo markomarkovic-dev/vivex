@@ -7,6 +7,7 @@
         $phone = $_POST['phone'];
         $message = $_POST['message'];
         $honeypot = $_POST['company-2'];
+        $productName = $_POST['product-name'];
 
         // Validate input and check honeypot
         if(empty($namesurname) || empty($company) || empty($email) || empty($phone) || empty($message) || !empty($honeypot)){
@@ -18,11 +19,22 @@
         else{
             // Send the email
             $to = 'markomarko988@gmail.com'; // Replace with your email address
-            $subject = 'Kontakt forma';
+            $subject = "Kontakt forma | $namesurname";
+
+            if (!empty($productName)) {
+                $subject .= " | Zatražena ponuda za $productName";
+            }
+
             $body = "Ime: $name\nPrezime: $surname\nEmail: $email\nTelefon: $phone\nPoruka: $message";
-            $body = iconv(mb_detect_encoding($body, mb_detect_order(), true), "UTF-8", $body);
+            // $body = iconv(mb_detect_encoding($body, mb_detect_order(), true), "UTF-8", $body);
+
+            // Check if $productName has a value before adding it to the email body
+            if (!empty($productName)) {
+                $body .= "\nProizvod: $productName";
+            }
+
             $headers = "From: markomarko988@gmail.com\r\n";
-            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+            // $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
             if(mail($to, $subject, $body, $headers)){
                 $message = $lang['global']['message-success'];
             }
@@ -47,6 +59,7 @@
                 <p>Ispunite svoje podatke i napišite nam poruku, a mi ćemo vam se javiti u najkraćem mogućem roku.</p>
             </div>
         </div>
+        <p class="request-quote-text">Tražite ponudu za <strong></strong></p>
         <form method="post" action="" class="contact-form" id="contact-form">
             <div class="input-wrapper-split">
                 <div class="input-wrapper form-group form-element">
@@ -80,6 +93,10 @@
             <div class="input-wrapper hidden-field">
                 <label for="company-2">Leave this field blank:</label>
                 <input type="text" name="company-2" id="company-2">
+            </div>
+            <div class="input-wrapper hidden-field">
+                <label for="product-name">Product name:</label>
+                <input type="text" name="product-name" id="product-name">
             </div>
             <input type="submit" name="submit" id="send-button" class="btn btn-primary" value="<?= $lang['global']['send-message']?> &#8594">
         </form>

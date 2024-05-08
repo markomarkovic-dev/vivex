@@ -45,6 +45,10 @@
   
       &-right {
         flex-grow: 1;
+
+        .product-column-left {
+            margin-bottom: 4rem;
+        }
       }
     }
   }
@@ -291,12 +295,6 @@
     .nav-product-categories {
         @media(max-width:991px) {
             padding: 4rem 2rem 2rem 2rem;
-
-            
-            .category-gallery {
-                overflow: initial;
-                max-height: unset;
-            }
         }
     }
 

@@ -77,15 +77,6 @@
                         <p>Otvoren proizvodni centar na Ubu.</p>
                     </div>
                 </div>
-                <div class="time-point">
-                    <div class="time-point-date">
-                        <span>2017</span>
-                    </div>
-                    <div class="time-point-description">
-                        <h4>Osnovan Vivex Group</h4>
-                        <p>Pripajanjem Vivex Servisa d.o.o. i Vivex Tradinga d.o.o., dolazi do promene naziva u Vivex Group d.o.o. Beograd.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

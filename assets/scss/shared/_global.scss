@@ -540,3 +540,13 @@ h3 {
     }
   }
 }
+
+.request-quote-text {
+  margin-bottom: 2rem;
+  text-align: center;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}

@@ -1,6 +1,16 @@
 <?php 
     include 'includes/global-header.php'; 
     $home = true;
+    $apiUrl = "$backendUrl/wp-json/wp/v2/podesavanje-proizvod";
+
+    $data = json_decode(file_get_contents($apiUrl), true);
+    $post = $data[0];
+
+    $popularProductArray =  $post['acf']['odaberi'];
+    $popularProductId = implode(',', $popularProductArray) . ',';
+    
+    $apiUrlPopular = "$backendUrl/wp-json/wp/v2/proizvodi?_embed&acf_format=standard&include=$popularProductId";
+    $dataPopular = json_decode(file_get_contents($apiUrlPopular), true);
 ?>
 
 <main>
@@ -131,26 +141,23 @@
     <div class="section-container section-column">
             <h2 class="section-title">Najpopularniji proizvodi</h2>
             <div class="owl-carousel popular-products">
-                <a href="product" class="product">
-                    <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
-                    <span class="product-category">Banknote counter</span>
-                    <h4 class="product-name">EAGLE EYE 7 VS</h4>
-                </a>
-                <a href="product" class="product">
-                    <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
-                    <span class="product-category">Banknote counter</span>
-                    <h4 class="product-name">EAGLE EYE 7 VS</h4>
-                </a>
-                <a href="product" class="product">
-                    <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
-                    <span class="product-category">Banknote counter</span>
-                    <h4 class="product-name">EAGLE EYE 7 VS</h4>
-                </a>
-                <a href="product" class="product">
-                    <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
-                    <span class="product-category">Banknote counter</span>
-                    <h4 class="product-name">EAGLE EYE 7 VS</h4>
-                </a>
+                <?php 
+                    foreach($dataPopular as $popular) {
+                        $titleString = strip_tags($popular['title']['rendered']);
+    
+                        $unwantedElements = array("&nbsp;", "<br>", "<br/>", "<p>", "</p>", "<strong>", "</strong>", "[…]");
+                        
+                        //Očisti stringove od HTML tagova
+                        $cleanedTitleString = str_replace($unwantedElements, "",  $titleString);
+                    
+                        $postTitle = $cleanedTitleString;
+                        echo '<a href="product?id='.$popular['slug'].'" class="product">
+                                <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
+                                <span class="product-category">'.$popular['_embedded']['wp:term'][0][0]['name'].'</span>
+                                <h4 class="product-name">'.$postTitle.'</h4>
+                            </a>';
+                    }
+                ?>
             </div>
         </div>
     </section>
