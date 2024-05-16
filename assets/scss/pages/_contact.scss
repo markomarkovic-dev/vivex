@@ -126,3 +126,16 @@
         }
     }
   }
+
+  .success-message {
+    color: #2EA822;
+  }
+
+  .error-message {
+    color: $primary;
+  }
+
+  .send-message {
+    margin-top: 2rem;
+    text-align: center;
+  }

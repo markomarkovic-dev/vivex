@@ -7,7 +7,7 @@
 		<?php 
 			require 'components/contact-modal.php';
 		?>
-				<script>
+		<script>
 			$('#contact-form').validator();
 		</script>
 </body>

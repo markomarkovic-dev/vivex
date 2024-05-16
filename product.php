@@ -1,5 +1,7 @@
 <?php 
     include 'includes/global-header.php';
+    require 'components/product-attributes.php';
+    $product_page = true;
     $apiUrl = "$backendUrl/wp-json/wp/v2/proizvodi";
 
     $queries = array();
@@ -18,15 +20,18 @@
     $cleanedTitleString = str_replace($unwantedElements, "",  $titleString);
 
     $postTitle = $cleanedTitleString;
-    $acf = $post['acf'];
-    $gallery = $acf['photo_gallery']['galerija'][0];
+    $thisProductAcf = $post['acf'];
+    $gallery = $thisProductAcf['photo_gallery']['galerija'][0];
     $category_id = $post['categories'][0];
     $category_name = $lang['global']['category'][$category_id];
 
     //Povezani proizvodi
-    $apiCatUrl = "$backendUrl/wp-json/wp/v2/proizvodi?category=$category_id";
+    $thisProductId = $post['id'];
+    $apiCatUrl = "$backendUrl/wp-json/wp/v2/proizvodi?category=$category_id&exclude=$thisProductId";
     $catData = json_decode(file_get_contents($apiCatUrl), true);
     $productCount = 0;
+    
+    $compare = '';
 ?>
 
 <main>
@@ -48,7 +53,7 @@
                 </div>
                 <div class="product-actions">
                     <button class="btn btn-secondary modal-open modal-quote" data-trigger="contact-form"><i class="fi fi-rs-document"></i>Request a quote</button>
-                    <button class="btn btn-secondary"><i class="fi fi-rs-braille-d"></i>Compare</button>
+                    <button class="btn btn-secondary modal-open" data-trigger="product-to-compare"><i class="fi fi-rs-braille-d"></i>Compare</button>
                 </div>
             </div>
             <div class="product-column-right">
@@ -58,97 +63,14 @@
                         <h1><?= $postTitle?></h1>
                     </div>
                     <?php 
-                        if($acf["dokument"] !== '') {
-                            echo '<a href="'.$acf["dokument"].'" class="btn btn-white" download="download"><i class="fi fi-rs-file-download"></i>Download</a>';
+                        if($thisProductAcf["dokument"] != '') {
+                            echo '<a href="'.$thisProductAcf["dokument"].'" class="btn btn-white" download="download"><i class="fi fi-rs-file-download"></i>Preuzmi</a>';
                         }
                     ?>
                 </div>
-                <div class="product-attributes product-attributes-detailed">
-                        <?php 
-                            function attribute($name, $value) {
-                                if ($value === '') {
-                                    echo '<div class="attribute attribute-unavailable">
-                                            <div class="attribute-description">
-                                                <h5>'.$name.'</h5>
-                                                <p>Nije dostupno</p>
-                                            </div>
-                                          </div>';
-                                } else {
-                                    echo '<div class="attribute attribute-available">
-                                            <div class="attribute-description">
-                                                <h5>'.$name.'</h5>
-                                                <p>'.$value.'</p>
-                                            </div>
-                                        </div>';
-                                }
-                            }
-                            isset($acf['prepoznavanje_denominacije']) ? attribute('Prepoznavanje denominacije:', $acf['prepoznavanje_denominacije']) : '';
-                            isset($acf['dodatne_valute']) ? attribute('Dodatne valute:', $acf['dodatne_valute']) : '';
-                            isset($acf['otkrivanje_krivotvorina']) ? attribute('Otkrivanje krivotvorina:', $acf['otkrivanje_krivotvorina']) : '';
-                            isset($acf['dzep_za_odbijene_novcanice']) ? attribute('Džep za odbijene novčanice:', $acf['dzep_za_odbijene_novcanice']) : '';
-                            isset($acf['skeniranje_serijskih_brojeva']) ? attribute('Skeniranje serijskih brojeva:', $acf['skeniranje_serijskih_brojeva']) : '';
-                            isset($acf['sortiranje']) ? attribute('Sortiranje:', $acf['sortiranje']) : '';
-                            isset($acf['mod_mesovitih_valuta']) ? attribute('Mod mješovitih valuta:', $acf['mod_mesovitih_valuta']) : '';
-                            isset($acf['mod_mesovitih_valuta']) ? attribute('Portovi:', $acf['portovi']) : '';
-                        ?>
-                    </div>
-                    <div class="main-attributes">
-                        <div class="main-attribute">
-                            <i class="fi fi-rs-tachometer-alt-fastest"></i>
-                            <div class="main-attribute-text">
-                                <span>Max. counting speed (note/min):</span>
-                                <h4><?= $acf['maks_brzina_brojanja_notamin']?></h4>
-                            </div>
-                        </div>
-                        <div class="main-attribute">
-                            <i class="fi fi-rs-inbox"></i>
-                            <div class="main-attribute-text">
-                                <span>Kapacitet (lijevak / džep / odbijeno):</span>
-                                <h4><?= $acf['kapacitet_lijevak__dzep__odbijeno']?></h4>
-                            </div>
-                        </div>
-                        <div class="main-attribute">
-                            <i class="fi fi-rs-ruler-triangle"></i>
-                            <div class="main-attribute-text">
-                                <span>Dimensions W / H / D (cm):</span>
-                                <h4><?= $acf['dimenzije_svd_cm']?></h4>
-                            </div>
-                        </div>
-                        <div class="main-attribute">
-                            <i class="fi fi-rs-scale"></i>
-                            <div class="main-attribute-text">
-                                <span>Weight (kg):</span>
-                                <h4><?= $acf['tezina_kg']?></h4>
-                            </div>
-                        </div>
-                        <div class="main-attribute">
-                            <i class="fi fi-rs-plug"></i>
-                            <div class="main-attribute-text">
-                                <span>Power supply:</span>
-                                <h4><?= $acf['napajanje']?></h4>
-                            </div>
-                        </div>
-                        <div class="main-attribute">
-                            <i class="fi fi-rs-bolt"></i>
-                            <div class="main-attribute-text">
-                                <span>Power consumption:</span>
-                                <h4><?= $acf['potrosnja_energije']?></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="additional-options">
-                        <h5>Additional options:</h5>
-                        <div class="additional-options-container">
-                            <?php 
-                                $additionalOptions = $post['acf']['dodatne_opcije'];
-                                $additionalOptions = explode("\r\n", $additionalOptions);
-
-                                foreach($additionalOptions as $option) {
-                                    echo "<p>$option</p>";
-                                }
-                            ?>
-                        </div>
-                    </div>
+                <?php
+                    echo attributes($thisProductAcf);
+                ?>
             </div>
         </div>
         <div class="section-container category-container">
@@ -171,29 +93,91 @@
                         }
                     }
                 ?>
-                <!-- <a href="#" class="related-product">
-                    <img src="assets/images/categories/vivex-brojaci-kovanog-novca.png" alt="">
-                    <h5>EAGLE EYE 7 VS</h5>
-                </a>
-                <a href="#" class="related-product">
-                    <img src="assets/images/categories/vivex-brojaci-kovanog-novca.png" alt="">
-                    <h5>EAGLE EYE 7 VS</h5>
-                </a>
-                <a href="#" class="related-product">
-                    <img src="assets/images/categories/vivex-brojaci-kovanog-novca.png" alt="">
-                    <h5>EAGLE EYE 7 VS</h5>
-                </a>
-                <a href="#" class="related-product">
-                    <img src="assets/images/categories/vivex-brojaci-kovanog-novca.png" alt="">
-                    <h5>EAGLE EYE 7 VS</h5>
-                </a> -->
             </div>
         </div>
     </section>
 </main>
+
 <?php 
     include 'includes/global-footer.php'; 
 ?>
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/product.js"></script>
 <script src="assets/js/gallery-modal.js"></script>
+
+<div class="modal" data-modal="product-to-compare">
+    <div class="modal-content modal-sm">
+        <div class="modal-content-header">
+            <h3 class="modal-title">Izaberi proizvod</h3>
+            <i class="fi fi-rs-cross modal-close"></i>
+        </div>
+        <div class="modal-content-body">
+            <div class="related-category-products">
+                <?php 
+                    foreach($catData as $product) {
+                        $productTitle = strip_tags($product['title']['rendered']);
+                        $productImage = $product['acf']['photo_gallery']['galerija'][0][0]['thumbnail_image_url'];
+                        
+                        $productTitleClean = str_replace($unwantedElements, "",  $productTitle);
+                        echo '<a href="product?id='.$post['slug'].'&compareright=' . $product['id'] . '" class="related-product">
+                            <img src="'.$productImage.'" alt="">
+                            <h5>'.$productTitleClean.'</h5>
+                        </a>';
+                        }
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal <?= isset($_GET['compareright']) ? 'show' : '' ?>" data-modal="compare">
+    <div class="modal-content modal-l">
+        <div class="modal-content-header">
+            <h3 class="modal-title">Pošaljite nam email:</h3>
+            <i class="fi fi-rs-cross modal-close"></i>
+        </div>
+        <div class="modal-content-body">
+            <div class="compare-container">
+                <?php 
+                    if(isset($_GET['compareright'])) {
+                        $compare = 'show';
+                        $requestCompareUrl = $apiUrl . '?_embed&acf_format=standard&orderby=include&include=' . $post['id'] . ',' . $_GET['compareright'];
+                        $compareData = json_decode(file_get_contents($requestCompareUrl), true);
+                        foreach ($compareData as $compare) {
+                            
+                            //ACF
+                            $compareAcf = $compare['acf'];
+
+                            //Feature fotografija
+                            $productImagecompare = $compareAcf['photo_gallery']['galerija'][0][0]['full_image_url'];
+
+                            //Kategorija
+                            $compareCategory_id = $compare['categories'][0];
+                            $category_name = $lang['global']['category'][$compareCategory_id];
+
+                            //titl
+                            $compareTitleString = strip_tags($compare['title']['rendered']);
+                            $cleanedCompareTitleString = str_replace($unwantedElements, "",  $compareTitleString);
+                            $postCompareTitle = $cleanedCompareTitleString;
+
+                            echo '<div class="compare-column">
+                                    <div class="compare-feature-image">
+                                        <img src="'.$productImagecompare.'"/>
+                                    </div>
+                                    <div class="product-header">
+                                        <div class="product-name">
+                                            <span>'.$category_name.'</span>
+                                            <h1>'.$postCompareTitle.'</h1>
+                                        </div>
+                                    </div>
+                                    '.attributes($compareAcf).'
+                                </div>';
+                        }
+                        
+                    }
+                ?>
+            </div>
+
+        </div>
+    </div>
+</div>

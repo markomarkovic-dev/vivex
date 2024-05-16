@@ -1,5 +1,7 @@
 <?php
     $message = '';
+    $modalOpen = '';
+    $statusType = '';
     if(isset($_POST['submit'])){
         $namesurname = $_POST['name-surname'];
         $company = $_POST['company'];
@@ -37,15 +39,18 @@
             // $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
             if(mail($to, $subject, $body, $headers)){
                 $message = $lang['global']['message-success'];
+                $statusType = 'success-message';
             }
             else{
                 $message = $lang['global']['message-error'];
+                $statusType = 'error-message';
             }
+            $modalOpen = 'show';
         }
     }
 ?>
 
-<div class="modal" data-modal="contact-form">
+<div class="modal <?= $modalOpen?>" data-modal="contact-form">
     <div class="modal-content">
         <div class="modal-content-header">
             <h3 class="modal-title">Pošaljite nam email:</h3>
@@ -59,8 +64,26 @@
                 <p>Ispunite svoje podatke i napišite nam poruku, a mi ćemo vam se javiti u najkraćem mogućem roku.</p>
             </div>
         </div>
-        <p class="request-quote-text">Tražite ponudu za <strong></strong></p>
         <form method="post" action="" class="contact-form" id="contact-form">
+            <div class="input-wrapper product-name-select hidden">
+                <label for="product-name">Naziv proizvoda:</label>
+                <select name="product-name" id="product-name">
+                    <?php 
+                        if(isset($product_page)) {
+                            $apiCatListUrl = "$backendUrl/wp-json/wp/v2/proizvodi?category=$category_id";
+                            $dataSelect = json_decode(file_get_contents($apiCatListUrl), true);
+                            $productId = $queries['id'];
+
+                            foreach($dataSelect as $productSelect) {
+                                var_dump($queries);
+                                $productTitleSelect = strip_tags($productSelect['title']['rendered']);
+                                $productTitleClean = str_replace($unwantedElements, "",  $productTitleSelect);
+                                echo '<option value="' . $productTitleClean . '" ' . ($productId == $productSelect['slug'] ? 'selected' : '') . '>' . $productTitleClean . '</option>';
+                            }
+                        }
+                    ?>
+                </select>
+            </div>
             <div class="input-wrapper-split">
                 <div class="input-wrapper form-group form-element">
                     <label for="name-surname"><?= $lang['global']['name-surname']?></label>
@@ -94,14 +117,10 @@
                 <label for="company-2">Leave this field blank:</label>
                 <input type="text" name="company-2" id="company-2">
             </div>
-            <div class="input-wrapper hidden-field">
-                <label for="product-name">Product name:</label>
-                <input type="text" name="product-name" id="product-name">
-            </div>
             <input type="submit" name="submit" id="send-button" class="btn btn-primary" value="<?= $lang['global']['send-message']?> &#8594">
         </form>
         <p class="email-app">Ili <a href="mailto:office@vivex.rs">koristite svoju email aplikaciju</a></p>
-        <p><?php echo $message; ?></p>
+        <p class="send-message <?= $statusType?>"><?= $message; ?></p>
         </div>
     </div>
 </div>

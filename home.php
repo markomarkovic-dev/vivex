@@ -149,11 +149,14 @@
                         
                         //Očisti stringove od HTML tagova
                         $cleanedTitleString = str_replace($unwantedElements, "",  $titleString);
-                    
                         $postTitle = $cleanedTitleString;
+
+                        $productImagePopular = $popular['acf']['photo_gallery']['galerija'][0][0]['full_image_url'];
+                        $productCategoryPopular = $popular['_embedded']['wp:term'][0][0]['name'];
+
                         echo '<a href="product?id='.$popular['slug'].'" class="product">
-                                <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
-                                <span class="product-category">'.$popular['_embedded']['wp:term'][0][0]['name'].'</span>
+                                <img src="'.$productImagePopular.'" alt="">
+                                <span class="product-category">'.$productCategoryPopular.'</span>
                                 <h4 class="product-name">'.$postTitle.'</h4>
                             </a>';
                     }

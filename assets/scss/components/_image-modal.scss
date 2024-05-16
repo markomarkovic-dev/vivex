@@ -59,10 +59,6 @@
         display: block;
         font-size: 3rem;
         color: rgba(white, .5);
-
-        @media(max-width: 991px) {
-          height: 100%;
-        }
       }
 
       @media(max-width: 991px) {

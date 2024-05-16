@@ -13,7 +13,9 @@ $('.product-image-slider').owlCarousel({
 })
 
 $('.modal-quote').click(function(){
-    $('.request-quote-text').addClass('active');
-    $('.request-quote-text strong').text($('.product-name h1').text())
+    $('.product-name-select').removeClass('hidden');
 })
 
+$('.modal-open:not(.modal-quote)').click(function(){
+    $('.product-name-select').addClass('hidden');
+})

@@ -42,7 +42,7 @@ h1 > strong {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 main section {
@@ -389,6 +389,9 @@ h3.section-title-main::after {
   z-index: -1;
 }
 .title-image p {
+  text-align: center;
+}
+.title-image .section-subtitle {
   text-align: center;
 }
 .title-image .section-subtitle ~ p {
@@ -1079,12 +1082,6 @@ h3.section-title-main::after {
   color: rgba(255, 255, 255, 0.5);
 }
 @media (max-width: 991px) {
-  .image-modal .next-image i,
-  .image-modal .prev-image i {
-    height: 100%;
-  }
-}
-@media (max-width: 991px) {
   .image-modal .next-image,
   .image-modal .prev-image {
     padding: 1rem;
@@ -1260,9 +1257,11 @@ input:focus, textarea:focus, select:focus {
   right: 0;
   display: none;
   justify-content: center;
-  align-items: center;
   z-index: 9998;
   background-color: rgba(143, 143, 143, 0.9);
+  overflow-y: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .modal .modal {
   z-index: 9999;
@@ -1273,10 +1272,11 @@ input:focus, textarea:focus, select:focus {
 
 .modal-content {
   width: 100%;
-  max-height: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
   max-width: 62rem;
   z-index: 9999;
-  margin: 15px;
+  margin: auto 15px auto 15px;
   overflow: hidden;
   position: relative;
   background-color: white;
@@ -1298,8 +1298,6 @@ input:focus, textarea:focus, select:focus {
 }
 .modal-content-body {
   min-height: 1rem;
-  max-height: calc(100vh - 6.2rem);
-  overflow: hidden auto;
   scrollbar-width: none;
 }
 .modal-content-body::-webkit-scrollbar {
@@ -1330,7 +1328,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .modal .modal-l {
-  max-width: 1200px;
+  max-width: 940px;
 }
 
 .modal .modal-workshop {
@@ -1954,38 +1952,38 @@ input:focus, textarea:focus, select:focus {
   color: #E88999;
 }
 
-.main-attributes {
+.basic-attributes {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 2rem;
 }
 @media (max-width: 1150px) {
-  .main-attributes {
+  .basic-attributes {
     grid-template-columns: 1fr;
   }
 }
-.main-attributes .main-attribute {
+.basic-attributes .basic-attribute {
   display: flex;
   align-items: center;
   gap: 1.2rem;
   border-bottom: 1px solid #D2D2D2;
   padding: 2rem 0;
 }
-.main-attributes .main-attribute i {
+.basic-attributes .basic-attribute i {
   font-size: 3.2rem;
   color: #D2D2D2;
   display: flex;
 }
-.main-attributes .main-attribute-text span {
+.basic-attributes .basic-attribute-text span {
   font-size: 1.4rem;
   color: #4B4B4B;
 }
-.main-attributes .main-attribute-text h4 {
+.basic-attributes .basic-attribute-text h4 {
   font-size: 1.8rem;
   font-weight: 700;
 }
 @media (min-width: 1151px) {
-  .main-attributes .main-attribute:nth-child(even) i {
+  .basic-attributes .basic-attribute:nth-child(even) i {
     padding-left: 2rem;
     border-left: 1px solid #D2D2D2;
   }
@@ -2051,6 +2049,34 @@ input:focus, textarea:focus, select:focus {
 
 .nav-categories .section-title {
   display: none;
+}
+
+[data-modal=product-to-compare] .related-category-products {
+  flex-direction: column;
+}
+
+.compare-container {
+  display: flex;
+}
+.compare-container .compare-column {
+  flex-basis: 100%;
+}
+.compare-container .compare-column:first-child {
+  padding-right: 1.9rem;
+  border-right: 1px solid #E88999;
+}
+.compare-container .compare-column:last-child {
+  padding-left: 2rem;
+}
+.compare-container .compare-feature-image {
+  width: 100%;
+}
+.compare-container .basic-attributes {
+  grid-template-columns: 1fr;
+}
+.compare-container .basic-attributes .basic-attribute:nth-child(even) i {
+  padding-left: 0;
+  border-left: 0;
 }
 
 .contact-shapes .logo-shape-extra-small {
@@ -2160,6 +2186,19 @@ input:focus, textarea:focus, select:focus {
   font-weight: 700;
   font-size: 1.8rem;
   display: flex;
+}
+
+.success-message {
+  color: #2EA822;
+}
+
+.error-message {
+  color: #D11434;
+}
+
+.send-message {
+  margin-top: 2rem;
+  text-align: center;
 }
 
 .device-replace-all {
