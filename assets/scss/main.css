@@ -92,6 +92,9 @@ h1.section-title-main {
     font-size: 2.6rem;
   }
 }
+h1.section-title-main + .section-subtitle {
+  text-align: center;
+}
 
 h3.section-title-main {
   color: #D11434;
@@ -532,6 +535,15 @@ h3.section-title-main::after {
 }
 .request-quote-text.active {
   display: block;
+}
+
+.text-row {
+  display: flex;
+  gap: 20%;
+  width: 100%;
+}
+.text-row ul {
+  list-style: none;
 }
 
 .header {
@@ -1056,6 +1068,7 @@ h3.section-title-main::after {
   height: -moz-fit-content;
   height: fit-content;
   max-height: 85vh;
+  border-radius: 2rem;
 }
 @media (max-width: 991px) {
   .image-modal img {
@@ -1262,6 +1275,10 @@ input:focus, textarea:focus, select:focus {
   overflow-y: auto;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  scrollbar-width: none;
+}
+.modal::-webkit-scrollbar {
+  width: 0;
 }
 .modal .modal {
   z-index: 9999;
@@ -1298,10 +1315,6 @@ input:focus, textarea:focus, select:focus {
 }
 .modal-content-body {
   min-height: 1rem;
-  scrollbar-width: none;
-}
-.modal-content-body::-webkit-scrollbar {
-  width: 0;
 }
 .modal-content-body h2 {
   font-size: 2.8rem;
@@ -1354,6 +1367,44 @@ input:focus, textarea:focus, select:focus {
   max-width: unset;
 }
 
+.accordions {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 2rem;
+}
+.accordion-title {
+  font-size: 2.4rem;
+  padding: 3.75rem 4rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.accordion-title::after {
+  content: "\f13c";
+  font-family: uicons-regular-straight !important;
+  display: flex;
+  transition: all 0.3s linear;
+}
+.accordion-body {
+  padding: 4rem;
+  display: none;
+}
+.accordion.open {
+  background-color: #1E1E1E;
+  color: white;
+}
+.accordion.open .accordion-title::after {
+  transform: rotate(180deg);
+}
 .animation-container,
 .cross-shapes {
   height: 100vh;
@@ -2068,7 +2119,24 @@ input:focus, textarea:focus, select:focus {
 .compare-container .compare-column:last-child {
   padding-left: 2rem;
 }
+@media (max-width: 768px) {
+  .compare-container .compare-column .attribute {
+    flex-direction: column-reverse;
+  }
+  .compare-container .compare-column .attribute .attribute-description {
+    align-self: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  .compare-container .compare-column .basic-attributes .basic-attribute {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .compare-container .compare-feature-image {
+  width: 100%;
+}
+.compare-container .compare-feature-image img {
   width: 100%;
 }
 .compare-container .basic-attributes {
@@ -2216,10 +2284,21 @@ input:focus, textarea:focus, select:focus {
   padding: 4rem;
   flex-basis: 60%;
 }
+@media (max-width: 991px) {
+  .device-replace-all .left-block {
+    padding: 2rem;
+  }
+}
 .device-replace-all h2 {
   font-size: 3.6rem;
   font-weight: 900;
   margin-bottom: 4rem;
+}
+@media (max-width: 991px) {
+  .device-replace-all h2 {
+    font-size: 3.2rem;
+    text-align: center;
+  }
 }
 .device-replace-all .tag-list {
   display: flex;
@@ -2237,8 +2316,25 @@ input:focus, textarea:focus, select:focus {
   content: "#";
   color: #8F8F8F;
 }
+@media (max-width: 991px) {
+  .device-replace-all .tag-list {
+    justify-content: center;
+  }
+}
 .device-replace-all .right-block {
   flex-basis: 40%;
+  position: relative;
+}
+@media (max-width: 991px) {
+  .device-replace-all .right-block::before {
+    content: "";
+    height: 8rem;
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(180deg, #1E1E1E 0%, rgba(30, 30, 30, 0) 100%);
+    top: 2.5rem;
+    z-index: 1;
+  }
 }
 .device-replace-all .right-block .img-background {
   width: 100%;
@@ -2286,7 +2382,7 @@ input:focus, textarea:focus, select:focus {
 }
 @media (max-width: 991px) {
   .deposit-device-features {
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 4rem;
   }
 }
@@ -2296,14 +2392,23 @@ input:focus, textarea:focus, select:focus {
   margin-bottom: 4rem;
   color: #D11434;
 }
+@media (max-width: 991px) {
+  .deposit-device-features h2 {
+    font-size: 3.2rem;
+  }
+}
 .deposit-device-features .device-feature-list li {
   padding: 1.2rem;
   border: 1px solid #D2D2D2;
   border-radius: 0.8rem;
-  width: -moz-fit-content;
-  width: fit-content;
   transition: all 0.3s ease-out;
   cursor: context-menu;
+}
+@media (min-width: 992px) {
+  .deposit-device-features .device-feature-list li {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
 }
 .deposit-device-features .device-feature-list li:hover {
   border-color: #D11434;
@@ -2414,6 +2519,8 @@ input:focus, textarea:focus, select:focus {
   position: absolute;
   border-radius: 0.8rem;
   overflow: hidden;
+  height: auto;
+  aspect-ratio: 16/9;
 }
 @media (max-width: 1025px) {
   .deposit-video .video-block .video-iframe iframe {
@@ -2425,6 +2532,11 @@ input:focus, textarea:focus, select:focus {
   font-size: 6rem;
   margin-bottom: 4rem;
   font-weight: 900;
+}
+@media (max-width: 991px) {
+  .deposit-video h2 {
+    font-size: 3.2rem;
+  }
 }
 .additional-features {
   display: grid;

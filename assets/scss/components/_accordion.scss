@@ -1,0 +1,48 @@
+.accordions {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 2rem;
+
+    &-title {
+        font-size: 2.4rem;
+        padding: 3.75rem 4rem;
+        border-radius: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        &::after {
+            content: "\f13c";
+            font-family: uicons-regular-straight !important;
+            display: flex;
+            transition: all .3s linear;
+        }
+    }
+
+    &-body {
+        padding: 4rem;
+        display: none;
+    }
+
+    &.open {
+        background-color: $black;
+        color: white;
+
+        .accordion-title {
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+
+        .accordion-body {
+        }
+    }
+}

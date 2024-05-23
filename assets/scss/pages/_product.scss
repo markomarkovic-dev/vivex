@@ -330,10 +330,33 @@
         &:last-child {
             padding-left: 2rem;
         }
+
+        .attribute {
+            @media(max-width: 768px) {
+                flex-direction: column-reverse;
+
+                .attribute-description {
+                    align-self: flex-start;
+                }
+            }
+        }
+
+        .basic-attributes {
+            .basic-attribute {
+                @media(max-width: 768px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+        }
     }
 
     .compare-feature-image {
         width: 100%;
+
+        img {
+            width: 100%;
+        }
     }
 
     .basic-attributes {

@@ -11,12 +11,21 @@
     .left-block {
         padding: 4rem;
         flex-basis: 60%;
+
+        @media(max-width: 991px) {
+            padding: 2rem;
+        }
     }
 
     h2 {
         font-size: 3.6rem;
         font-weight: 900;
         margin-bottom: 4rem;
+
+        @media(max-width: 991px) {
+            font-size: 3.2rem;
+            text-align: center;
+        }
     }
 
     .tag-list {
@@ -36,10 +45,27 @@
                 color: $black-50;
             }
         }
+
+        @media(max-width: 991px) {
+            justify-content: center;
+        }
     }
 
     .right-block {
         flex-basis: 40%;
+        position: relative;
+
+        @media(max-width: 991px) {
+            &::before {
+                content: "";
+                height: 8rem;
+                width: 100%;
+                position: absolute;
+                background: linear-gradient(180deg, #1E1E1E 0%, rgba(30, 30, 30, 0) 100%);
+                top: 2.5rem;;
+                z-index: 1;
+            }
+        }
 
         .img-background {
             width: 100%;
@@ -88,7 +114,7 @@
     display: flex;
 
     @media(max-width: 991px) {
-        flex-direction: column-reverse;
+        flex-direction: column;
         gap: 4rem;
     }
 
@@ -97,6 +123,10 @@
         font-weight: 900;
         margin-bottom: 4rem;
         color: $primary;
+
+        @media(max-width: 991px) {
+            font-size: 3.2rem;
+        }
     }
 
     .device-feature-list {
@@ -104,9 +134,12 @@
             padding: 1.2rem;
             border: 1px solid $black-20;
             border-radius: .8rem;
-            width: fit-content;
             transition: all .3s ease-out;
             cursor: context-menu;
+
+            @media(min-width: 992px) {
+                width: fit-content;
+            }
 
             &:hover {
                 border-color: $primary;
@@ -235,7 +268,8 @@
                 position: absolute;
                 border-radius: .8rem;
                 overflow: hidden;
-
+                height: auto;
+                aspect-ratio: 16 / 9;
                 
                 @media(max-width: 1025px) {
                     position: relative;
@@ -249,6 +283,10 @@
         font-size: 6rem;
         margin-bottom: 4rem;
         font-weight: 900;
+
+        @media(max-width: 991px) {
+            font-size: 3.2rem;
+        }
     }
 
     p {

@@ -30,34 +30,35 @@
     }
     
 function attributes($acf) {
+    
+    global $language;
     $output = '<div class="product-attributes product-attributes-detailed">';
 
-    
     // Generate detailed attributes HTML
-    $output .= attribute('Prepoznavanje denominacije:', isset($acf['prepoznavanje_denominacije']) ? $acf['prepoznavanje_denominacije'] : '');
-    $output .= attribute('Dodatne valute:', isset($acf['dodatne_valute']) ? $acf['dodatne_valute'] : '');
-    $output .= attribute('Otkrivanje krivotvorina:', isset($acf['otkrivanje_krivotvorina']) ? $acf['otkrivanje_krivotvorina'] : '');
-    $output .= attribute('Džep za odbijene novčanice:', isset($acf['dzep_za_odbijene_novcanice']) ? $acf['dzep_za_odbijene_novcanice'] : '');
-    $output .= attribute('Skeniranje serijskih brojeva:', isset($acf['skeniranje_serijskih_brojeva']) ? $acf['skeniranje_serijskih_brojeva'] : '');
-    $output .= attribute('Sortiranje:', isset($acf['sortiranje']) ? $acf['sortiranje'] : '');
-    $output .= attribute('Mod mješovitih valuta:', isset($acf['mod_mesovitih_valuta']) ? $acf['mod_mesovitih_valuta'] : '');
+    $output .= attribute('Prepoznavanje denominacije:', isset($acf['prepoznavanje_denominacije_' . $language] ) ? $acf['prepoznavanje_denominacije_' . $language] : '');
+    $output .= attribute('Dodatne valute:', $acf['dodatne_valute'] == true ? $acf['dodatne_valute_' . $language] : '');
+    $output .= attribute('Detekcija falsifikata:', isset($acf['detekcija_falsifikata']) ? $acf['detekcija_falsifikata'] : '');
+    $output .= attribute('Džep za odbačene novčanice:', $acf['dzep_za_odbacene_novcanice'] == true ? $acf['dzep_za_odbacene_novcanice_' . $language] : '');
+    $output .= attribute('Skeniranje serijskih brojeva:', isset($acf['skeniranje_serijskih_brojeva']) ? $acf['skeniranje_serijskih_brojeva_' . $language] : '');
+    $output .= attribute('Sortiranje po podobnosti:', isset($acf['sortiranje_po_podobnosti']) ? $acf['sortiranje_po_podobnosti_' . $language] : '');
+    $output .= attribute('Mod mešanih valuta:', isset($acf['mod_mesanih_valuta']) ? $acf['mod_mesanih_valuta_' . $language] : '');
     $output .= attribute('Portovi:', isset($acf['portovi']) ? $acf['portovi'] : '');
     
     $output .= '</div>';
     $output .= '<div class="basic-attributes">';
-    $output .= basicAttribute('Max. counting speed (note/min):', isset($acf['maks_brzina_brojanja_notamin']) ? $acf['maks_brzina_brojanja_notamin'] : '', 'fi-rs-tachometer-alt-fastest');
-    $output .= basicAttribute('Kapacitet (lijevak / džep / odbijeno):', isset($acf['kapacitet_lijevak__dzep__odbijeno']) ? $acf['kapacitet_lijevak__dzep__odbijeno'] : '', 'fi-rs-inbox');
-    $output .= basicAttribute('Dimensions W / H / D (cm):', isset($acf['dimenzije_svd_cm']) ? $acf['dimenzije_svd_cm'] : '', 'fi-rs-ruler-triangle');
-    $output .= basicAttribute('Weight (kg):', isset($acf['tezina_kg']) ? $acf['tezina_kg'] : '', 'fi-rs-scale');
-    $output .= basicAttribute('Power supply:', isset($acf['napajanje']) ? $acf['napajanje'] : '', 'fi-rs-plug');
-    $output .= basicAttribute('Power consumption:', isset($acf['potrosnja_energije']) ? $acf['potrosnja_energije'] : '', 'fi-rs-plug');
+    $output .= basicAttribute('Maks. brzina brojanja (novčanica/min):', isset($acf['maks_brzina_brojanja_novcanicamin']) ? $acf['maks_brzina_brojanja_novcanicamin'] : '', 'fi-rs-tachometer-alt-fastest');
+    $output .= basicAttribute('Kapacitet (spremnik / obrađene / odbačene)::', isset($acf['kapacitet_spremnik_obradjene_odbacene']) ? $acf['kapacitet_spremnik_obradjene_odbacene'] : '', 'fi-rs-inbox');
+    $output .= basicAttribute('Dimenzije (Š/V/D) (cm):', isset($acf['dimenzije_svd_cm']) ? $acf['dimenzije_svd_cm'] : '', 'fi-rs-ruler-triangle');
+    $output .= basicAttribute('Težina (kg):', isset($acf['tezina_kg']) ? $acf['tezina_kg'] : '', 'fi-rs-scale');
+    $output .= basicAttribute('Napajanje:', isset($acf['napajanje']) ? $acf['napajanje'] : '', 'fi-rs-plug');
+    $output .= basicAttribute('Potrošnja:', isset($acf['potrosnja']) ? $acf['potrosnja'] : '', 'fi-rs-plug');
     $output .= '</div>';
     $output .= '<div class="additional-options">';
-    $output .= '<h5>Additional options:</h5>';
+    $output .= '<h5>Dodatne opcije:</h5>';
     $output .= '<div class="additional-options-container">';
     
     // Generate additional options HTML
-    $additionalOptions = isset($acf['dodatne_opcije']) ? explode("\r\n", $acf['dodatne_opcije']) : array();
+    $additionalOptions = isset($acf['dodatne_opcije_' . $language]) ? explode("\r\n", $acf['dodatne_opcije_' . $language]) : array();
     foreach($additionalOptions as $option) {
         $output .= "<p>$option</p>";
     }

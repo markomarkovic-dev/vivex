@@ -38,6 +38,7 @@
       max-width: calc(100% - 3rem);
       height: fit-content;
       max-height: 85vh;
+      border-radius: 2rem;
 
       @media(max-width: 991px) {
         max-width: calc(100% - 7.3rem);

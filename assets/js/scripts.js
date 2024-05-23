@@ -41,10 +41,12 @@ $('.copy-link').click(function () {
 });
 
 $('div.copy-link').click(function () {
-  if (document.documentElement.lang !== 'sr') {
+  if (document.documentElement.lang == 'en') {
     $(`<div class="copy-notif"><i class="ri-checkbox-circle-line"></i> Link copied</div>`).appendTo('body');
-  } else {
+  } else if (document.documentElement.lang == 'ba') {
     $(`<div class="copy-notif"><i class="ri-checkbox-circle-line"></i> Link kopiran</div>`).appendTo('body');
+  } else {
+    $(`<div class="copy-notif"><i class="ri-checkbox-circle-line"></i> Линк копиран</div>`).appendTo('body');
   }
 
   setTimeout(function () {
@@ -64,32 +66,33 @@ $('.menu-switch').click(function(){
 
 function termsBanner() {
   const srAllow = `<div class="cookie-consent-banner">
-      <div class="cookie-wrapper">
-      <p>Da bismo pružili najbolje iskustvo, koristimo tehnologije poput kolačića za čuvanje i/ili pristup informacijama o uređaju. Saglasnost sa ovim tehnologijama će nam omogućiti da obrađujemo podatke kao što su ponašanje pri pregledanju ili jedinstveni ID-ovi na ovoj veb lokaciji. Nepristanak ili povlačenje saglasnosti može negativno uticati na određene karakteristike i funkcije.</p>
-      <div class="btn-wrapper">
+  <div class="cookie-wrapper">
+  <p>Да бисмо пружили најбоље искуство, користимо технологије попут колачића за чување и/или приступ информацијама о уређају. Сагласност са овим технологијама ће нам омогућити да обрађујемо податке као што су понашање при прегледању или јединствени ИД-ови на овој веб локацији. Непристајање или повлачење сагласности може негативно утицати на одређене карактеристике и функције.</p>
+  <div class="btn-wrapper">
+  <button class="btn btn-primary" id="accept-cookie">Прихватам</button>
+  <button class="btn btn-white" id="decline-cookie">Одбијам</button>
+  </div>
+  </div>
+</div>`;
+
+
+const enAllow = `<div class="cookie-consent-banner">
+  <div class="cookie-wrapper">
+    <p>To provide the best experiences, we use technologies like cookies to store and/or access device information. Consenting to these technologies will allow us to process data such as browsing behaviour or unique IDs on this site. Not consenting or withdrawing consent, may adversely affect certain features and functions.</p>
+    <div class="btn-wrapper">
+        <button class="btn btn-white" id="accept-cookie">Accept</button>
+        <button class="btn btn-white" id="decline-cookie">Decline</button>
+        </div>
+    </div>
+  </div>`;
+
+const baAllow = `<div class="cookie-consent-banner">
+  <div class="cookie-wrapper">
+    <p>Da bismo pružili najbolje iskustvo, koristimo tehnologije poput kolačića za čuvanje i/ili pristup informacijama o uređaju. Saglasnost sa ovim tehnologijama će nam omogućiti da obrađujemo podatke kao što su ponašanje pri pregledanju ili jedinstveni ID-ovi na ovoj veb lokaciji. Nepristanak ili povlačenje saglasnosti može negativno uticati na određene karakteristike i funkcije.</p>
+    <div class="btn-wrapper">
       <button class="btn btn-primary" id="accept-cookie">Prihvatam</button>
       <button class="btn btn-white" id="decline-cookie">Odbijam</button>
-      </div>
-      </div>
-    </div>`;
-
-  const enAllow = `<div class="cookie-consent-banner">
-      <div class="cookie-wrapper">
-      <p>To provide the best experiences, we use technologies like cookies to store and/or access device information. Consenting to these technologies will allow us to process data such as browsing behaviour or unique IDs on this site. Not consenting or withdrawing consent, may adversely affect certain features and functions.</p>
-      <div class="btn-wrapper">
-          <button class="btn btn-white" id="accept-cookie">Accept</button>
-          <button class="btn btn-white" id="decline-cookie">Decline</button>
-          </div>
-      </div>
-    </div>`;
-
-    const deAllow = `<div class="cookie-consent-banner">
-    <div class="cookie-wrapper">
-    <p>Um die besten Erfahrungen zu bieten, verwenden wir Technologien wie Cookies, um Geräteinformationen zu speichern und/oder darauf zuzugreifen. Wenn Sie diesen Technologien zustimmen, ermöglichen Sie es uns, Daten wie das Surfverhalten oder eindeutige IDs auf dieser Website zu verarbeiten. Eine Nicht-Zustimmung oder der Widerruf der Zustimmung kann sich negativ auf bestimmte Funktionen und Eigenschaften auswirken.</p>
-    <div class="btn-wrapper">
-        <button class="btn btn-white" id="accept-cookie">Akzeptieren</button>
-        <button class="btn btn-white" id="decline-cookie">Ablehnen</button>
-        </div>
+    </div>
     </div>
   </div>`;
 
@@ -99,8 +102,8 @@ function termsBanner() {
       $(srAllow).appendTo('body');
     } else if($(document.documentElement.lang === 'en')) {
       $(enAllow).appendTo('body');
-    } else if($(document.documentElement.lang === 'de')) {
-      $(deAllow).appendTo('body');
+    } else if($(document.documentElement.lang === 'ba')) {
+      $(baAllow).appendTo('body');
     }
   }
 

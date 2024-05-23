@@ -121,7 +121,11 @@
 	//content
 	),
 
-	
+	'reference' => array(
+		'title' => 'Reference', 
+		'description' => 'Tokom svojih 30 godina postojanja, Vivex je poslovao sa mnogim klijentima širom svijeta. U nastavku možete vidjeti listu samo nekih od njih.',
+	//content
+	),
 );
 
 ?>
