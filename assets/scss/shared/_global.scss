@@ -355,6 +355,10 @@ h3 {
       p {
         font-size: 1.8rem;
         font-weight: 600;
+
+        @media(max-width: 991px) {
+          font-size: 1.6rem;
+        }
       }
     }
 

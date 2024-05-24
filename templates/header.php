@@ -14,7 +14,9 @@ if ($language == "ba") {
 <header class="header">
     <div class="header-container">
         <div class="header-left">
+            <a href="<?= $siteUrl . '/' . $language. '/' . 'home'?>">
             <img src="assets/images/logo-alternative.svg" class="logo" alt="">
+            </a>
         </div>
         <div class="header-center">
             <nav>

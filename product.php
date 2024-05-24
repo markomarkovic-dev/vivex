@@ -1,6 +1,5 @@
 <?php 
     include 'includes/global-header.php';
-    require 'components/product-attributes.php';
     $product_page = true;
     $apiUrl = "$backendUrl/wp-json/wp/v2/proizvodi";
 
@@ -32,6 +31,36 @@
     $productCount = 0;
     
     $compare = '';
+
+    // Function to generate attribute HTML
+    function attribute($name, $value) {
+        if ($value === '') {
+            return '<div class="attribute attribute-unavailable">
+                        <div class="attribute-description">
+                            <h5>'.$name.'</h5>
+                            <p>Nije dostupno</p>
+                        </div>
+                    </div>';
+        } else {
+            return '<div class="attribute attribute-available">
+                        <div class="attribute-description">
+                            <h5>'.$name.'</h5>
+                            <p>'.$value.'</p>
+                        </div>
+                    </div>';
+        }
+    }
+    
+    // Function to generate basic attribute HTML
+    function basicAttribute($name, $value, $icon) {
+        return '<div class="basic-attribute">
+                    <i class="fi '.$icon.'"></i>
+                    <div class="basic-attribute-text">
+                        <span>'.$name.'</span>
+                        <h4>'.$value.'</h4>
+                    </div>
+                </div>';
+    }
 ?>
 
 <main>
@@ -68,9 +97,39 @@
                         }
                     ?>
                 </div>
-                <?php
-                    echo attributes($thisProductAcf);
-                ?>
+                <div class="product-attributes product-attributes-detailed">
+                    <?php
+                         echo attribute('Prepoznavanje denominacije:', isset($thisProductAcf['prepoznavanje_denominacije_' . $language] ) ? $thisProductAcf['prepoznavanje_denominacije_' . $language] : '');
+                         echo attribute('Dodatne valute:', $thisProductAcf['dodatne_valute'] == true ? $thisProductAcf['dodatne_valute_' . $language] : '');
+                         echo attribute('Detekcija falsifikata:', isset($thisProductAcf['detekcija_falsifikata']) ? $thisProductAcf['detekcija_falsifikata'] : '');
+                         echo attribute('Džep za odbačene novčanice:', $thisProductAcf['dzep_za_odbacene_novcanice'] == true ? $thisProductAcf['dzep_za_odbacene_novcanice_' . $language] : '');
+                         echo attribute('Skeniranje serijskih brojeva:', $thisProductAcf['skeniranje_serijskih_brojeva'] == true ? $thisProductAcf['skeniranje_serijskih_brojeva_' . $language] : '');
+                         echo attribute('Sortiranje po podobnosti:', $thisProductAcf['sortiranje_po_podobnosti'] == true ? $thisProductAcf['sortiranje_po_podobnosti_' . $language] : '');
+                         echo attribute('Mod mešanih valuta:', $thisProductAcf['mod_mesanih_valuta'] == true ? $thisProductAcf['mod_mesanih_valuta_' . $language] : '');
+                         echo attribute('Portovi:', isset($thisProductAcf['portovi']) ? $thisProductAcf['portovi'] : '');
+                    ?>
+                </div>
+                <div class="basic-attributes">
+                    <?php
+                        echo basicAttribute('Maks. brzina brojanja (novčanica/min):', isset($thisProductAcf['maks_brzina_brojanja_novcanicamin']) ? $thisProductAcf['maks_brzina_brojanja_novcanicamin'] : '', 'fi-rs-tachometer-alt-fastest');
+                        echo basicAttribute('Kapacitet (spremnik / obrađene / odbačene)::', isset($thisProductAcf['kapacitet_spremnik_obradjene_odbacene']) ? $thisProductAcf['kapacitet_spremnik_obradjene_odbacene'] : '', 'fi-rs-inbox');
+                        echo basicAttribute('Dimenzije (Š/V/D) (cm):', isset($thisProductAcf['dimenzije_svd_cm']) ? $thisProductAcf['dimenzije_svd_cm'] : '', 'fi-rs-ruler-triangle');
+                        echo basicAttribute('Težina (kg):', isset($thisProductAcf['tezina_kg']) ? $thisProductAcf['tezina_kg'] : '', 'fi-rs-scale');
+                        echo basicAttribute('Napajanje:', isset($thisProductAcf['napajanje']) ? $thisProductAcf['napajanje'] : '', 'fi-rs-plug');
+                        echo basicAttribute('Potrošnja:', isset($thisProductAcf['potrosnja']) ? $thisProductAcf['potrosnja'] : '', 'fi-rs-plug');
+                    ?>
+                </div>
+                <div class="additional-options">
+                    <h5>Dodatne opcije:</h5>
+                    <div class="additional-options-container">
+                        <?php 
+                            $additionalOptions = isset($thisProductAcf['dodatne_opcije_' . $language]) ? explode("\r\n", $thisProductAcf['dodatne_opcije_' . $language]) : array();
+                            foreach($additionalOptions as $option) {
+                                echo "<p>$option</p>";
+                            }
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="section-container category-container">
@@ -133,7 +192,7 @@
 <div class="modal <?= isset($_GET['compareright']) ? 'show' : '' ?>" data-modal="compare">
     <div class="modal-content modal-l">
         <div class="modal-content-header">
-            <h3 class="modal-title">Pošaljite nam email:</h3>
+            <h3 class="modal-title">Uporedite proizvode:</h3>
             <i class="fi fi-rs-cross modal-close"></i>
         </div>
         <div class="modal-content-body">
@@ -141,28 +200,41 @@
                 <?php 
                     if(isset($_GET['compareright'])) {
                         $compare = 'show';
-                        $requestCompareUrl = $apiUrl . '?_embed&acf_format=standard&orderby=include&include=' . $post['id'] . ',' . $_GET['compareright'];
+                        $requestCompareUrl = $apiUrl . '?_embed&acf_format=standard&orderby=include&include=' . $_GET['compareright'];
                         $compareData = json_decode(file_get_contents($requestCompareUrl), true);
-                        foreach ($compareData as $compare) {
-                            
-                            //ACF
-                            $compareAcf = $compare['acf'];
+                        $compareProduct = $compareData[0];
+                        //ACF
+                        $compareAcf = $compareProduct['acf'];
 
-                            //Feature fotografija
-                            $productImagecompare = $compareAcf['photo_gallery']['galerija'][0][0]['full_image_url'];
+                        //Feature fotografija
+                        $productImagecompare = $compareAcf['photo_gallery']['galerija'][0][0]['full_image_url'];
 
-                            //Kategorija
-                            $compareCategory_id = $compare['categories'][0];
-                            $category_name = $lang['global']['category'][$compareCategory_id];
+                        //Kategorija
+                        $compareCategory_id = $compareProduct['categories'][0];
+                        $category_name = $lang['global']['category'][$compareCategory_id];
 
-                            //titl
-                            $compareTitleString = strip_tags($compare['title']['rendered']);
-                            $cleanedCompareTitleString = str_replace($unwantedElements, "",  $compareTitleString);
-                            $postCompareTitle = $cleanedCompareTitleString;
+                        //titl
+                        $compareTitleString = strip_tags($compareProduct['title']['rendered']);
+                        $cleanedCompareTitleString = str_replace($unwantedElements, "",  $compareTitleString);
+                        $postCompareTitle = $cleanedCompareTitleString;
 
-                            echo '<div class="compare-column">
+                        $additionalOptions = isset($thisProductAcf['dodatne_opcije_' . $language]) ? explode("\r\n", $thisProductAcf['dodatne_opcije_' . $language]) : array();
+
+                        echo '<div class="compare-column">
+                                <div class="compare-feature-group">
+                                    <div class="compare-feature-image">
+                                        <img src="'.$gallery[0]['full_image_url'].'"/>
+                                    </div>
                                     <div class="compare-feature-image">
                                         <img src="'.$productImagecompare.'"/>
+                                    </div>
+                                </div>
+                                <div class="product-header-group">
+                                    <div class="product-header">
+                                        <div class="product-name">
+                                            <span>'.$category_name.'</span>
+                                            <h1>'.$postTitle.'</h1>
+                                        </div>
                                     </div>
                                     <div class="product-header">
                                         <div class="product-name">
@@ -170,10 +242,73 @@
                                             <h1>'.$postCompareTitle.'</h1>
                                         </div>
                                     </div>
-                                    '.attributes($compareAcf).'
-                                </div>';
-                        }
-                        
+                                </div>
+                                <div class="product-attributes product-attributes-detailed">
+                                    <div class="attribute-group">
+                                        '.attribute('Prepoznavanje denominacije:', isset($thisProductAcf['prepoznavanje_denominacije_' . $language] ) ? $thisProductAcf['prepoznavanje_denominacije_' . $language] : '') . attribute('Prepoznavanje denominacije:', isset($compareAcf['prepoznavanje_denominacije_' . $language] ) ? $compareAcf['prepoznavanje_denominacije_' . $language] : '').'
+                                    </div>
+                                    <div class="attribute-group">
+                                        '.attribute('Dodatne valute:', $thisProductAcf['dodatne_valute'] == true ? $thisProductAcf['dodatne_valute_' . $language] : '') . attribute('Dodatne valute:', $compareAcf['dodatne_valute'] == true ? $compareAcf['dodatne_valute_' . $language] : '').'
+                                    </div>
+                                    <div class="attribute-group">
+                                        '.attribute('Detekcija falsifikata:', isset($thisProductAcf['detekcija_falsifikata']) ? $thisProductAcf['detekcija_falsifikata'] : '') . attribute('Detekcija falsifikata:', isset($compareAcf['detekcija_falsifikata']) ? $compareAcf['detekcija_falsifikata'] : '').'
+                                    </div>
+                                    <div class="attribute-group">
+                                        '.attribute('Džep za odbačene novčanice:', $thisProductAcf['dzep_za_odbacene_novcanice'] == true ? $thisProductAcf['dzep_za_odbacene_novcanice_' . $language] : '') . attribute('Džep za odbačene novčanice:', $compareAcf['dzep_za_odbacene_novcanice'] == true ? $compareAcf['dzep_za_odbacene_novcanice_' . $language] : '').'
+                                    </div>
+                                    <div class="attribute-group">
+                                        '.attribute('Skeniranje serijskih brojeva:', $thisProductAcf['skeniranje_serijskih_brojeva'] == true ? $thisProductAcf['skeniranje_serijskih_brojeva_' . $language] : '') . attribute('Skeniranje serijskih brojeva:', $compareAcf['skeniranje_serijskih_brojeva'] == true ? $compareAcf['skeniranje_serijskih_brojeva_' . $language] : '').'
+                                    </div>
+                                    <div class="attribute-group">
+                                        '.attribute('Sortiranje po podobnosti:', $thisProductAcf['sortiranje_po_podobnosti'] == true ? $thisProductAcf['sortiranje_po_podobnosti_' . $language] : '') . attribute('Sortiranje po podobnosti:', $compareAcf['sortiranje_po_podobnosti'] == true ? $compareAcf['sortiranje_po_podobnosti_' . $language] : '').'
+                                    </div>
+                                    <div class="attribute-group">
+                                        '.attribute('Mod mešanih valuta:', $thisProductAcf['mod_mesanih_valuta'] == true ? $thisProductAcf['mod_mesanih_valuta_' . $language] : '') . attribute('Mod mešanih valuta:', $compareAcf['mod_mesanih_valuta'] == true ? $compareAcf['mod_mesanih_valuta_' . $language] : '').'
+                                    </div>
+                                    <div class="attribute-group">
+                                        '.attribute('Mod mešanih valuta:', $thisProductAcf['mod_mesanih_valuta'] == true ? $thisProductAcf['mod_mesanih_valuta_' . $language] : '') . attribute('Mod mešanih valuta:', $compareAcf['mod_mesanih_valuta'] == true ? $compareAcf['mod_mesanih_valuta_' . $language] : '').'
+                                    </div>
+                                </div>
+                                <div class="basic-attributes">
+                                    <div class="basic-attributes-group">
+                                        '.basicAttribute('Maks. brzina brojanja (novčanica/min):', isset($thisProductAcf['maks_brzina_brojanja_novcanicamin']) ? $thisProductAcf['maks_brzina_brojanja_novcanicamin'] : '', 'fi-rs-tachometer-alt-fastest') . basicAttribute('Maks. brzina brojanja (novčanica/min):', isset($compareAcf['maks_brzina_brojanja_novcanicamin']) ? $compareAcf['maks_brzina_brojanja_novcanicamin'] : '', 'fi-rs-tachometer-alt-fastest').'
+                                    </div>
+                                    <div class="basic-attributes-group">
+                                        '.basicAttribute('Kapacitet (spremnik / obrađene / odbačene)::', isset($thisProductAcf['kapacitet_spremnik_obradjene_odbacene']) ? $thisProductAcf['kapacitet_spremnik_obradjene_odbacene'] : '', 'fi-rs-inbox') . basicAttribute('Kapacitet (spremnik / obrađene / odbačene)::', isset($thisProductAcf['kapacitet_spremnik_obradjene_odbacene']) ? $compareAcf['kapacitet_spremnik_obradjene_odbacene'] : '', 'fi-rs-inbox').'
+                                    </div>
+                                    <div class="basic-attributes-group">
+                                        '.basicAttribute('Dimenzije (Š/V/D) (cm):', isset($thisProductAcf['dimenzije_svd_cm']) ? $thisProductAcf['dimenzije_svd_cm'] : '', 'fi-rs-ruler-triangle') . basicAttribute('Dimenzije (Š/V/D) (cm):', isset($compareAcf['dimenzije_svd_cm']) ? $compareAcf['dimenzije_svd_cm'] : '', 'fi-rs-ruler-triangle').'
+                                    </div>
+                                    <div class="basic-attributes-group">
+                                        '.basicAttribute('Težina (kg):', isset($thisProductAcf['tezina_kg']) ? $thisProductAcf['tezina_kg'] : '', 'fi-rs-scale') . basicAttribute('Težina (kg):', isset($compareAcf['tezina_kg']) ? $compareAcf['tezina_kg'] : '', 'fi-rs-scale').'
+                                    </div>
+                                    <div class="basic-attributes-group">
+                                        '.basicAttribute('Napajanje:', isset($thisProductAcf['napajanje']) ? $thisProductAcf['napajanje'] : '', 'fi-rs-plug') . basicAttribute('Napajanje:', isset($compareAcf['napajanje']) ? $compareAcf['napajanje'] : '', 'fi-rs-plug').'
+                                    </div>
+                                    <div class="basic-attributes-group">
+                                        '.basicAttribute('Potrošnja:', isset($thisProductAcf['potrosnja']) ? $thisProductAcf['potrosnja'] : '', 'fi-rs-bolt') . basicAttribute('Potrošnja:', isset($compareAcf['potrosnja']) ? $compareAcf['potrosnja'] : '', 'fi-rs-bolt').'
+                                    </div>
+                                </div>
+                                <div class="additional-options">
+                                    
+                                    <div class="additional-options-group">
+                                        <div class="additional-options-container">';
+                                            echo '<h5>Dodatne opcije:</h5>';
+                                            $additionalOptionsLeft = isset($thisProductAcf['dodatne_opcije_' . $language]) ? explode("\r\n", $thisProductAcf['dodatne_opcije_' . $language]) : array();
+                                            foreach ($additionalOptionsLeft as $option) {
+                                                echo "<p>$option</p>";
+                                            }
+                                echo '  </div>
+                                        <div class="additional-options-container">';
+                                                echo '<h5>Dodatne opcije:</h5>';
+                                                $additionalOptionsRight = isset($compareAcf['dodatne_opcije_' . $language]) ? explode("\r\n", $compareAcf['dodatne_opcije_' . $language]) : array();
+                                                foreach ($additionalOptionsRight as $option) {
+                                                    echo "<p>$option</p>";
+                                                }
+                                    echo '  </div>
+                                    </div>
+                                </div>
+                            </div>';
                     }
                 ?>
             </div>

@@ -87,24 +87,28 @@
             <div class="input-wrapper-split">
                 <div class="input-wrapper form-group form-element">
                     <label for="name-surname"><?= $lang['global']['name-surname']?></label>
-                    <input type="text" name="name-surname" id="name-surname" class="form-control" data-error="<?= $lang['global']['field-required']?>" required>
+                    <input type="text" name="name-surname" id="name-surname" class="form-control" placeholder=" " data-error="<?= $lang['global']['field-required']?>" required>
+                    <i class="fi fi-rs-cross clear-field"></i>
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="input-wrapper form-group form-element">
                     <label for="company"><?= $lang['global']['company']?></label>
-                    <input type="text" name="company" id="company" class="form-control" data-error="<?= $lang['global']['field-required']?>" required>
+                    <input type="text" name="company" id="company" class="form-control" placeholder=" " data-error="<?= $lang['global']['field-required']?>" required>
+                    <i class="fi fi-rs-cross clear-field"></i>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
             <div class="input-wrapper-split">
                 <div class="input-wrapper form-group form-element">
                     <label for="email"><?= $lang['global']['email']?></label>
-                    <input type="email" name="email" id="email" class="form-control" data-error="<?= $lang['global']['email-error']?>" required>
+                    <input type="email" name="email" id="email" class="form-control" placeholder=" " data-error="<?= $lang['global']['email-error']?>" required>
+                    <i class="fi fi-rs-cross clear-field"></i>
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="input-wrapper form-group form-element">
                     <label for="phone"><?= $lang['global']['phone']?></label>
-                    <input type="tel" name="phone" id="phone" class="form-control" data-error="<?= $lang['global']['field-required']?>" required>
+                    <input type="tel" name="phone" id="phone" class="form-control" placeholder=" " data-error="<?= $lang['global']['field-required']?>" required>
+                    <i class="fi fi-rs-cross clear-field"></i>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>

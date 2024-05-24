@@ -79,4 +79,27 @@ input, textarea, select {
     &.hidden-field {
         display: none;
     }
+
+    .clear-field {
+        display: none;
+        font-size: 1.4rem;
+        position: absolute;
+        right: 1.3rem;
+        top: 3.8rem;
+        color: $black-50;
+        transition: color .2s linear;
+        cursor: pointer;
+
+        &:hover {
+            color: $black;
+        }
+    }
+
+    input {
+        &:not(:placeholder-shown) {
+            ~ .clear-field {
+                display: flex;
+            }
+        }
+    }
 }

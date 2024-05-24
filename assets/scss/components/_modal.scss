@@ -70,9 +70,15 @@
     display: flex;
     padding: 1.4rem;
     border-radius: .8rem;
+    color: $black-60;
 
     &:hover {
       background-color: $black-10;
+      color: black;
+    }
+
+    &:active {
+      background-color: $black-20;
     }
   }
 }

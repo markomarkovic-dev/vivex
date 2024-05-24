@@ -38,7 +38,7 @@
     <section class="section-pt-0">
         <div class="section-container">
             <div class="hero-blocks">
-                <div class="hero-block">
+                <a href="prodaja" class="hero-block">
                     <div class="hero-block-icon">
                         <img src="assets/icons/sales.svg" alt="">
                     </div>
@@ -46,8 +46,8 @@
                         <h3>Prodaja</h3>
                         <p>Naš prodajni tim Vam stoji na raspolaganju kako bi pronašli najbolje rješenje za Vaše poslovanje.</p>
                     </div>
-                </div>
-                <div class="hero-block">
+                </a>
+                <a href="proizvodnja" class="hero-block">
                     <div class="hero-block-icon">
                         <img src="assets/icons/manufacturing.svg" alt="">
                     </div>
@@ -55,8 +55,8 @@
                         <h3>Proizvodnja</h3>
                         <p>Stvaranje sistema koji zadovoljavaju i najzahtjevnije korisnike.</p>
                     </div>
-                </div>
-                <div class="hero-block">
+                </a>
+                <a href="servis" class="hero-block">
                     <div class="hero-block-icon">
                         <img src="assets/icons/maintenance.svg" alt="">
                     </div>
@@ -64,7 +64,7 @@
                         <h3>Održavanje</h3>
                         <p>Profesionalno održavanje svih sistema i proizvoda iz našeg prodajnog asortimana.</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -88,7 +88,7 @@
                     <div class="featured-block-text">
                         <h4>Novi način <strong>novčanog pologa</strong></h4>
                         <p>Skraćuje vrijeme između i dostupnosti na vašem računu.</p>
-                        <a href="#" class="btn btn-featured">Saznaj više <i class="fi fi-rs-arrow-alt-right"></i></a>
+                        <a href="#" class="btn btn-featured">Saznaj više <i class="fi fi-rs-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="featured-block">
@@ -98,13 +98,13 @@
                     <div class="featured-block-text">
                         <h4>Brza i jednostavna <strong>promjena valute</strong></h4>
                         <p>Skraćuje vrijeme između i dostupnosti na vašem računu.</p>
-                        <a href="#" class="btn btn-featured">Saznaj više <i class="fi fi-rs-arrow-alt-right"></i></a>
+                        <a href="#" class="btn btn-featured">Saznaj više <i class="fi fi-rs-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section>
+    <section class="popular-section">
     <div class="section-container section-column">
             <h2 class="section-title">Najpopularniji proizvodi</h2>
             <div class="owl-carousel popular-products">

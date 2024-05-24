@@ -3,7 +3,7 @@
 ?>
 <footer class="footer">
     <div class="footer-container">
-        <a href="home">
+        <a href="<?= $siteUrl . '/' . $language. '/' . 'home'?>">
             <img src="assets/images/logo-primary.svg" alt="" class="logo">
         </a>
         <span class="footer-border"></span>

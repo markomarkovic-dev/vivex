@@ -66,6 +66,7 @@
     }
 
     &-right {
+      position: relative;
         @media(max-width: 991px) {
             height: 500px;
         }
@@ -82,16 +83,19 @@
 
     &-title {
         font-size: 2.4rem;
-        border-color: $primary;
+        border-bottom: 1px solid $primary-50!important;
         color: $primary;
     }
 
     &-item {
-        border-color: $black;
         color: $black;
         display: flex;
         align-items: center;
         gap: 1.2rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $black-20;
+        }
 
         .contact-block-icon {
             width: 3.2rem;
@@ -123,6 +127,12 @@
                 font-size: 1.8rem;
                 display: flex;
             }
+
+            a {
+              &:hover {
+                color: $primary;
+              }
+            }
         }
     }
   }
@@ -138,4 +148,24 @@
   .send-message {
     margin-top: 2rem;
     text-align: center;
+  }
+
+  .maps-external {
+    position: absolute;
+    z-index: 2;
+    top: 2rem;
+    right: 2rem;
+    background-color: $black;
+    border-radius: .8rem;
+    width: 4.4rem;
+    height: 4.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: 1.6rem;
+      color: white;
+      display: flex;
+    }
   }
