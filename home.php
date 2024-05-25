@@ -88,7 +88,7 @@
                     <div class="featured-block-text">
                         <h4>Novi način <strong>novčanog pologa</strong></h4>
                         <p>Skraćuje vrijeme između i dostupnosti na vašem računu.</p>
-                        <a href="#" class="btn btn-featured">Saznaj više <i class="fi fi-rs-arrow-right"></i></a>
+                        <a href="sistemi-za-uplatu-novca" class="btn btn-featured">Saznaj više <i class="fi fi-rs-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="featured-block">

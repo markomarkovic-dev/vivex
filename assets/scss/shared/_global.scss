@@ -155,6 +155,7 @@ h3 {
       display: flex;
       align-items: center;
       gap: 1.5rem;
+      border-radius: 2rem 2rem 0 0;
   
       @media (max-width: 768px) {
         flex-direction: column;
@@ -567,5 +568,50 @@ h3 {
 
   ul {
     list-style: none;
+  }
+}
+
+.help-block {
+  &.with-errors {
+    &:not(:empty) {
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+
+      .list-unstyled {
+        margin-top: .5rem;
+      }
+
+      li {
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+
+        &::after {
+          content: "\fb9a";
+          font-family: uicons-regular-straight !important;
+        }
+      }
+    }
+  }
+}
+
+.empty-message {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  i {
+    font-size: 7rem;
+    color: $black-50;
+  }
+
+  p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $black-90;
   }
 }

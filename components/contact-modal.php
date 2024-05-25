@@ -114,7 +114,7 @@
             </div>
             <div class="input-wrapper form-group form-element">
                 <label for="message"><?= $lang['global']['message']?></label>
-                <textarea name="message" id="message" rows="5" class="form-control" data-error="<?= $lang['global']['field-required']?>" required></textarea>
+                <textarea name="message" id="message" rows="5" class="form-control" placeholder=" " data-error="<?= $lang['global']['field-required']?>" required></textarea>
                 <div class="help-block with-errors"></div>
             </div>
             <div class="input-wrapper hidden-field">

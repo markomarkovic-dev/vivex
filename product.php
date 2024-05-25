@@ -22,7 +22,7 @@
     $thisProductAcf = $post['acf'];
     $gallery = $thisProductAcf['photo_gallery']['galerija'][0];
     $category_id = $post['categories'][0];
-    $category_name = $lang['global']['category'][$category_id];
+    $category_name = $lang['global']['category'][$category_id]['title'];
 
     //Povezani proizvodi
     $thisProductId = $post['id'];
@@ -99,7 +99,7 @@
                 </div>
                 <div class="product-attributes product-attributes-detailed">
                     <?php
-                         echo attribute('Prepoznavanje denominacije:', isset($thisProductAcf['prepoznavanje_denominacije_' . $language] ) ? $thisProductAcf['prepoznavanje_denominacije_' . $language] : '');
+                         echo attribute('Prepoznavanje apoena :', isset($thisProductAcf['prepoznavanje_apoena_' . $language] ) ? $thisProductAcf['prepoznavanje_apoena_' . $language] : '');
                          echo attribute('Dodatne valute:', $thisProductAcf['dodatne_valute'] == true ? $thisProductAcf['dodatne_valute_' . $language] : '');
                          echo attribute('Detekcija falsifikata:', isset($thisProductAcf['detekcija_falsifikata']) ? $thisProductAcf['detekcija_falsifikata'] : '');
                          echo attribute('Džep za odbačene novčanice:', $thisProductAcf['dzep_za_odbacene_novcanice'] == true ? $thisProductAcf['dzep_za_odbacene_novcanice_' . $language] : '');
@@ -211,7 +211,7 @@
 
                         //Kategorija
                         $compareCategory_id = $compareProduct['categories'][0];
-                        $category_name = $lang['global']['category'][$compareCategory_id];
+                        $category_name = $lang['global']['category'][$compareCategory_id]['title'];
 
                         //titl
                         $compareTitleString = strip_tags($compareProduct['title']['rendered']);
@@ -245,7 +245,7 @@
                                 </div>
                                 <div class="product-attributes product-attributes-detailed">
                                     <div class="attribute-group">
-                                        '.attribute('Prepoznavanje denominacije:', isset($thisProductAcf['prepoznavanje_denominacije_' . $language] ) ? $thisProductAcf['prepoznavanje_denominacije_' . $language] : '') . attribute('Prepoznavanje denominacije:', isset($compareAcf['prepoznavanje_denominacije_' . $language] ) ? $compareAcf['prepoznavanje_denominacije_' . $language] : '').'
+                                        '.attribute('Prepoznavanje apoena :', isset($thisProductAcf['prepoznavanje_apoena_' . $language] ) ? $thisProductAcf['prepoznavanje_apoena_' . $language] : '') . attribute('Prepoznavanje apoena :', isset($compareAcf['prepoznavanje_apoena_' . $language] ) ? $compareAcf['prepoznavanje_apoena_' . $language] : '').'
                                     </div>
                                     <div class="attribute-group">
                                         '.attribute('Dodatne valute:', $thisProductAcf['dodatne_valute'] == true ? $thisProductAcf['dodatne_valute_' . $language] : '') . attribute('Dodatne valute:', $compareAcf['dodatne_valute'] == true ? $compareAcf['dodatne_valute_' . $language] : '').'

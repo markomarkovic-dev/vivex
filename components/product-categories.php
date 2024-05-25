@@ -3,51 +3,51 @@
     <div class="category-gallery">
         <a href="sistemi-za-uplatu-novca" class="nav-category">
             <img src="assets/images/categories/vivex-sistemi-za-uplatu-novca.png" alt="">
-            <span>Sistemi za uplatu novca</span>
+            <span><?= $lang['global']['category'][45]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=46" class="nav-category">
             <img src="assets/images/categories/vivex-automatska-menjacnica.png" alt="">
-            <span>Automatska mjenjačnica</span>
+            <span><?= $lang['global']['category'][46]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=47" class="nav-category">
             <img src="assets/images/categories/vivex-pultne-blagajne.png" alt="">
-            <span>Putne blagajne</span>
+            <span><?= $lang['global']['category'][47]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=48" class="nav-category">
             <img src="assets/images/categories/vivex-brojaci-novca.png" alt="">
-            <span>Brojači papirnog novca</span>
+            <span><?= $lang['global']['category'][48]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=49" class="nav-category">
             <img src="assets/images/categories/vivex-brojaci-kovanog-novca.png" alt="">
-            <span>Brojači kovanog novca</span>
+            <span><?= $lang['global']['category'][49]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=50" class="nav-category">
             <img src="assets/images/categories/vivex-masine-za-obradu-novca.png" alt="">
-            <span>Mašine za obradu novca</span>
+            <span><?= $lang['global']['category'][50]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=51" class="nav-category">
             <img src="assets/images/categories/vivex-sefovi.png" alt="">
-            <span>Sefovi</span>
+            <span><?= $lang['global']['category'][51]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=52" class="nav-category">
             <img src="assets/images/categories/vivex-sigurnosna-oprema.png" alt="">
-            <span>Sigurnosna oprema</span>
+            <span><?= $lang['global']['category'][52]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=53" class="nav-category">
             <img src="assets/images/categories/vivex-masine-za-pakovanje.png" alt="">
-            <span>Mašine za pakovanje</span>
+            <span><?= $lang['global']['category'][53]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=54" class="nav-category">
             <img src="assets/images/categories/vivex-trezor.png" alt="">
-            <span>Trezori</span>
+            <span><?= $lang['global']['category'][54]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=55" class="nav-category">
             <img src="assets/images/categories/vivex-sigurnosni-koferi.png" alt="">
-            <span>Sigurnosni koferi</span>
+            <span><?= $lang['global']['category'][55]['title']?></span>
         </a>
-        <a href="category" class="nav-category">
+        <a href="category?id=56" class="nav-category">
             <img src="assets/images/categories/vivex-softverska-resenja.png" alt="">
-            <span>Softverska rešenja</span>
+            <span><?= $lang['global']['category'][56]['title']?></span>
         </a>
     </div>
 </div>

@@ -35,7 +35,7 @@ function attributes($acf) {
     $output = '<div class="product-attributes product-attributes-detailed">';
 
     // Generate detailed attributes HTML
-    $output .= attribute('Prepoznavanje denominacije:', isset($acf['prepoznavanje_denominacije_' . $language] ) ? $acf['prepoznavanje_denominacije_' . $language] : '');
+    $output .= attribute('Prepoznavanje apoena :', isset($acf['prepoznavanje_apoena_' . $language] ) ? $acf['prepoznavanje_apoena_' . $language] : '');
     $output .= attribute('Dodatne valute:', $acf['dodatne_valute'] == true ? $acf['dodatne_valute_' . $language] : '');
     $output .= attribute('Detekcija falsifikata:', isset($acf['detekcija_falsifikata']) ? $acf['detekcija_falsifikata'] : '');
     $output .= attribute('Džep za odbačene novčanice:', $acf['dzep_za_odbacene_novcanice'] == true ? $acf['dzep_za_odbacene_novcanice_' . $language] : '');

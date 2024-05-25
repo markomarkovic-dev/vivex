@@ -46,19 +46,55 @@
 			'contact-us-text' => 'Kontaktirajte nas kako biste rezervisali svoj savršeni odmor. Očekujemo Vas s osmijehom i željom da vam pružimo nezaboravan doživljaj.',
 
 			'category' => array(
-				46 => 'Automatska mjenjačnica',
-				49 => 'Brojači kovanog novca',
-				48 => 'Brojači papirnog novca',
-				50 => 'Mašine za obradu novca',
-				53 => 'Mašine za pakovanje',
-				47 => 'Pultne blagajne',
-				51 => 'Sefovi',
-				52 => 'Sigurnosna oprema',
-				55 => 'Sigurnosni koferi',
-				45 => 'Sistemi za uplatu novca',
-				45 => 'Softverska riješenja',
-				56 => 'Softverska riješenja',
-				54 => 'Trezori',
+				46 => array(
+					'title' => 'Automatska mjenjačnica',
+					'description' => ''
+				),
+				49 => array(
+					'title' => 'Brojači kovanog novca',
+					'description' => ''
+				),
+				48 => array(
+					'title' => 'Brojači papirnog novca',
+					'description' => 'Mašine za brojanje novca prvenstveno broje novac. Osim osnovne funkcije brojanja novca, većina mašina vrši detekciju falsifikata, dok napredniji imaju mogućnost skeniranja serijskih brojeva, prepoznavanja apoena i izračunavanja ukupne vrijednosti, kao i provjere da li su novčanice još sposobne za promet.'
+				),
+				50 => array(
+					'title' => 'Mašine za obradu novca',
+					'description' => ''
+				),
+
+				53 => array(
+					'title' => 'Mašine za pakovanje',
+					'description' => ''
+				),
+				47 => array(
+					'title' => 'Pultne blagajne',
+					'description' => ''
+				),
+				51 => array(
+					'title' => 'Sefovi',
+					'description' => ''
+				),
+				52 => array(
+					'title' => 'Sigurnosna oprema',
+					'description' => ''
+				),
+				55 => array(
+					'title' => 'Sigurnosni koferi',
+					'description' => ''
+				),
+				45 => array(
+					'title' => 'Sistemi za uplatu novca',
+					'description' => ''
+				),
+				56 => array(
+					'title' => 'Softverska riješenja',
+					'description' => ''
+				),
+				54 => array(
+					'title' => 'Trezori',
+					'description' => ''
+				),
 			),
 		),
 
