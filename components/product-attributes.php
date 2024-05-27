@@ -20,51 +20,112 @@
     
     // Function to generate basic attribute HTML
     function basicAttribute($name, $value, $icon) {
-        return '<div class="basic-attribute">
-                    <i class="fi '.$icon.'"></i>
-                    <div class="basic-attribute-text">
-                        <span>'.$name.'</span>
-                        <h4>'.$value.'</h4>
-                    </div>
-                </div>';
-    }
-    
-function attributes($acf) {
-    
-    global $language;
-    $output = '<div class="product-attributes product-attributes-detailed">';
+        if($value === '') {
+            return;
+        } else {
+            return '<div class="basic-attribute">
+            <i class="fi '.$icon.'"></i>
+            <div class="basic-attribute-text">
+                <span>'.$name.'</span>
+                <h4>'.$value.'</h4>
+            </div>
+        </div>';
+        }
+     }
 
-    // Generate detailed attributes HTML
-    $output .= attribute('Prepoznavanje apoena :', isset($acf['prepoznavanje_apoena_' . $language] ) ? $acf['prepoznavanje_apoena_' . $language] : '');
-    $output .= attribute('Dodatne valute:', $acf['dodatne_valute'] == true ? $acf['dodatne_valute_' . $language] : '');
-    $output .= attribute('Detekcija falsifikata:', isset($acf['detekcija_falsifikata']) ? $acf['detekcija_falsifikata'] : '');
-    $output .= attribute('Džep za odbačene novčanice:', $acf['dzep_za_odbacene_novcanice'] == true ? $acf['dzep_za_odbacene_novcanice_' . $language] : '');
-    $output .= attribute('Skeniranje serijskih brojeva:', isset($acf['skeniranje_serijskih_brojeva']) ? $acf['skeniranje_serijskih_brojeva_' . $language] : '');
-    $output .= attribute('Sortiranje po podobnosti:', isset($acf['sortiranje_po_podobnosti']) ? $acf['sortiranje_po_podobnosti_' . $language] : '');
-    $output .= attribute('Mod mešanih valuta:', isset($acf['mod_mesanih_valuta']) ? $acf['mod_mesanih_valuta_' . $language] : '');
-    $output .= attribute('Portovi:', isset($acf['portovi']) ? $acf['portovi'] : '');
+    //  function prepoznavanjeApoena($thisacf) {
+    //     global $language;
+    //     if (isset($thisacf['prepoznavanje_apoena_' . $language])) {
+    //         echo attribute('Prepoznavanje apoena:', $thisacf['prepoznavanje_apoena_' . $language]);
+    //     }
+    //  }
+
+    // function dodatneValute($thisacf) {
+    //     global $language;
+    //     if (isset($thisacf['dodatne_valute'])) {
+    //         if($thisacf['dodatne_valute'] == true) {
+    //             echo attribute('Dodatne valute:', $thisacf['dodatne_valute_' . $language]);
+    //         } else {
+    //             echo attribute('Dodatne valute:', '');
+    //         }
+    //     }
+    // }
+
+    // function detekcijaFalsifikata($thisacf) {
+    //     if (isset($thisacf['detekcija_falsifikata'])) {
+    //         echo attribute('Detekcija falsifikata:', $thisacf['detekcija_falsifikata']);
+    //     }
+    // }
+
+    // function dzepOdbaceneNovcanice($thisacf) {
+    //     global $language;
+    //     if (isset($thisacf['dzep_za_odbacene_novcanice'])) {
+                        
+    //         if($thisacf['dzep_za_odbacene_novcanice'] == true) {
+    //             echo attribute('Džep za odbačene novčanice:', $thisacf['dzep_za_odbacene_novcanice_' . $language]);
+    //         } else {
+    //             echo attribute('Džep za odbačene novčanice:', '');
+    //         }
+    //     }
+    // }
+
+    // function skeniranjeSerijskihBrojeva($thisacf) {
+    //     global $language;
+    //     if (isset($thisacf['skeniranje_serijskih_brojeva'])) {
+
+    //         if($thisacf['skeniranje_serijskih_brojeva'] == true) {
+    //             echo attribute('Skeniranje serijskih brojeva:', $thisacf['skeniranje_serijskih_brojeva_' . $language]);
+    //         } else {
+    //             echo attribute('Skeniranje serijskih brojeva:', '');
+    //         }
+    //     }
+    // }
+
+    // function sortiranjePodobnosti($thisacf) {
+    //     global $language;
+    //     if (isset($thisacf['sortiranje_po_podobnosti'])) {
+    //         if($thisacf['sortiranje_po_podobnosti'] == true) {
+    //             echo attribute('Sortiranje po podobnosti:', $thisacf['sortiranje_po_podobnosti_' . $language]);
+    //         } else {
+    //             echo attribute('Sortiranje po podobnosti:', '');
+    //         }
+    //     }
+    // }
+
+    // function modMesanihValuta($thisacf) {
+    //     global $language;
+    //     if (isset($thisacf['mod_mesanih_valuta'])) {
+                        
+    //         if($thisacf['mod_mesanih_valuta'] == true) {
+    //             echo attribute('Mod mešanih valuta:', $thisacf['mod_mesanih_valuta_' . $language]);
+    //         } else {
+    //             echo attribute('Mod mešanih valuta:', '');
+    //         }
+    //     }
+    // }
     
-    $output .= '</div>';
-    $output .= '<div class="basic-attributes">';
-    $output .= basicAttribute('Maks. brzina brojanja (novčanica/min):', isset($acf['maks_brzina_brojanja_novcanicamin']) ? $acf['maks_brzina_brojanja_novcanicamin'] : '', 'fi-rs-tachometer-alt-fastest');
-    $output .= basicAttribute('Kapacitet (spremnik / obrađene / odbačene)::', isset($acf['kapacitet_spremnik_obradjene_odbacene']) ? $acf['kapacitet_spremnik_obradjene_odbacene'] : '', 'fi-rs-inbox');
-    $output .= basicAttribute('Dimenzije (Š/V/D) (cm):', isset($acf['dimenzije_svd_cm']) ? $acf['dimenzije_svd_cm'] : '', 'fi-rs-ruler-triangle');
-    $output .= basicAttribute('Težina (kg):', isset($acf['tezina_kg']) ? $acf['tezina_kg'] : '', 'fi-rs-scale');
-    $output .= basicAttribute('Napajanje:', isset($acf['napajanje']) ? $acf['napajanje'] : '', 'fi-rs-plug');
-    $output .= basicAttribute('Potrošnja:', isset($acf['potrosnja']) ? $acf['potrosnja'] : '', 'fi-rs-plug');
-    $output .= '</div>';
-    $output .= '<div class="additional-options">';
-    $output .= '<h5>Dodatne opcije:</h5>';
-    $output .= '<div class="additional-options-container">';
-    
-    // Generate additional options HTML
-    $additionalOptions = isset($acf['dodatne_opcije_' . $language]) ? explode("\r\n", $acf['dodatne_opcije_' . $language]) : array();
-    foreach($additionalOptions as $option) {
-        $output .= "<p>$option</p>";
+    // function portovi($thisacf) {
+    //     if (isset($thisacf['portovi'])) {
+    //         echo attribute('Portovi:', $thisacf['portovi']);
+    //     }
+    // }
+
+    function attributes($attr, $attrLink, $attrName) {
+        global $language;
+        if (isset($attr[$attrLink])) {
+            if($attr[$attrLink] === true && $attr[$attrLink] !== '') {
+                echo attribute($attrName, $attr[$attrLink .'_'. $language]);
+            } elseif ($attr[$attrLink] === false || $attr[$attrLink] === '') {
+                echo attribute($attrName, '');
+            } else {
+                echo attribute($attrName, $attr[$attrLink]);
+            }
+        }
     }
-    
-    $output .= '</div></div>';
-    
-    return $output;
-}
+
+    function basicAttributes($name, $attr, $icon) {
+        if (isset($attr)) {
+            echo basicAttribute($name, $attr, $icon);
+        }
+    }
 ?>

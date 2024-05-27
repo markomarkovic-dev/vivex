@@ -472,6 +472,20 @@
     }
 }
 
+.category-item {
+    .attribute {
+        &:nth-child(n+7) {
+            display: none;
+        }
+
+        .attribute-description {
+            p {
+                display: none;
+            }
+        }
+    }
+}
+
 .owl-carousel .owl-nav.disabled {
     display: flex!important;
 }

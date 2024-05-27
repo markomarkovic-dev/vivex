@@ -254,6 +254,12 @@
         font-size: 1.4rem;
         font-weight: 400;
         margin-bottom: 1rem;
+
+        
+    }
+
+    &:has(.additional-options-container:empty) {
+        display: none;
     }
 
     p {

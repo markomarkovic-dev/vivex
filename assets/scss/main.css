@@ -1953,6 +1953,13 @@ input:not(:placeholder-shown), textarea:not(:placeholder-shown), select:not(:pla
   font-size: 2.4rem;
 }
 
+.category-item .attribute:nth-child(n+7) {
+  display: none;
+}
+.category-item .attribute .attribute-description p {
+  display: none;
+}
+
 .owl-carousel .owl-nav.disabled {
   display: flex !important;
 }
@@ -2216,6 +2223,9 @@ input:not(:placeholder-shown), textarea:not(:placeholder-shown), select:not(:pla
   font-size: 1.4rem;
   font-weight: 400;
   margin-bottom: 1rem;
+}
+.additional-options:has(.additional-options-container:empty) {
+  display: none;
 }
 .additional-options p {
   display: flex;

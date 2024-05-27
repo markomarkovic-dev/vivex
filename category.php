@@ -1,6 +1,5 @@
 <?php 
     include 'includes/global-header.php'; 
-
     $queries = array();
     parse_str($_SERVER['QUERY_STRING'], $queries);
 
@@ -15,21 +14,8 @@
     }
 
     $unwantedElements = array("&nbsp;", "<br>", "<br/>", "<p>", "</p>", "<strong>", "</strong>", "[…]");
-    function attribute($name, $value) {
-        if ($value === '') {
-            return '<div class="attribute attribute-unavailable">
-                        <div class="attribute-description">
-                            <h5>'.$name.'</h5>
-                        </div>
-                    </div>';
-        } else {
-            return '<div class="attribute attribute-available">
-                        <div class="attribute-description">
-                            <h5>'.$name.'</h5>
-                        </div>
-                    </div>';
-        }
-    }
+    
+    include 'components/product-attributes.php';
 ?>
 <main>
     <div class="cross-shapes category-shapes">
@@ -43,7 +29,7 @@
             <p class="section-description"><?= $lang['global']['category'][$thisCategoryId]['description']?></p>
             <?php 
                 if(!empty($catData)) {
-                    echo '<div class="products-grid">';
+                    echo '<div class="products-grid category-item">';
                     foreach($catData as $productPreview) {
                     
                         $titleString = strip_tags($productPreview['title']['rendered']);
@@ -58,11 +44,24 @@
                         <span class="product-category">' . $category_name . '</span>
                         <h4 class="product-name">' . $postTitle . '</h4>
                         <div class="product-attributes">';
-                            echo attribute('Prepoznavanje apoena', isset($thisProductAcf['prepoznavanje_apoena_' . $language]) ? $thisProductAcf['prepoznavanje_apoena_' . $language] : '');
-                            echo attribute('Dodatne valute', $thisProductAcf['dodatne_valute'] == true ? $thisProductAcf['dodatne_valute_' . $language] : '');
-                            echo attribute('Detekcija falsifikata', isset($thisProductAcf['detekcija_falsifikata']) ? $thisProductAcf['detekcija_falsifikata'] : '');
-                            echo attribute('Džep za odbačene novčanice', $thisProductAcf['dzep_za_odbacene_novcanice'] == true ? $thisProductAcf['dzep_za_odbacene_novcanice_' . $language] : '');
-            
+                        
+                        attributes($thisProductAcf, 'mehanicka_brava', 'Mehanička brava');
+                        attributes($thisProductAcf, 'elektronska_brava', 'Elektronska brava');
+                        attributes($thisProductAcf, 'stepen_sigurnosti', 'Stepen sigurnosti');
+                        attributes($thisProductAcf, 'punjen_betonom_'.$language, 'Punjen betonom');
+                        attributes($thisProductAcf, 'zastita_od_busenja', 'Zaštita od bušenja');
+                        attributes($thisProductAcf, 'zastita_od_vatre', 'Zaštita od vatre');
+                        attributes($thisProductAcf, 'brava_sa_vremenom_zadrske', 'Brava sa vremenom zadrške');
+                        attributes($thisProductAcf, 'depozitni_otvor', 'Depozitni otvor');
+                        attributes($thisProductAcf, 'mogucnost_ankerisanja', 'Mogućnost ankerisanja');
+                        attributes($thisProductAcf, 'prepoznavanje_apoena_'.$language, 'Prepoznavanje apoena');
+                        attributes($thisProductAcf, 'dodatne_valute', 'Dodatne valute');
+                        attributes($thisProductAcf, 'detekcija_falsifikata', 'Detekcija falsifikata');
+                        attributes($thisProductAcf, 'dzep_za_odbacene_novcanice', 'Džep za odbačene novčanice');
+                        attributes($thisProductAcf, 'skeniranje_serijskih_brojeva_'.$language, 'Skeniranje serijskih brojeva');
+                        attributes($thisProductAcf, 'sortiranje_po_podobnosti', 'Sortiranje po podobnosti');
+                        attributes($thisProductAcf, 'mod_mesanih_valuta', 'Mod mešanih valuta');
+                        attributes($thisProductAcf, 'portovi', 'Portovi');
                         echo '</div></a>';
                     }
                 } else {

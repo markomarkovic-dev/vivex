@@ -70,7 +70,7 @@
                 <select name="product-name" id="product-name">
                     <?php 
                         if(isset($product_page)) {
-                            $apiCatListUrl = "$backendUrl/wp-json/wp/v2/proizvodi?category=$category_id";
+                            $apiCatListUrl = "$backendUrl/wp-json/wp/v2/proizvodi?categories=$category_id";
                             $dataSelect = json_decode(file_get_contents($apiCatListUrl), true);
                             $productId = $queries['id'];
 
