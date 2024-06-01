@@ -1507,8 +1507,8 @@ input:not(:placeholder-shown), textarea:not(:placeholder-shown), select:not(:pla
   z-index: -1;
   width: 100%;
 }
+
 @media (max-width: 991px) {
-  .animation-container,
   .cross-shapes {
     display: none;
   }
@@ -2145,6 +2145,15 @@ input:not(:placeholder-shown), textarea:not(:placeholder-shown), select:not(:pla
 .product-header a:hover {
   color: #1E1E1E;
 }
+@media (max-width: 991px) {
+  .product-header #download-doc span {
+    display: none;
+  }
+  .product-header #download-doc i {
+    font-size: 2.5rem;
+    margin-right: 0;
+  }
+}
 
 .product-attributes-detailed {
   border-radius: unset;
@@ -2396,6 +2405,9 @@ input:not(:placeholder-shown), textarea:not(:placeholder-shown), select:not(:pla
 .attribute-group .attribute {
   flex-basis: 50%;
   align-items: flex-start;
+}
+.attribute-group:empty {
+  display: none;
 }
 
 .basic-attributes-group .basic-attribute {
@@ -2703,10 +2715,12 @@ input:not(:placeholder-shown), textarea:not(:placeholder-shown), select:not(:pla
     width: fit-content;
   }
 }
-.deposit-device-features .device-feature-list li:hover {
-  border-color: #D11434;
-  background-color: #FAE7EB;
-  color: #D11434;
+@media (min-width: 992px) {
+  .deposit-device-features .device-feature-list li:hover {
+    border-color: #D11434;
+    background-color: #FAE7EB;
+    color: #D11434;
+  }
 }
 .deposit-device-features .left-block {
   position: relative;

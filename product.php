@@ -22,7 +22,6 @@
     $thisProductAcf = $post['acf'];
     $gallery = $thisProductAcf['photo_gallery']['galerija'][0];
     $category_id = $post['categories'][0];
-    var_dump($category_id);
     $category_name = $lang['global']['category'][$category_id]['title'];
 
     //Povezani proizvodi
@@ -65,7 +64,7 @@
                     </div>
                     <?php 
                         if($thisProductAcf["dokument"] != '') {
-                            echo '<a href="'.$thisProductAcf["dokument"].'" class="btn btn-white" download="download"><i class="fi fi-rs-file-download"></i>Preuzmi</a>';
+                            echo '<a href="'.$thisProductAcf["dokument"].'" id="download-doc" class="btn btn-white" download="download"><i class="fi fi-rs-file-download"></i><span>Preuzmi</span></a>';
                         }
                     ?>
                 </div>
@@ -364,8 +363,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-attributes pr
-                                oduct-attributes-detailed">
+                                <div class="product-attributes product-attributes-detailed">
                                     '.$attributes.'
                                 </div>
                                 <div class="basic-attributes">

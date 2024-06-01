@@ -5,7 +5,9 @@
     overflow: hidden;
     z-index: -1;
     width: 100%;
+}
 
+.cross-shapes {
     @media(max-width: 991px) {
         display: none;
     }

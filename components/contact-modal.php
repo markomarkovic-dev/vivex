@@ -75,7 +75,6 @@
                             $productId = $queries['id'];
 
                             foreach($dataSelect as $productSelect) {
-                                var_dump($queries);
                                 $productTitleSelect = strip_tags($productSelect['title']['rendered']);
                                 $productTitleClean = str_replace($unwantedElements, "",  $productTitleSelect);
                                 echo '<option value="' . $productTitleClean . '" ' . ($productId == $productSelect['slug'] ? 'selected' : '') . '>' . $productTitleClean . '</option>';

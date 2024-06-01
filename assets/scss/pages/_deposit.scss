@@ -142,9 +142,11 @@
             }
 
             &:hover {
-                border-color: $primary;
-                background-color: $primary-10;
-                color: $primary;
+                @media(min-width: 992px) {
+                    border-color: $primary;
+                    background-color: $primary-10;
+                    color: $primary;
+                }
             }
         }
     }
