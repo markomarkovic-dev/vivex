@@ -57,7 +57,7 @@ foreach ($jezici as $jezik) {
 //redirekcija ako nije setovan jezik
 if (is_null($lang)) {
 	flush();
-	header("Location: " . $mainlang . "/home.php", true, 301);
+	header("Location: " . $mainlang . "/naslovna.php", true, 301);
 	die('should have redirected by now');
 }
 ?>

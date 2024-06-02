@@ -93,7 +93,7 @@
 			'no-products' => 'Trenutno nema proizvoda u ovoj kategoriji'
 		),
 
-	'home' => array(
+	'naslovna' => array(
 		'title' => 'Vivex', 
 		'description' => 'The best systems and machines for working with money.',
 		'page-heading' => 'Najbolji <strong>sistemi</strong> i <strong>mašine</strong> za <strong>rad sa novcem.</strong>',

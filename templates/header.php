@@ -14,13 +14,13 @@ if ($language == "ba") {
 <header class="header">
     <div class="header-container">
         <div class="header-left">
-            <a href="<?= $siteUrl . '/' . $language. '/' . 'home'?>">
+            <a href="<?= $siteUrl . '/' . $language. '/' . 'naslovna'?>">
             <img src="assets/images/logo-alternative.svg" class="logo" alt="">
             </a>
         </div>
         <div class="header-center">
             <nav>
-                <a href="home" class="nav-item <?= activePage('home'); ?>"><?= $lang['global']['nav-home'] ?></a>
+                <a href="naslovna" class="nav-item <?= activePage('naslovna'); ?>"><?= $lang['global']['nav-home'] ?></a>
                 <div href="proizvodi" class="nav-item nav-dropdown nav-categories<?= activePage('proizvodi'); ?>">
                     <a class="nav-item <?= activePage('o-nama'); ?>"><?= $lang['global']['nav-products'] ?></a>
 

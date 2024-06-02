@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
     <url>
-        <loc>https://vivex.ba/en/home</loc>
+        <loc>https://vivex.ba/en/naslovna</loc>
         <lastmod>2024-06-02T06:45:47+00:00</lastmod>
         <priority>1.00</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://vivex.ba/en/home"/>
-        <xhtml:link rel="alternate" hreflang="sr" href="https://vivex.ba/sr/home"/>
-        <xhtml:link rel="alternate" hreflang="ba" href="https://vivex.ba/ba/home"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vivex.ba/en/naslovna"/>
+        <xhtml:link rel="alternate" hreflang="sr" href="https://vivex.ba/sr/naslovna"/>
+        <xhtml:link rel="alternate" hreflang="ba" href="https://vivex.ba/ba/naslovna"/>
       </url>
       <url>
         <loc>https://vivex.ba/en/sistemi-za-uplatu-novca</loc>
@@ -68,12 +68,12 @@
       
       <!-- Serbian Pages -->
       <url>
-        <loc>https://vivex.ba/sr/home</loc>
+        <loc>https://vivex.ba/sr/naslovna</loc>
         <lastmod>2024-06-02T06:45:47+00:00</lastmod>
         <priority>1.00</priority>
-        <xhtml:link rel="alternate" hreflang="sr" href="https://vivex.ba/sr/home"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://vivex.ba/en/home"/>
-        <xhtml:link rel="alternate" hreflang="ba" href="https://vivex.ba/ba/home"/>
+        <xhtml:link rel="alternate" hreflang="sr" href="https://vivex.ba/sr/naslovna"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vivex.ba/en/naslovna"/>
+        <xhtml:link rel="alternate" hreflang="ba" href="https://vivex.ba/ba/naslovna"/>
       </url>
       <url>
         <loc>https://vivex.ba/sr/sistemi-za-uplatu-novca</loc>
@@ -134,12 +134,12 @@
       
       <!-- Bosnian Pages -->
       <url>
-        <loc>https://vivex.ba/ba/home</loc>
+        <loc>https://vivex.ba/ba/naslovna</loc>
         <lastmod>2024-06-02T06:45:47+00:00</lastmod>
         <priority>1.00</priority>
-        <xhtml:link rel="alternate" hreflang="ba" href="https://vivex.ba/ba/home"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://vivex.ba/en/home"/>
-        <xhtml:link rel="alternate" hreflang="sr" href="https://vivex.ba/sr/home"/>
+        <xhtml:link rel="alternate" hreflang="ba" href="https://vivex.ba/ba/naslovna"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vivex.ba/en/naslovna"/>
+        <xhtml:link rel="alternate" hreflang="sr" href="https://vivex.ba/sr/naslovna"/>
       </url>
       <url>
         <loc>https://vivex.ba/ba/sistemi-za-uplatu-novca</loc>
@@ -200,7 +200,7 @@
       <url><loc>https://vivex.ba/sr/kategorija?id=45</loc></url>
     <url><loc>https://vivex.ba/en/kategorija?id=45</loc></url>
     <url><loc>https://vivex.ba/ba/kategorija?id=45</loc></url>
-      <url><loc>https://vivex.ba/sr/kategorija?id=46</loc></url>
+    <url><loc>https://vivex.ba/sr/kategorija?id=46</loc></url>
     <url><loc>https://vivex.ba/en/kategorija?id=46</loc></url>
     <url><loc>https://vivex.ba/ba/kategorija?id=46</loc></url>
     <url><loc>https://vivex.ba/sr/kategorija?id=49</loc></url>

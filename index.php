@@ -7,6 +7,6 @@ include('./config.php');
 
 //redirekcija u slucaju pristupanja bez imena stranice
     flush();
-    header("Location: home.php", true, 301);
+    header("Location: naslovna.php", true, 301);
     die('should have redirected by now');
 ?>
