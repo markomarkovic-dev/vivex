@@ -3,9 +3,9 @@ include 'includes/global-header.php';
 ?>
 
 <main>
-    <section class="simple-page">
+    <section class="privacy-section page-padding">
         <div class="section-container">
-            <span class="sup-heading">Ada Nostra</span>
+            <h1 class="section-title-main">Politika privatnosti Vivex Group-e</h1>
             <?= $lang[$pagename]['policy-text']?>
         </div>
     </section>

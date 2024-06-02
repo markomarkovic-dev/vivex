@@ -1,6 +1,6 @@
 $('.accordion-body').slideUp();
 $('.accordion .accordion-title').click(function(){
-    if($(this).hasClass('open')) {
+    if($(this).parent().hasClass('open')) {
         $(this).parent().removeClass('open');
         $(this).next('.accordion-body').slideUp();
     } else {

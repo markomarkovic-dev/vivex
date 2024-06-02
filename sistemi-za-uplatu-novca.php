@@ -10,29 +10,20 @@ include 'includes/global-header.php';
     </div>
     <section class="page-padding single-page">
         <div class="section-container">
-            <h1 class="section-title-main">Sistemi za uplatu novca</h1>
-            <p class="section-subtitle">Sistemi za uplatu novca najnovija je generacija inteligentnih sistema za upravljanje gotovinom. Uređaji ove vrste imaju sve što je potrebno kako bi proces uplate novca bio što jednostavniji i brži.</p>
+            <h1 class="section-title-main"><?= $lang[$pagename]['title']?></h1>
+            <p class="section-subtitle"><?= $lang[$pagename]['page-heading']?></p>
         </div>
     </section>
     <section>
         <div class="section-container">
             <div class="device-replace-all">
                 <div class="left-block">
-                    <h2>Jedan uređaj koji će ih sve zamijeniti</h2>
+                    <h2><?= $lang[$pagename]['one-replace-all']?></h2>
                     <div class="tag-list">
-                        <span>Jednostavno</span>
-                        <span>Brzo</span>
-                        <span>Inovativno</span>
-                        <span>Pametno</span>
-                        <span>Sigurno</span>
+                        <?= $lang[$pagename]['one-replace-all-list']?>
                     </div>
                     <ul class="device-feature-list">
-                        <li><i class="fi fi-rs-QR"></i>Identifikujte sebe</li>
-                        <li><i class="fi fi-rs-money-bills"></i>Brojite svoje novčanice i novčiće</li>
-                        <li><i class="fi fi-rs-qr-scan"></i>Skenirajte ih na krivotvorine</li>
-                        <li><i class="fi fi-rs-vault"></i>Spremite ih u sef</li>
-                        <li><i class="fi fi-rs-receipt"></i>Izdajte račun</li>
-                        <li><i class="fi fi-rs-data-transfer"></i>Odmah pogledajte promjene</li>
+                        <?= $lang[$pagename]['device-feature-list']?>
                     </ul>
                 </div>
                 <div class="right-block">
@@ -62,15 +53,9 @@ include 'includes/global-header.php';
                     </div>
                 </div>
                 <div class="right-block">
-                    <h2>Najfiniji sastojci za vrhunski proizvod</h2>
+                    <h2><?= $lang[$pagename]['finest-ingredients']?></h2>
                     <ul class="device-feature-list">
-                        <li data-feature="bar-codes"><i class="fi fi-rs-QR"></i>Čitač bar kodova, RFID i magnetskih traka.</li>
-                        <li data-feature="banknote-counter"><i class="fi fi-rs-money-bills"></i>Brojač novčanica najnovije generacije s otkrivanjem krivotvorina, prepoznavanjem apoena, skeniranjem serijskih brojeva i još mnogo toga.</li>
-                        <li data-feature="detection"><i class="fi fi-rs-qr-scan"></i>UV, MG, IR i CIS detekcija.</li>
-                        <li data-feature="coin-counter"><i class="fi fi-rs-coins"></i>Brojač kovanica.</li>
-                        <li data-feature="security"><i class="fi fi-rs-vault"></i>Sigurno sa visokim stepenom sigurnosti.</li>
-                        <li data-feature="thermal-printer"><i class="fi fi-rs-receipt"></i>Termalni printer 80 mm</li>
-                        <li data-feature="software"><i class="fi fi-rs-data-transfer"></i>Cijeli proces se prati i kontroliše putem softverskog rješenja.</li>
+                        <?= $lang[$pagename]['finest-ingredients-list']?>
                     </ul>
                 </div>
             </div>
@@ -79,8 +64,8 @@ include 'includes/global-header.php';
     <section>
         <div class="section-container deposit-video">
             <div class="text-block">
-                <h2>Novi način za polaganje gotovine</h2>
-                <p>With our cash deposit systems, handling cash becomes fast, simple, and safe. A unique solution that provides benefits for the company and for clients!</p>
+                <h2><?= $lang[$pagename]['new-way-cast-deposit']?></h2>
+                <p><?= $lang[$pagename]['new-way-cast-deposit-desc']?></p>
             </div>
             <div class="video-block">
                 <div class="video-iframe">
@@ -93,48 +78,48 @@ include 'includes/global-header.php';
         <div class="section-container additional-features">
             <div class="additional-feature">
                 <i class="fi fi-rs-time-quarter-to"></i>
-                <p>Ubrzava proces deponovanja novca</p>
+                <p><?= $lang[$pagename]['speed-deposit']?></p>
             </div>
             <div class="additional-feature">
                 <i class="fi fi-rs-users"></i>
-                <p>Smanjuje zadržavanje klijenata u objektu</p>
+                <p><?= $lang[$pagename]['reduces-retention']?></p>
             </div>
             <div class="additional-feature">
                 <i class="fi fi-rs-remove-user"></i>
-                <p>Smanjuje angažovanje šalterskih radnika</p>
+                <p><?= $lang[$pagename]['reduces-engagement']?></p>
             </div>
 
             <div class="additional-feature">
                 <i class="fi fi-rs-meeting"></i>
-                <p>Smanjuje nepotreban kontakt sa ljudima</p>
+                <p><?= $lang[$pagename]['reduces-contact']?></p>
             </div>
             <div class="additional-feature">
                 <i class="fi fi-rs-triangle-warning"></i>
-                <p>Smanjuje mogućnost greške</p>
+                <p><?= $lang[$pagename]['reduces-errors']?></p>
             </div>
             <div class="additional-feature">
                 <i class="fi fi-rs-marker"></i>
-                <p>Omogućava polaganje depozita na različitim lokacijama</p>
+                <p><?= $lang[$pagename]['deposit-locations']?></p>
             </div>
 
             <div class="additional-feature">
                 <i class="fi fi-rs-priority-arrows"></i>
-                <p>Ubrzava dostupnost novca na računu</p>
+                <p><?= $lang[$pagename]['fast-money']?></p>
             </div>
             <div class="additional-feature">
                 <i class="fi fi-rs-data-transfer"></i>
-                <p>Pruža praćenje i upravljanje novčanim tokovima u realnom vremenu</p>
+                <p><?= $lang[$pagename]['monitor-cash-flow']?></p>
             </div>
             <div class="additional-feature">
                 <i class="fi fi-rs-piggy-bank"></i>
-                <p>Smanjuje troškove transporta zahvaljujući praćenju gotovinskog kapaciteta u realnom vremenu</p>
+                <p><?= $lang[$pagename]['reduces-transport-costs']?></p>
             </div>
         </div>
     </section>
     <section>
         <div class="section-container customize-device">
             <div class="device-customize-text">
-                <h2>Prilagodite uređaj prema vašem brendu i potrebama</h2>
+                <h2><?= $lang[$pagename]['customize-device']?></h2>
             </div>
         </div>
     </section>

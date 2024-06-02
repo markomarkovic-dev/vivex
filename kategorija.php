@@ -1,5 +1,5 @@
 <?php 
-    include 'includes/global-header.php'; 
+    require_once './config.php';
     $queries = array();
     parse_str($_SERVER['QUERY_STRING'], $queries);
 
@@ -11,7 +11,10 @@
     if(!empty($catData)) {
         $category_id = $catData[0]['categories'][0];
         $category_name = $lang['global']['category'][$category_id]['title'];
+        $postTitle = $category_name;
     }
+
+    include 'includes/global-header.php';
 
     $unwantedElements = array("&nbsp;", "<br>", "<br/>", "<p>", "</p>", "<strong>", "</strong>", "[…]");
     
@@ -39,7 +42,7 @@
                         
                         $postTitle = $cleanedTitleString;
     
-                        echo '<a href="product?id='.$productPreview['slug'].'" class="product">
+                        echo '<a href="proizvod?id='.$productPreview['slug'].'" class="product">
                         <img src="'.$gallery.'" alt="">
                         <span class="product-category">' . $category_name . '</span>
                         <h4 class="product-name">' . $postTitle . '</h4>
@@ -67,7 +70,7 @@
                 } else {
                     echo '<div class="empty-message">
                             <i class="fi fi-rs-triangle-warning"></i>
-                            <p>Trenutno nema proizvoda u ovoj kategoriji</p>
+                            <p>'.$lang['global']['no-products'].'</p>
                         </div>';
                 }
                 echo '</div>';

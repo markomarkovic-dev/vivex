@@ -589,6 +589,23 @@ h3.section-title-main::after {
   color: #353535;
 }
 
+.privacy-text {
+  padding-left: 2.6rem;
+}
+.privacy-text > ul {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+.privacy-text > ul ul {
+  padding-left: 2rem;
+}
+.privacy-text ol {
+  margin-bottom: 1rem;
+}
+.privacy-text p {
+  margin-bottom: 1rem;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -1472,6 +1489,7 @@ input:not(:placeholder-shown), textarea:not(:placeholder-shown), select:not(:pla
   flex-direction: column;
   background-color: white;
   border-radius: 2rem;
+  transition: all 0.2s linear;
 }
 .accordion-title {
   font-size: 2.4rem;

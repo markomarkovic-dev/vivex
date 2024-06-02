@@ -1,52 +1,74 @@
 <?php
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    require 'includes/PHPMailer/src/PHPMailer.php';
+    require 'includes/PHPMailer/src/Exception.php';
+    require 'includes/PHPMailer/src/SMTP.php';
+
     $message = '';
     $modalOpen = '';
     $statusType = '';
+
     if(isset($_POST['submit'])){
         $namesurname = $_POST['name-surname'];
         $company = $_POST['company'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $message = $_POST['message'];
-        $honeypot = $_POST['company-2'];
+        $honeypot = $_POST['company2'];
         $productName = $_POST['product-name'];
+
+        // Kreiranje instance PHPMailer-a za prvi email (vlasniku sajta)
+        $mail = new PHPMailer(true);
+
+        // Postavljanje Karakterskog skupa i Enkodiranja
+        $mail->CharSet = 'UTF-8';
+        $mail->Encoding = 'base64';
 
         // Validate input and check honeypot
         if(empty($namesurname) || empty($company) || empty($email) || empty($phone) || empty($message) || !empty($honeypot)){
             $message = $lang['global']['field-check'];
+            $modalOpen = 'show';
         }
         elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $message = $lang['global']['email-error'];
-        }
-        else{
-            // Send the email
-            $to = 'markomarko988@gmail.com'; // Replace with your email address
-            $subject = "Kontakt forma | $namesurname";
-
-            if (!empty($productName)) {
-                $subject .= " | Zatražena ponuda za $productName";
-            }
-
-            $body = "Ime: $name\nPrezime: $surname\nEmail: $email\nTelefon: $phone\nPoruka: $message";
-            // $body = iconv(mb_detect_encoding($body, mb_detect_order(), true), "UTF-8", $body);
-
-            // Check if $productName has a value before adding it to the email body
-            if (!empty($productName)) {
-                $body .= "\nProizvod: $productName";
-            }
-
-            $headers = "From: markomarko988@gmail.com\r\n";
-            // $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-            if(mail($to, $subject, $body, $headers)){
-                $message = $lang['global']['message-success'];
-                $statusType = 'success-message';
-            }
-            else{
-                $message = $lang['global']['message-error'];
-                $statusType = 'error-message';
-            }
             $modalOpen = 'show';
         }
+        else{
+            // SMTP konfiguracija za email vlasnika
+            $mail->isSMTP();
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Omogući TLS enkripciju
+            $mail->Port = 587; // SMTP port; koristi 465 za `PHPMailer::ENCRYPTION_SMTPS` gore
+            $mail->SMTPDebug = false;
+            $mail->Host = 'smtp.hostinger.com'; // Zamjeni sa svojim SMTP serverom
+            $mail->SMTPAuth   = true;
+            require 'includes/smtp-credentials.php'; // Uključivanje kredencijala
+            // Sadržaj emaila za vlasnika sajta
+            $mail->setFrom('noreply@hardcode.solutions', 'Vivex');
+            $mail->addReplyTo('noreply@hardcode.solutions', 'Vivex');
+            $mail->addAddress('noreply@hardcode.solutions', 'Vivex'); // Zameni sa emailom vlasnika
+            $mail->isHTML(true);
+            $mail->Subject = "Kontakt forma | $namesurname";
+            if (!empty($productName)) {
+                $mail->Subject .= " | Zatražena ponuda za $productName";
+            }
+            $mail->Body = "Ime i prezime: <b>$namesurname</b><br>
+                Email: <b>$email</b><br>
+                Telefon: <b>$phone</b><br>
+                Poruka: <b>$message</b><br>
+                ";
+            if (!empty($productName)) {
+                $mail->Body .= "Proizvod: <b>$productName</b>";
+            }       
+            // Slanje emaila vlasniku
+            $mail->send();
+
+            $message = $lang['global']['message-success'];
+            $statusType = 'success-message';
+            $modalOpen = 'show';
+        }
+
     }
 ?>
 
@@ -60,13 +82,13 @@
         <div class="contact-header">
             <img src="assets/icons/mail.svg" alt="">
             <div class="contact-header-text">
-                <h4>Ukoliko imate pitanja slobodno nas kontaktirajte.</h4>
-                <p>Ispunite svoje podatke i napišite nam poruku, a mi ćemo vam se javiti u najkraćem mogućem roku.</p>
+                <h4><?= $lang['global']['form-heading-msg']?></h4>
+                <p><?= $lang['global']['form-heading-desc']?></p>
             </div>
         </div>
         <form method="post" action="" class="contact-form" id="contact-form">
             <div class="input-wrapper product-name-select hidden">
-                <label for="product-name">Naziv proizvoda:</label>
+                <label for="product-name"><?= $lang['global']['product-name']?></label>
                 <select name="product-name" id="product-name">
                     <?php 
                         if(isset($product_page)) {
@@ -117,12 +139,12 @@
                 <div class="help-block with-errors"></div>
             </div>
             <div class="input-wrapper hidden-field">
-                <label for="company-2">Leave this field blank:</label>
-                <input type="text" name="company-2" id="company-2">
+                <label for="company2">Leave this field blank:</label>
+                <input type="text" name="company2" id="company2">
             </div>
             <input type="submit" name="submit" id="send-button" class="btn btn-primary" value="<?= $lang['global']['send-message']?> &#8594">
         </form>
-        <p class="email-app">Ili <a href="mailto:office@vivex.rs">koristite svoju email aplikaciju</a></p>
+        <p class="email-app"><?= $lang['global']['email-app']?></a></p>
         <p class="send-message <?= $statusType?>"><?= $message; ?></p>
         </div>
     </div>

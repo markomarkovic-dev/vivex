@@ -615,3 +615,24 @@ h3 {
     color: $black-90;
   }
 }
+
+.privacy-text {
+  padding-left: 2.6rem;
+  
+  > ul {
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+
+    ul {
+      padding-left: 2rem;
+    }
+  }
+
+  ol {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+}

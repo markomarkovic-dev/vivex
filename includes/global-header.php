@@ -1,8 +1,9 @@
 <?php 
-    include('./config.php'); 
+    require_once './config.php'; 
     $checkMetaImg = "$siteUrl/assets/images/meta-image.png";
-    $pageTitle = $lang[$pagename]['title'];
-    $pageDescription = $lang[$pagename]['description'];
+    $pageTitle = isset($postTitle) ? $postTitle : $lang[$pagename]['title'];
+    $pageDescription = isset($postDescription) ? $postDescription : $lang[$pagename]['description'];
+
     switch ($language) {
         case 'en':
             $contentLang = "English";

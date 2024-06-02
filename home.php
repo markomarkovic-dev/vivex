@@ -16,7 +16,7 @@
 <main>
     <section class="landing">
         <div class="section-container">
-            <h1>The best <strong>systems</strong> and <strong>machines</strong> for <strong>working with money.</strong></h1>
+            <h1><?= $lang[$pagename]['page-heading']?></h1>
         </div>
         <div class="cross-shapes">
             <img src="assets/icons/logo-shape.svg" class="floating-img logo-shape" alt="">
@@ -43,8 +43,8 @@
                         <img src="assets/icons/sales.svg" alt="">
                     </div>
                     <div class="hero-block-text">
-                        <h3>Prodaja</h3>
-                        <p>Naš prodajni tim Vam stoji na raspolaganju kako bi pronašli najbolje rješenje za Vaše poslovanje.</p>
+                        <h3><?= $lang['global']['nav-sales']?></h3>
+                        <p><?= $lang[$pagename]['sales-desc']?></p>
                     </div>
                 </a>
                 <a href="proizvodnja" class="hero-block">
@@ -52,8 +52,8 @@
                         <img src="assets/icons/manufacturing.svg" alt="">
                     </div>
                     <div class="hero-block-text">
-                        <h3>Proizvodnja</h3>
-                        <p>Stvaranje sistema koji zadovoljavaju i najzahtjevnije korisnike.</p>
+                        <h3><?= $lang['global']['nav-manufacturing']?></h3>
+                        <p><?= $lang[$pagename]['manufacturing-desc']?></p>
                     </div>
                 </a>
                 <a href="servis" class="hero-block">
@@ -61,8 +61,8 @@
                         <img src="assets/icons/maintenance.svg" alt="">
                     </div>
                     <div class="hero-block-text">
-                        <h3>Održavanje</h3>
-                        <p>Profesionalno održavanje svih sistema i proizvoda iz našeg prodajnog asortimana.</p>
+                        <h3><?= $lang['global']['nav-maintenance']?></h3>
+                        <p><?= $lang[$pagename]['maintenance-desc']?></p>
                     </div>
                 </a>
             </div>
@@ -86,9 +86,9 @@
                         <img src="assets/images/vivex-sistemi-za-uplatu-novca.png" alt="">
                     </div>
                     <div class="featured-block-text">
-                        <h4>Novi način <strong>novčanog pologa</strong></h4>
-                        <p>Skraćuje vrijeme između i dostupnosti na vašem računu.</p>
-                        <a href="sistemi-za-uplatu-novca" class="btn btn-featured">Saznaj više <i class="fi fi-rs-arrow-right"></i></a>
+                        <h4><?= $lang[$pagename]['new-deposit-way']?></h4>
+                        <p><?= $lang[$pagename]['new-deposit-desc']?></p>
+                        <a href="sistemi-za-uplatu-novca" class="btn btn-featured"><?= $lang['global']['find-more']?> <i class="fi fi-rs-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="featured-block">
@@ -96,9 +96,9 @@
                         <img src="assets/images/vivex-menjacnica.png" alt="">
                     </div>
                     <div class="featured-block-text">
-                        <h4>Brza i jednostavna <strong>promjena valute</strong></h4>
-                        <p>Skraćuje vrijeme između i dostupnosti na vašem računu.</p>
-                        <a href="#" class="btn btn-featured">Saznaj više <i class="fi fi-rs-arrow-right"></i></a>
+                        <h4><?= $lang[$pagename]['fast-simple-currency']?></h4>
+                        <p><?= $lang[$pagename]['fast-simple-currency-desc']?></p>
+                        <a href="#" class="btn btn-featured"><?= $lang['global']['find-more']?> <i class="fi fi-rs-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
     </section>
     <section class="popular-section">
     <div class="section-container section-column">
-            <h2 class="section-title">Najpopularniji proizvodi</h2>
+            <h2 class="section-title"><?= $lang[$pagename]['popular-products']?></h2>
             <div class="owl-carousel popular-products">
                 <?php 
                     foreach($dataPopular as $popular) {
@@ -121,7 +121,7 @@
                         $productImagePopular = $popular['acf']['photo_gallery']['galerija'][0][0]['full_image_url'];
                         $productCategoryPopular = $popular['_embedded']['wp:term'][0][0]['name'];
 
-                        echo '<a href="product?id='.$popular['slug'].'" class="product">
+                        echo '<a href="proizvod?id='.$popular['slug'].'" class="product">
                                 <img src="'.$productImagePopular.'" alt="">
                                 <span class="product-category">'.$productCategoryPopular.'</span>
                                 <h4 class="product-name">'.$postTitle.'</h4>

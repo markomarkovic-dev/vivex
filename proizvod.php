@@ -1,5 +1,5 @@
 <?php 
-    include 'includes/global-header.php';
+    require_once './config.php';
     $product_page = true;
     $apiUrl = "$backendUrl/wp-json/wp/v2/proizvodi";
 
@@ -19,6 +19,8 @@
     $cleanedTitleString = str_replace($unwantedElements, "",  $titleString);
 
     $postTitle = $cleanedTitleString;
+    
+    include 'includes/global-header.php';
     $thisProductAcf = $post['acf'];
     $gallery = $thisProductAcf['photo_gallery']['galerija'][0];
     $category_id = $post['categories'][0];
@@ -130,7 +132,7 @@
                         if ($productCount === 4) {
                             break;
                         } else {
-                            echo '<a href="product?id='.$product['slug'].'" class="related-product">
+                            echo '<a href="proizvod?id='.$product['slug'].'" class="related-product">
                                     <img src="'.$productImage.'" alt="">
                                     <h5>'.$productTitleClean.'</h5>
                                 </a>';
@@ -164,7 +166,7 @@
                         $productImage = $product['acf']['photo_gallery']['galerija'][0][0]['thumbnail_image_url'];
                         
                         $productTitleClean = str_replace($unwantedElements, "",  $productTitle);
-                        echo '<a href="product?id='.$post['slug'].'&compareright=' . $product['id'] . '" class="related-product">
+                        echo '<a href="proizvod?id='.$post['slug'].'&compareright=' . $product['id'] . '" class="related-product">
                             <img src="'.$productImage.'" alt="">
                             <h5>'.$productTitleClean.'</h5>
                         </a>';

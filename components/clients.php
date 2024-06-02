@@ -1,6 +1,6 @@
 <section class="client-section">
     <div class="section-container section-column">
-        <h2 class="section-title">Neki od naših klijenata</h2>
+        <h2 class="section-title"><?= $lang['global']['clients-heading']?></h2>
         <div class="client-grid">
             <?php 
                 $clients = array(
@@ -31,6 +31,6 @@
                 }
             ?>
         </div>
-        <p>...i mnogi drugi</p>
+        <p><?= $lang['global']['clients-etc']?></p>
     </div>
 </section>
