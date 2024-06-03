@@ -261,8 +261,8 @@
 	),
 
 	'proizvod' => array(
-		'title' => 'Proizvod', 
-		'description' => 'Opis proizvoda', 
+		'title' => '', 
+		'description' => '', 
 	//content
 	),
 
@@ -337,6 +337,22 @@
 	'o-kompaniji' => array(
 		'title' => 'O kompaniji', 
 		'description' => 'Vivex je kompanija specijalizovana za opremu za rukovanje gotovinom i bankovnu opremu.',
+		'page-subheading' => '<p class="section-subtitle">Vivex je kompanija specijalizovana za opremu za rukovanje gotovinom i bankovnu opremu.</p>
+		<p>U svojih 30 godina postojanja, Vivex ima impresivnu listu referenci i zadovoljnih klijenata iz cijelog svijeta.</p>
+		<p>Uvijek nastojeći svojim klijentima pružiti najkvalitetnije i kompletnu uslugu, Vivex je svoju ponudu i usluge neprestano širio. Kako bi u tome uspjeli, vremenom su u kompaniji, osim prodaje, formirani odjeli za održavanje, proizvodnju i razvoj softvera.</p>',
+		'key-points' => 'Ključne tačke',
+		'foundation' => 'Osnivanje',
+		'foundation-desc' => 'Osnovan VIVEX TRADING d.o.o. Beograd.',
+		'expansion' => 'Širenje na nova tržišta',
+		'expansion-desc' => 'Osnovan VIVEX TRADING d.o.o. Banja Luka.',
+		'expanding-services' => 'Proširivanje spektra usluga',
+		'expanding-services-desc' => 'Osnovan VIVEX SERVIS d.o.o. Beograd.',
+		'own-products' => 'Vlastiti proizvodi i softver',
+		'own-products-desc' => 'VIVEX TRADING osniva poslovnu jedinicu proizvodnje i dobija CE znak za svoje proizvode.',
+		'international' => 'Prvo međunarodno predstavljanje proizvoda',
+		'international-desc' => 'VIVEX TRADING izlazi na medjunarodni sajam sa sopstvenim proizvodima.',
+		'production-center' => 'Pokretanje proizvodnog centra',
+		'production-center-desc' => 'Otvoren proizvodni centar na Ubu.',
 	//content
 	),
 

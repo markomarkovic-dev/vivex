@@ -11,25 +11,23 @@
     <section class="page-padding single-page">
         <div class="section-container">
             <div class="title-image">
-                <h1 class="section-title-main">O kompaniji</h1>
-                <p class="section-subtitle">Vivex je kompanija specijalizovana za opremu za rukovanje gotovinom i bankovnu opremu.</p>
-                <p>U svojih 30 godina postojanja, Vivex ima impresivnu listu referenci i zadovoljnih klijenata iz cijelog svijeta.</p>
-                <p>Uvijek nastojeći svojim klijentima pružiti najkvalitetnije i kompletnu uslugu, Vivex je svoju ponudu i usluge neprestano širio. Kako bi u tome uspjeli, vremenom su u kompaniji, osim prodaje, formirani odjeli za održavanje, proizvodnju i razvoj softvera.</p>
+                <h1 class="section-title-main"><?= $lang[$pagename]['title']?></h1>
+                <?= $lang[$pagename]['page-subheading']?>
                 <img src="assets/icons/logo-shape-alternative.svg" class="title-background" alt="">
             </div>
         </div>
     </section>
     <section>
         <div class="section-container company-history">
-            <h2>Ključne tačke</h2>
+            <h2><?= $lang[$pagename]['key-points']?></h2>
             <div class="history-waterfall">
                 <div class="time-point">
                     <div class="time-point-date">
                         <span>1995</span>
                     </div>
                     <div class="time-point-description">
-                        <h4>Osnivanje</h4>
-                        <p>Osnovan VIVEX TRADING d.o.o. Beograd.</p>
+                        <h4><?= $lang[$pagename]['foundation']?></h4>
+                        <p><?= $lang[$pagename]['foundation-desc']?></p>
                     </div>
                 </div>
                 <div class="time-point">
@@ -37,8 +35,8 @@
                         <span>1999</span>
                     </div>
                     <div class="time-point-description">
-                        <h4>Širenje na nova tržišta</h4>
-                        <p>Osnovan VIVEX TRADING d.o.o. Banja Luka.</p>
+                        <h4><?= $lang[$pagename]['expansion']?></h4>
+                        <p><?= $lang[$pagename]['expansion-desc']?></p>
                     </div>
                 </div>
                 <div class="time-point">
@@ -46,8 +44,8 @@
                         <span>2003</span>
                     </div>
                     <div class="time-point-description">
-                        <h4>Proširivanje spektra usluga</h4>
-                        <p>Osnovan VIVEX SERVIS d.o.o. Beograd.</p>
+                        <h4><?= $lang[$pagename]['expanding-services']?></h4>
+                        <p><?= $lang[$pagename]['expanding-services-desc']?></p>
                     </div>
                 </div>
                 <div class="time-point">
@@ -55,8 +53,8 @@
                         <span>2012</span>
                     </div>
                     <div class="time-point-description">
-                        <h4>Vlastiti proizvodi i softver</h4>
-                        <p>VIVEX TRADING osniva poslovnu jedinicu proizvodnje i dobija CE znak za svoje proizvode.</p>
+                        <h4><?= $lang[$pagename]['own-products']?></h4>
+                        <p><?= $lang[$pagename]['own-products-desc']?></p>
                     </div>
                 </div>
                 <div class="time-point">
@@ -64,8 +62,8 @@
                         <span>2014</span>
                     </div>
                     <div class="time-point-description">
-                        <h4>Prvo međunarodno predstavljanje proizvoda</h4>
-                        <p>VIVEX TRADING izlazi na medjunarodni sajam sa sopstvenim proizvodima.</p>
+                        <h4><?= $lang[$pagename]['international']?></h4>
+                        <p><?= $lang[$pagename]['international-desc']?></p>
                     </div>
                 </div>
                 <div class="time-point">
@@ -73,8 +71,8 @@
                         <span>2016</span>
                     </div>
                     <div class="time-point-description">
-                        <h4>Pokretanje proizvodnog centra</h4>
-                        <p>Otvoren proizvodni centar na Ubu.</p>
+                        <h4><?= $lang[$pagename]['production-center']?></h4>
+                        <p><?= $lang[$pagename]['production-center-desc']?></p>
                     </div>
                 </div>
             </div>
