@@ -94,7 +94,7 @@
 		),
 
 	'naslovna' => array(
-		'title' => 'Vivex', 
+		'title' => 'Najbolji sistemi i mašine za rad sa novcem', 
 		'description' => 'The best systems and machines for working with money.',
 		'page-heading' => 'Najbolji <strong>sistemi</strong> i <strong>mašine</strong> za <strong>rad sa novcem.</strong>',
 		'sales-desc' => 'Naš prodajni tim Vam stoji na raspolaganju kako bi pronašli najbolje rješenje za Vaše poslovanje.',
@@ -255,8 +255,8 @@
 	),
 
 	'kategorija' => array(
-		'title' => '', 
-		'description' => '', 
+		'title' => 'Kategorija prazna', 
+		'description' => 'Trenutno nema proizvoda', 
 	//content
 	),
 
@@ -268,7 +268,7 @@
 
 	'prodaja' => array(
 		'title' => 'Prodaja', 
-		'description' => 'O prodaji', 
+		'description' => 'Naš prodajni tim Vam stoji na raspolaganju kako bi pronašli najbolje rješenje za Vaše poslovanje.', 
 	//content
 	),
 

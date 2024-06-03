@@ -7,20 +7,24 @@
     switch ($language) {
         case 'en':
             $contentLang = "English";
+            $htmlLang = "en";
             break;
         case 'sr':
             $contentLang = "Serbian";
+            $htmlLang = "sr";
             break;
         case 'ba':
             $contentLang = "Bosnian";
+            $htmlLang = "bs";
             break;
         default:
             $contentLang = "Unknown Language";
+            $htmlLang = "en";
             break;
     }
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $language;?>">
+<html lang="<?php echo $htmlLang;?>">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
