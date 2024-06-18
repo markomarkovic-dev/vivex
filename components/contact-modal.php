@@ -16,8 +16,10 @@
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $message = $_POST['message'];
-        $honeypot = $_POST['company2'];
         $productName = $_POST['product-name'];
+
+        $honeypot = $_POST['company2'];
+        $sendEmailAddress = $_POST['sendto'];
 
         // Kreiranje instance PHPMailer-a za prvi email (vlasniku sajta)
         $mail = new PHPMailer(true);
@@ -27,11 +29,11 @@
         $mail->Encoding = 'base64';
 
         // Validate input and check honeypot
-        if(empty($namesurname) || empty($company) || empty($email) || empty($phone) || empty($message) || !empty($honeypot)){
+        if(empty($namesurname) || empty($company) || empty($email) || empty($phone) || empty($message) || !empty($honeypot) || empty($sendEmailAddress)){
             $message = $lang['global']['field-check'];
             $modalOpen = 'show';
         }
-        elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) && !filter_var($sendEmailAddress, FILTER_VALIDATE_EMAIL)){
             $message = $lang['global']['email-error'];
             $modalOpen = 'show';
         }
@@ -46,8 +48,8 @@
             require 'includes/smtp-credentials.php'; // Uključivanje kredencijala
             // Sadržaj emaila za vlasnika sajta
             $mail->setFrom('noreply@hardcode.solutions', 'Vivex');
-            $mail->addReplyTo('noreply@hardcode.solutions', 'Vivex');
-            $mail->addAddress('noreply@hardcode.solutions', 'Vivex'); // Zameni sa emailom vlasnika
+            $mail->addReplyTo($sendEmailAddress, 'Vivex');
+            $mail->addAddress($sendEmailAddress, 'Vivex'); // Zameni sa emailom vlasnika
             $mail->isHTML(true);
             $mail->Subject = "Kontakt forma | $namesurname";
             if (!empty($productName)) {
@@ -61,12 +63,18 @@
             if (!empty($productName)) {
                 $mail->Body .= "Proizvod: <b>$productName</b>";
             }       
+            //$mail->SMTPDebug = 2; // Ukljuci debugging
+            //$mail->Debugoutput = 'html';
             // Slanje emaila vlasniku
             $mail->send();
 
             $message = $lang['global']['message-success'];
             $statusType = 'success-message';
             $modalOpen = 'show';
+
+            // Redirect using JavaScript to the current URL with a success parameter
+            //echo '<script>window.location.href = "' . $visitor_link . '?success=1";</script>';
+            //exit();
         }
 
     }
@@ -141,6 +149,10 @@
             <div class="input-wrapper hidden-field">
                 <label for="company2">Leave this field blank:</label>
                 <input type="text" name="company2" id="company2">
+            </div>
+            <div class="input-wrapper hidden-field">
+                <label for="sendto">Leave this field blank:</label>
+                <input type="text" name="sendto" id="sendto">
             </div>
             <input type="submit" name="submit" id="send-button" class="btn btn-primary" value="<?= $lang['global']['send-message']?> &#8594">
         </form>

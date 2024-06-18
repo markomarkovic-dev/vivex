@@ -54,7 +54,7 @@
                     ?>
                 </div>
                 <div class="product-actions">
-                    <button class="btn btn-secondary modal-open modal-quote" data-trigger="contact-form"><i class="fi fi-rs-document"></i>Zatražite ponudu</button>
+                    <button class="btn btn-secondary modal-open modal-contact modal-quote" data-trigger="contact-form" data-contact="<?= $lang['global']['email-sales']?>"><i class="fi fi-rs-document"></i>Zatražite ponudu</button>
                     <button class="btn btn-secondary modal-open" data-trigger="product-to-compare"><i class="fi fi-rs-braille-d"></i>Uporedite</button>
                 </div>
             </div>

@@ -1,3 +1,9 @@
+$(document).ready(function($) {
+    if ($('.accordion').hasClass('open')) {
+        $('.accordion.open .accordion-body').css('display', 'block');
+    }
+})
+
 $('.accordion-body').slideUp();
 $('.accordion .accordion-title').click(function(){
     if($(this).parent().hasClass('open')) {

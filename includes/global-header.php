@@ -18,7 +18,7 @@
             $htmlLang = "bs";
             break;
         default:
-            $contentLang = "Unknown Language";
+            $contentLang = "English";
             $htmlLang = "en";
             break;
     }

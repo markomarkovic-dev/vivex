@@ -13,7 +13,7 @@
             <a href="tel:+381 11 317 02 99" class="contact"><i class="fi fi-rs-phone-call"></i>+381 11 317 02 99</a>
         </div>
         <span class="footer-border"></span>
-        <button class="btn btn-primary modal-open" data-trigger="contact-form"><i class="fi fi-rs-envelope"></i>Send us an email</button>
+        <button class="btn btn-primary modal-open modal-contact" data-trigger="contact-form" data-contact="<?= $lang['global']['email-sales']?>"><i class="fi fi-rs-envelope"></i>Send us an email</button>
         <span class="footer-border"></span>
         <span class="footer-border-horizontal"></span>
         <div class="footer-group">

@@ -36,7 +36,6 @@ $(document).ready(function ($) {
   $('.clear-field').click(function(){
     $(this).prev('input').val('');
   })
-
 });
 
 $('.copy-link').click(function () {

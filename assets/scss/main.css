@@ -2555,6 +2555,7 @@ input:not(:placeholder-shown), textarea:not(:placeholder-shown), select:not(:pla
   font-weight: 700;
   font-size: 1.8rem;
   display: flex;
+  cursor: pointer;
 }
 .contact-block-item .contact-block-data a:hover {
   color: #D11434;

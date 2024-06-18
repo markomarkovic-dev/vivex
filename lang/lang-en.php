@@ -90,134 +90,7 @@
 					'description' => ''
 				),
 			),
-			'email-sales' => 'markomarko988@gmail.com',
-			'email-maintenance' => 'info@markomarkovic.dev',
-
-			'contact-content' => '<section>
-			<div class="section-container">
-				<div class="contact-block">
-					<div class="contact-block-left">
-						<h2 class="contact-block-title">Prodaja i konsultacije</h2>
-						<div class="contact-block-item">
-							<div class="contact-block-icon">
-								<i class="fi fi-rs-mobile-button"></i>
-							</div>
-							<div class="contact-block-data">
-								<span>Mobilni:</span>
-								<a href="tel:+381 xx xxx xxx">+xx xxx xxx</a>
-							</div>
-						</div>
-						<div class="contact-block-item">
-							<div class="contact-block-icon">
-								<i class="fi fi-rs-phone-call"></i>
-							</div>
-							<div class="contact-block-data">
-								<span>Telefon:</span>
-								<a href="tel:+381 11 317 02 99">+381 11 317 02 99</a>
-							</div>
-						</div>
-						<div class="contact-block-item">
-							<div class="contact-block-icon">
-								<i class="fi fi-rs-envelope"></i>
-							</div>
-							<div class="contact-block-data">
-								<span>Email:</span>
-								<a class="modal-open modal-contact" data-trigger="contact-form" data-contact="markomarko988@gmail.com">Send us an e-mail</a>
-							</div>
-						</div>
-						<div class="contact-block-item">
-							<div class="contact-block-icon">
-								<i class="fi fi-rs-marker"></i>
-							</div>
-							<div class="contact-block-data">
-								<span>Adresa:</span>
-								<a href="https://maps.app.goo.gl/HUu9zDhy7cVjKs487" target="_blank">Konstantina Jovanovića 41, 11080 Belgrade, Serbia</a>
-							</div>
-						</div>
-						<div class="contact-block-item">
-							<div class="contact-block-icon">
-								<i class="fi fi-rs-marker"></i>
-							</div>
-							<div class="contact-block-data">
-								<span>Radno vrijeme:</span>
-								<strong>Ponedeljak - petak / 08:00 - 16:00</strong>
-							</div>
-						</div>
-					</div>
-					<div class="contact-block-right">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11314.390531570687!2d20.3422319!3d44.850127!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a666a318aa7fd%3A0x39768328592dde5d!2sVivex%20Group%20d.o.o.!5e0!3m2!1shr!2sba!4v1714318635841!5m2!1shr!2sba" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-							<a href="https://maps.app.goo.gl/HUu9zDhy7cVjKs487" target="_blank" class="maps-external"><i class="fi fi-rs-expand-arrows"></i></a>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section>
-		<div class="section-container">
-					<div class="contact-block">
-						<div class="contact-block-left">
-							<h2 class="contact-block-title">Servis</h2>
-							<div class="contact-block-item">
-								<div class="contact-block-icon">
-									<i class="fi fi-rs-mobile-button"></i>
-								</div>
-								<div class="contact-block-data">
-									<span>Mobilni:</span>
-									<a href="tel:+381 63 649 101">+381 63 649 101</a>
-								</div>
-							</div>
-							<div class="contact-block-item">
-								<div class="contact-block-icon">
-									<i class="fi fi-rs-phone-call"></i>
-								</div>
-								<div class="contact-block-data">
-									<span>Telefon:</span>
-									<a href="tel:+381 11 213 15 73">+381 11 213 15 73</a>
-								</div>
-							</div>
-							<div class="contact-block-item">
-								<div class="contact-block-icon">
-									<i class="fi fi-rs-phone-call"></i>
-								</div>
-								<div class="contact-block-data">
-									<span>Telefon:</span>
-									<a href="tel:+381 11 311 99 51">+381 11 311 99 51</a>
-								</div>
-							</div>
-							<div class="contact-block-item">
-								<div class="contact-block-icon">
-									<i class="fi fi-rs-envelope"></i>
-								</div>
-								<div class="contact-block-data">
-									<span>Email:</span>
-									<a class="modal-open modal-contact" data-trigger="contact-form" data-contact="info@markomarkovic.dev">Send us an e-mail</a>
-								</div>
-							</div>
-							<div class="contact-block-item">
-								<div class="contact-block-icon">
-									<i class="fi fi-rs-marker"></i>
-								</div>
-								<div class="contact-block-data">
-									<span>Adresa:</span>
-									<a href="https://maps.app.goo.gl/YP9UUXz7ruXHPBn6A" target="_blank">Antifašističke borbe 27, 11070 Belgrade, Serbia</a>
-								</div>
-							</div>
-							<div class="contact-block-item">
-								<div class="contact-block-icon">
-									<i class="fi fi-rs-marker"></i>
-								</div>
-								<div class="contact-block-data">
-									<span>Radno vrijeme:</span>
-									<strong>Ponedeljak - petak / 08:00 - 16:00</strong>
-								</div>
-							</div>
-						</div>
-						<div class="contact-block-right">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.4435939095965!2d20.422146276238685!3d44.81252687107086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a65607b2c8e93%3A0xcf0d9a48c2d6ca06!2sVivex%20Group%20d.%20o.%20o.%20PJ%20Servis!5e0!3m2!1shr!2sba!4v1714320797380!5m2!1shr!2sba" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-							<a href="https://maps.app.goo.gl/YP9UUXz7ruXHPBn6A" target="_blank" class="maps-external"><i class="fi fi-rs-expand-arrows"></i></a>
-						</div>
-					</div>
-			</div>
-		</section>',
+			'no-products' => 'Trenutno nema proizvoda u ovoj kategoriji'
 		),
 
 	'naslovna' => array(
@@ -396,45 +269,25 @@
 	'prodaja' => array(
 		'title' => 'Prodaja', 
 		'description' => 'Naš prodajni tim Vam stoji na raspolaganju kako bi pronašli najbolje rješenje za Vaše poslovanje.', 
-		'list-1-heading' => 'We help you choose the most adequate solution',
-		'list-1-desc' => '<p>We provide you assistance in choosing equipment and establishing the most adequate work flow. </p><p>An efficient team of experts for safety equipment and cash handling equipment of the highest quality is at your disposal to choose the most adequate solutions for your business. Our primary goal is to meet the customer’s needs and continuously promote our business performance. Accordingly, the products in our offer include reliable high-quality equipment that will respond to all modern business demands.</p>',
-		'list-2-heading' => 'We help you get started',
-		'list-2-desc' => '<p>We can deliver the equipment for you, set it up according to your needs, and guide you in all the details on how to get the maximum performance from the equipment and make it easy to use.</p>',
-		'list-3-heading' => 'We stand by you',
-		'list-3-desc' => '<p>We provide you assistance in choosing equipment and establishing the most adequate work flow. </p><p>Our team of experts stays with you and offers you comprehensive post sales support. Extensive experience and expertise allows us to help you overcome any difficulties in your work in the shortest possible time.</p>',
 	//content
 	),
 
 	'proizvodnja' => array(
 		'title' => 'Proizvodnja', 
-		'description' => 'Naš prodajni tim Vam stoji na raspolaganju kako bi pronašli najbolje rješenje za Vaše poslovanje.', 
-		'list-1-heading' => 'We help you choose the most adequate solution',
-		'list-1-desc' => '<p>We provide you assistance in choosing equipment and establishing the most adequate work flow. </p><p>An efficient team of experts for safety equipment and cash handling equipment of the highest quality is at your disposal to choose the most adequate solutions for your business. Our primary goal is to meet the customer’s needs and continuously promote our business performance. Accordingly, the products in our offer include reliable high-quality equipment that will respond to all modern business demands.</p>',
-		'list-2-heading' => 'We help you get started',
-		'list-2-desc' => '<p>We can deliver the equipment for you, set it up according to your needs, and guide you in all the details on how to get the maximum performance from the equipment and make it easy to use.</p>',
-		'list-3-heading' => 'We stand by you',
-		'list-3-desc' => '<p>We provide you assistance in choosing equipment and establishing the most adequate work flow. </p><p>Our team of experts stays with you and offers you comprehensive post sales support. Extensive experience and expertise allows us to help you overcome any difficulties in your work in the shortest possible time.</p>',
+		'description' => 'O proizvodnji', 
 	//content
 	),
 
 	'servis' => array(
 		'title' => 'Servis', 
-		'description' => 'Naš prodajni tim Vam stoji na raspolaganju kako bi pronašli najbolje rješenje za Vaše poslovanje.', 
-		'list-1-heading' => 'We help you choose the most adequate solution',
-		'list-1-desc' => '<p>We provide you assistance in choosing equipment and establishing the most adequate work flow. </p><p>An efficient team of experts for safety equipment and cash handling equipment of the highest quality is at your disposal to choose the most adequate solutions for your business. Our primary goal is to meet the customer’s needs and continuously promote our business performance. Accordingly, the products in our offer include reliable high-quality equipment that will respond to all modern business demands.</p>',
-		'list-2-heading' => 'We help you get started',
-		'list-2-desc' => '<p>We can deliver the equipment for you, set it up according to your needs, and guide you in all the details on how to get the maximum performance from the equipment and make it easy to use.</p>',
-		'list-3-heading' => 'We stand by you',
-		'list-3-desc' => '<p>We provide you assistance in choosing equipment and establishing the most adequate work flow. </p><p>Our team of experts stays with you and offers you comprehensive post sales support. Extensive experience and expertise allows us to help you overcome any difficulties in your work in the shortest possible time.</p>',
+		'description' => 'O servisu', 
 	//content
 	),
 
 	'kontakt' => array(
 		'title' => 'Kontakt', 
-		'description' => 'Slobodno nas kontaktirajte ako imate bilo kakva pitanja.',
-		'serbia' => 'Srbija',
-		'bih' => 'Bosna i Hercegovina',
-		'sales-consultations' => 'Prodaja i konsultacije'
+		'description' => 'Kontakt',
+	//content
 	),
 
 	'sistemi-za-uplatu-novca' => array(
@@ -506,7 +359,7 @@
 	'reference' => array(
 		'title' => 'Reference', 
 		'description' => 'Tokom svojih 30 godina postojanja, Vivex je poslovao sa mnogim klijentima širom svijeta. U nastavku možete vidjeti listu samo nekih od njih.',
-		'banks' => 'Banke'
+	//content
 	),
 );
 

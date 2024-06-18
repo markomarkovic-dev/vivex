@@ -10,8 +10,8 @@ include 'includes/global-header.php';
     </div>
     <section class="page-padding single-page">
         <div class="section-container">
-            <h1 class="section-title-main">Reference</h1>
-            <p class="section-subtitle">Tokom svojih 30 godina postojanja, Vivex je poslovao sa mnogim klijentima širom svijeta. U nastavku možete vidjeti listu samo nekih od njih.</p>
+            <h1 class="section-title-main"><?= $lang[$pagename]['title']?></h1>
+            <p class="section-subtitle"><?= $lang[$pagename]['description']?></p>
         </div>
     </section>
     <?php
@@ -20,8 +20,8 @@ include 'includes/global-header.php';
     <section>
         <div class="section-container">
             <div class="accordions">
-                <div class="accordion">
-                    <h3 class="accordion-title">Banke</h3>
+                <div class="accordion open">
+                    <h3 class="accordion-title"><?= $lang[$pagename]['banks']?></h3>
                     <div class="accordion-body">
                     <div class="text-row">
                         <ul>
@@ -77,7 +77,7 @@ include 'includes/global-header.php';
                     </div>
                 </div>
                 <div class="accordion">
-                    <h3 class="accordion-title">Banke</h3>
+                    <h3 class="accordion-title"><?= $lang[$pagename]['banks']?></h3>
                     <div class="accordion-body">
                     <div class="text-row">
                             <ul>
